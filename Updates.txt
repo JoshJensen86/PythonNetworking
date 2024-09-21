@@ -1,10 +1,41 @@
-Gathering information from workstation5 (Linux) at 10.10.1.56...
-Linux ubserver 5.4.0-162-generic #179-Ubuntu SMP Mon Aug 14 08:51:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+import paramiko
+import winrm
+import yaml
 
-Gathering information from workstation6 (Linux) at 10.10.1.57...
-Linux ubserver 5.4.0-196-generic #216-Ubuntu SMP Thu Aug 29 13:26:53 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+# Inventory of devices
+devices = {
+    'workstation5': {'ip': '10.10.1.56', 'type': 'linux'},
+    'workstation6': {'ip': '10.10.1.57', 'type': 'linux'},
+    'workstation7': {'ip': '10.10.1.28', 'type': 'windows', 'username': 'Administrator', 'password': 'P@ssw0rd'},
+    'workstation8': {'ip': '10.10.1.3', 'type': 'linux'},
+}
 
-Gathering information from workstation7 (Windows) at 10.10.1.28...
-Failed to connect to workstation7 at 10.10.1.28: the specified credentials were rejected by the server
-Gathering information from workstation8 (Linux) at 10.10.1.3...
-Linux student-Standard-PC-i440FX-PIIX-1996 5.15.0-121-generic #131~20.04.1-Ubuntu SMP Mon Aug 12 13:09:56 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+def gather_linux_info(ip):
+    try:
+        print(f"Gathering information from Linux workstation at {ip}...")
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh.connect(ip, username='student', password='P@ssw0rd')
+
+        stdin, stdout, stderr = ssh.exec_command('uname -a')
+        output = stdout.read().decode().strip()
+        print(output)
+        
+        ssh.close()
+    except Exception as e:
+        print(f"Failed to connect to Linux workstation at {ip}: {e}")
+
+def gather_windows_info(ip, username, password):
+    try:
+        print(f"Gathering information from Windows workstation at {ip}...")
+        session = winrm.Session(ip, auth=(username, password))
+        result = session.run_cmd('systeminfo')
+        print(result.std_out.decode())
+    except Exception as e:
+        print(f"Failed to connect to Windows workstation at {ip}: {e}")
+
+for name, device in devices.items():
+    if device['type'] == 'linux':
+        gather_linux_info(device['ip'])
+    elif device['type'] == 'windows':
+        gather_windows_info(device['ip'], device['username'], device['password'])
