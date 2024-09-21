@@ -1,8 +1,75 @@
-erInventory.py 
-Failed to gather information from Windows1 (10.10.1.10): HTTPConnectionPool(host='10.10.1.10', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc959b46a30>: Failed to establish a new connection: [Errno 113] No route to host'))
-Failed to gather information from Windows2 (10.10.1.11): HTTPConnectionPool(host='10.10.1.11', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc959a7e5b0>: Failed to establish a new connection: [Errno 113] No route to host'))
-Failed to connect to Linux1 (10.10.1.12): [Errno None] Unable to connect to port 22 on 10.10.1.12
-Failed to connect to Linux2 (10.10.1.13): [Errno None] Unable to connect to port 22 on 10.10.1.13
-Failed to gather information from TestBox1 (10.10.1.20): HTTPConnectionPool(host='10.10.1.20', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc959a892e0>: Failed to establish a new connection: [Errno 113] No route to host'))
-Failed to gather information from TestBox2 (10.10.1.21): HTTPConnectionPool(host='10.10.1.21', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc959a89d30>: Failed to establish a new connection: [Errno 113] No route to host'))
-Workstations inventory successfully saved to /home/student/Desktop/Project/workstations_inventory.yaml
+import paramiko
+import winrm
+import yaml
+import os
+
+# Credentials
+username = "student"
+password = "P@ssw0rd"
+
+# Device inventory
+devices = [
+    {"name": "Windows1", "ip": "10.10.1.10", "type": "windows"},
+    {"name": "Windows2", "ip": "10.10.1.11", "type": "windows"},
+    {"name": "Linux1", "ip": "10.10.1.12", "type": "linux"},
+    {"name": "Linux2", "ip": "10.10.1.13", "type": "linux"},
+    {"name": "TestBox1", "ip": "10.10.1.20", "type": "windows"},
+    {"name": "TestBox2", "ip": "10.10.1.21", "type": "windows"},
+]
+
+# Function to gather info from Windows devices using WinRM
+def gather_windows_info(device):
+    try:
+        session = winrm.Session(f'http://{device["ip"]}:5985/wsman', auth=(username, password))
+        result = session.run_cmd('systeminfo')
+        output = result.std_out.decode()
+
+        # Parse output to extract relevant information
+        print(f"Successfully gathered information from {device['name']} at {device['ip']}")
+        return {"name": device["name"], "info": output}
+    except Exception as e:
+        print(f"Failed to gather information from {device['name']} ({device['ip']}): {e}")
+        return None
+
+# Function to gather info from Linux devices using Paramiko
+def gather_linux_info(device):
+    try:
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh.connect(device["ip"], username=username, password=password)
+
+        stdin, stdout, stderr = ssh.exec_command("uname -a")
+        output = stdout.read().decode('utf-8')
+
+        # Collect other required information
+        device_info = {
+            "name": device["name"],
+            "info": output,
+        }
+        print(f"Successfully gathered information from {device['name']} at {device['ip']}")
+        ssh.close()
+        return device_info
+    except Exception as e:
+        print(f"Failed to connect to {device['name']} ({device['ip']}): {e}")
+        return None
+
+# Inventory structure
+inventory = {"all": {"children": {"workstations": {"hosts": {}}}}}
+
+# Loop through devices and gather information
+for device in devices:
+    if device["type"] == "windows":
+        details = gather_windows_info(device)
+    else:
+        details = gather_linux_info(device)
+
+    if details:
+        inventory["all"]["children"]["workstations"]["hosts"][device["name"]] = details
+
+# Attempt to write the inventory to a YAML file
+try:
+    with open('workstations_inventory.yaml', 'w') as file:
+        yaml.dump(inventory, file, default_flow_style=False)
+        print(f"Workstations inventory successfully saved to {os.path.abspath('workstations_inventory.yaml')}")
+except Exception as e:
+    print(f"Failed to write YAML file: {e}")
