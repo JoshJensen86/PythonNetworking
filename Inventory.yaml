@@ -1,0 +1,74 @@
+all:
+  children:
+    switches:
+      hosts:
+        switch1:
+          general_settings:
+            name: "Switch1 Name"
+            ram: "2 GB"
+            vcpus: "2"
+            qemu_binary: "/usr/bin/qemu-system-x86_64"
+            boot_priority: "High"
+            on_close: "Save"
+            console_type: "VNC"
+          network_settings:
+            adapters:
+              - name: "eth0"
+                base_mac: "AA:BB:CC:DD:EE:01"
+                type: "bridge"
+                replicate_network_state: false
+        switch2:
+          general_settings:
+            name: "Switch2 Name"
+            ram: "4 GB"
+            vcpus: "4"
+            qemu_binary: "/usr/bin/qemu-system-x86_64"
+            boot_priority: "Normal"
+            on_close: "Shutdown"
+            console_type: "Telnet"
+          network_settings:
+            adapters:
+              - name: "eth1"
+                base_mac: "AA:BB:CC:DD:EE:02"
+                type: "bridge"
+                replicate_network_state: true
+
+    workstations:
+      hosts:
+        workstation1:
+          general_settings:
+            name: "Workstation1"
+            ram: "8 GB"
+            vcpus: "4"
+            qemu_binary: "/usr/bin/qemu-system-x86_64"
+            boot_priority: "Normal"
+            on_close: "Suspend"
+            console_type: "Serial"
+          network_settings:
+            adapters:
+              - name: "eth0"
+                base_mac: "FF:GG:HH:II:JJ:01"
+                type: "NAT"
+                replicate_network_state: false
+        workstation2:
+          general_settings:
+            name: "Workstation2"
+            ram: "16 GB"
+            vcpus: "8"
+            qemu_binary: "/usr/bin/qemu-system-x86_64"
+            boot_priority: "High"
+            on_close: "Save"
+            console_type: "VNC"
+          network_settings:
+            adapters:
+              - name: "eth1"
+                base_mac: "FF:GG:HH:II:JJ:02"
+                type: "bridge"
+                replicate_network_state: true
+
+  vars:
+    ansible_connection: ssh
+    ansible_user: "admin"
+    ansible_ssh_pass: ""
+    ansible_become: yes
+    ansible_become_method: sudo
