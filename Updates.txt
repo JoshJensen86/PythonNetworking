@@ -2,7 +2,7 @@ import paramiko
 import winrm
 import yaml
 
-# Inventory of devices with general and network settings
+
 devices = {
     'workstation5': {
         'ip': '10.10.1.56',
