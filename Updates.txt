@@ -1,48 +1,10 @@
-import winrm
-import paramiko
-import yaml
+Gathering information from workstation5 (Linux) at 10.10.1.56...
+Linux ubserver 5.4.0-162-generic #179-Ubuntu SMP Mon Aug 14 08:51:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
 
-# Define your inventory with the correct IP addresses
-inventory = {
-    'workstations': {
-        'workstation1': {'ip': '10.10.1.35', 'type': 'Windows'},
-        'workstation2': {'ip': '10.10.1.36', 'type': 'Windows'},
-        'workstation3': {'ip': '10.10.1.43', 'type': 'Windows'},
-        'workstation4': {'ip': '10.10.1.29', 'type': 'Windows'},
-        'workstation5': {'ip': '10.10.1.56', 'type': 'Ubuntu'},
-        'workstation6': {'ip': '10.10.1.57', 'type': 'Ubuntu'},
-        'workstation7': {'ip': '10.10.1.28', 'type': 'Windows'},
-        'workstation8': {'ip': '10.10.1.3', 'type': 'Linux'},
-    }
-}
+Gathering information from workstation6 (Linux) at 10.10.1.57...
+Linux ubserver 5.4.0-196-generic #216-Ubuntu SMP Thu Aug 29 13:26:53 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 
-# Function to gather Windows information
-def gather_windows_info(ip):
-    session = winrm.Session(ip, auth=('student', 'P@ssw0rd'))
-    result = session.run_cmd('systeminfo')
-    return result.std_out.decode()
-
-# Function to gather Linux information
-def gather_linux_info(ip):
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(ip, username='student', password='P@ssw0rd')
-    stdin, stdout, stderr = client.exec_command('uname -a')
-    return stdout.read().decode()
-
-# Main execution
-for workstation, details in inventory['workstations'].items():
-    ip = details['ip']
-    machine_type = details['type']
-    
-    try:
-        if machine_type == 'Windows':
-            print(f"Gathering information from {workstation} (Windows) at {ip}...")
-            info = gather_windows_info(ip)
-            print(info)
-        elif machine_type in ['Ubuntu', 'Linux']:
-            print(f"Gathering information from {workstation} (Linux) at {ip}...")
-            info = gather_linux_info(ip)
-            print(info)
-    except Exception as e:
-        print(f"Failed to connect to {workstation} at {ip}: {e}")
+Gathering information from workstation7 (Windows) at 10.10.1.28...
+Failed to connect to workstation7 at 10.10.1.28: the specified credentials were rejected by the server
+Gathering information from workstation8 (Linux) at 10.10.1.3...
+Linux student-Standard-PC-i440FX-PIIX-1996 5.15.0-121-generic #131~20.04.1-Ubuntu SMP Mon Aug 12 13:09:56 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
