@@ -1,145 +1,48 @@
-workstations:
-  hosts:
-    workstation1:
-      general_settings:
-        name: "WindowsDesktop-1"
-        ram: "4096 MB"
-        vcpus: "2"
-        type: "Microsoft Windows"
-        qemu_binary: "/bin/qemu-system-x86_64"
-        boot_priority: "HDD"
-        on_close: "Send the shutdown signal (ACPI)"
-        console_type: "vnc"
-      network_settings:
-        adapters:
-          - name: "Ethernet0"
-            base_mac: "0c:4b:3c:0a:00:00"
-            type: "Intel Gigabit Ethernet (e1000)"
-            replicate_network_state: true
-            ip: 10.10.1.35
-    workstation2:
-      general_settings:
-        name: "WindowsDesktop-2"
-        ram: "4096 MB"
-        vcpus: "2"
-        type: "Microsoft Windows"
-        qemu_binary: "/bin/qemu-system-x86_64"
-        boot_priority: "HDD"
-        on_close: "Send the shutdown signal (ACPI)"
-        console_type: "vnc"
-      network_settings:
-        adapters:
-          - name: "Ethernet0"
-            base_mac: "0c:59:fd:86:00:00"
-            type: "Intel Gigabit Ethernet (e1000)"
-            replicate_network_state: true
-            ip: 10.10.1.36
-    workstation3:
-      general_settings:
-        name: "WindowsDesktop-3"
-        ram: "4096 MB"
-        vcpus: "2"
-        type: "Microsoft Windows"
-        qemu_binary: "/bin/qemu-system-x86_64"
-        boot_priority: "HDD"
-        on_close: "Send the shutdown signal (ACPI)"
-        console_type: "vnc"
-      network_settings:
-        adapters:
-          - name: "Ethernet0"
-            base_mac: "0c:e2:07:f3:00:00"
-            type: "Intel Gigabit Ethernet (e1000)"
-            replicate_network_state: true
-            ip: 10.10.1.43
-    workstation4:
-      general_settings:
-        name: "WindowsDesktop-4"
-        ram: "4096 MB"
-        vcpus: "2"
-        type: "Microsoft Windows"
-        qemu_binary: "/bin/qemu-system-x86_64"
-        boot_priority: "HDD"
-        on_close: "Send the shutdown signal (ACPI)"
-        console_type: "vnc"
-      network_settings:
-        adapters:
-          - name: "Ethernet0"
-            base_mac: "0c:46:74:35:00:00"
-            type: "Intel Gigabit Ethernet (e1000)"
-            replicate_network_state: true
-            ip: 10.10.1.29
-    workstation5:
-      general_settings:
-        name: "Test_Box_1"
-        ram: "4096 MB"
-        vcpus: "2"
-        type: "Ubuntu 20.04.4 LTS"
-        qemu_binary: "/bin/qemu-system-x86_64"
-        boot_priority: "HDD"
-        on_close: "Send the shutdown signal (ACPI)"
-        console_type: "vnc"
-      network_settings:
-        adapters:
-          - name: "Ethernet0"
-            base_mac: "0c:cb:a8:90:00:00"
-            type: "Intel Gigabit Ethernet (e1000)"
-            replicate_network_state: true
-            ip: 10.10.1.56
-    workstation6:
-      general_settings:
-        name: "Test_Box_2"
-        ram: "4096 MB"
-        vcpus: "2"
-        type: "Ubuntu 20.04.4 LTS"
-        qemu_binary: "/bin/qemu-system-x86_64"
-        boot_priority: "HDD"
-        on_close: "Send the shutdown signal (ACPI)"
-        console_type: "vnc"
-      network_settings:
-        adapters:
-          - name: "Ethernet0"
-            base_mac: "0c:50:a2:8a:00:00"
-            type: "Intel Gigabit Ethernet (e1000)"
-            replicate_network_state: true
-            ip: 10.10.1.57
-    workstation7:
-      general_settings:
-        name: "Domain_Controller"
-        ram: "4096 MB"
-        vcpus: "2"
-        type: "Microsoft Windows"
-        qemu_binary: "/bin/qemu-system-x86_64"
-        boot_priority: "HDD"
-        on_close: "Send the shutdown signal (ACPI)"
-        console_type: "vnc"
-      network_settings:
-        adapters:
-          - name: "Ethernet0"
-            base_mac: "0c:4f:61:d5:00:00"
-            type: "Intel Gigabit Ethernet (e1000)"
-            replicate_network_state: true
-            ip: 10.10.1.28
-    workstation8:
-      general_settings:
-        name: "Ansible_Desktop"
-        ram: "4096 MB"
-        vcpus: "2"
-        type: "Linux 5.15.0-121-generic"
-        qemu_binary: "/bin/qemu-system-x86_64"
-        boot_priority: "HDD"
-        on_close: "Power off the VM"
-        console_type: "vnc"
-      network_settings:
-        adapters:
-          - name: "Ethernet0"
-            base_mac: "0c:57:7e:50:00:00"
-            type: "Intel Gigabit Ethernet (e1000)"
-            replicate_network_state: true
-            ip: 10.10.1.3
+import winrm
+import paramiko
+import yaml
 
-vars:
-  ansible_connection: ssh
-  ansible_user: "student"
-  ansible_ssh_pass: "P@ssw0rd"
-  ansible_become: yes
-  ansible_become_method: sudo
+# Define your inventory with the correct IP addresses
+inventory = {
+    'workstations': {
+        'workstation1': {'ip': '10.10.1.35', 'type': 'Windows'},
+        'workstation2': {'ip': '10.10.1.36', 'type': 'Windows'},
+        'workstation3': {'ip': '10.10.1.43', 'type': 'Windows'},
+        'workstation4': {'ip': '10.10.1.29', 'type': 'Windows'},
+        'workstation5': {'ip': '10.10.1.56', 'type': 'Ubuntu'},
+        'workstation6': {'ip': '10.10.1.57', 'type': 'Ubuntu'},
+        'workstation7': {'ip': '10.10.1.28', 'type': 'Windows'},
+        'workstation8': {'ip': '10.10.1.3', 'type': 'Linux'},
+    }
+}
+
+# Function to gather Windows information
+def gather_windows_info(ip):
+    session = winrm.Session(ip, auth=('student', 'P@ssw0rd'))
+    result = session.run_cmd('systeminfo')
+    return result.std_out.decode()
+
+# Function to gather Linux information
+def gather_linux_info(ip):
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(ip, username='student', password='P@ssw0rd')
+    stdin, stdout, stderr = client.exec_command('uname -a')
+    return stdout.read().decode()
+
+# Main execution
+for workstation, details in inventory['workstations'].items():
+    ip = details['ip']
+    machine_type = details['type']
+    
+    try:
+        if machine_type == 'Windows':
+            print(f"Gathering information from {workstation} (Windows) at {ip}...")
+            info = gather_windows_info(ip)
+            print(info)
+        elif machine_type in ['Ubuntu', 'Linux']:
+            print(f"Gathering information from {workstation} (Linux) at {ip}...")
+            info = gather_linux_info(ip)
+            print(info)
+    except Exception as e:
+        print(f"Failed to connect to {workstation} at {ip}: {e}")
