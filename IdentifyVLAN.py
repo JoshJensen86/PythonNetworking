@@ -10,13 +10,13 @@ devices = [
     {"name": "switch5", "ip": "10.10.1.8"}
 ]
 
-def get_vlans(switch_ip, username):
+def get_vlans(switch_ip, username, password):
     vlan_command = "show vlan brief"  
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     
     try:
-        client.connect(switch_ip, username=username)
+        client.connect(switch_ip, username=username, password=password)
         stdin, stdout, stderr = client.exec_command(vlan_command)
         vlans = stdout.read().decode()
         print(f"VLANs on {switch_ip}:\n{vlans}")
@@ -25,10 +25,5 @@ def get_vlans(switch_ip, username):
     finally:
         client.close()
 
-
-switches = ["10.10.1.5", "10.10.1.6", "10.10.1.7", "10.10.1.8"]
-username = "admin"
-password = ""
-
-for switch in switches:
-    get_vlans(switch, username)
+for device in devices:
+    get_vlans(device["ip"], username, password)
