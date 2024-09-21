@@ -7,7 +7,7 @@ password = ""
 devices = [
     {"name": "switch1", "ip": "10.10.1.7"},
     {"name": "switch2", "ip": "10.10.1.5"},
-    {"name": "switch3", "ip": "10.10.1.2"},
+    {"name": "switch3", "ip": "10.10.1.24"},
     {"name": "switch4", "ip": "10.10.1.6"},
     {"name": "switch5", "ip": "10.10.1.8"}
 ]

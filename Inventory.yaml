@@ -52,7 +52,7 @@ all:
                 type: "Realtek 8139 Ethernet (rtl8139)"
                 replicate_network_state: true
                 ip: 10.10.1.24
-                managementIP: 10.10.1.2
+                managementIP: 10.10.1.24
         switch4:
           general_settings:
             name: "MGMT_Network"
