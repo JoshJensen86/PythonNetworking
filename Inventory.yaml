@@ -95,6 +95,7 @@ all:
             name: "WindowsDesktop-1"
             ram: "4096 MB"
             vcpus: "2"
+            type: "Microsoft Windows"
             qemu_binary: "/bin/qemu-system-x86_64"
             boot_priority: "HDD"
             on_close: "Send the shutdown signal (ACPI)"
@@ -105,12 +106,13 @@ all:
                 base_mac: "0c:4b:3c:0a:00:00"
                 type: "Intel Gitabit Ethernet (e1000)"
                 replicate_network_state: true
-                ip:
+                ip: 10.10.1.35
         workstation2:
           general_settings:
             name: "Workstation2WindowsDesktop-2"
             ram: "4096 MB"
             vcpus: "2"
+            type: "Microsoft Windows"
             qemu_binary: "/bin/qemu-system-x86_64"
             boot_priority: "HDD"
             on_close: "Send the shutdown signal(ACPI)"
@@ -121,12 +123,13 @@ all:
                 base_mac: "0c:59:fd:86:00:00"
                 type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
-                ip:
+                ip: 10.10.1.36
         workstation3:
           general_settings:
             name: "WindowsDesktop-3"
             ram: "4096 MB"
             vcpus: "2"
+            type: "Microsoft Windows"
             qemu_binary: "/bin/qemu-system-x86_64"
             boot_priority: "HDD"
             on_close: "Send the shutdown signal (ACPI)"
@@ -137,12 +140,13 @@ all:
                 base_mac: "0c:e2:07:f3:00:00"
                 type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
-                ip:
+                ip: 10.10.1.43
         workstation4:
           general_settings:
             name: "WindowsDesktop-4"
             ram: "4096 MB"
             vcpus: "2"
+            type: "Microsoft Windows"
             qemu_binary: "/bin/qemu-system-x86_64"
             boot_priority: "HDD"
             on_close: "Send the shutdown signal (ACPI)"
@@ -153,12 +157,13 @@ all:
                 base_mac: "0c:46:74:35:00:00"
                 type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
-                ip:
+                ip: 10.10.1.29
         workstation5:
           general_settings:
             name: "Test_Box_1"
             ram: "4096 MB"
             vcpus: "2"
+            type: "Ubuntu 20.04.4 LTS"
             qemu_binary: "/bin/qemu-system-x86_64"
             boot_priority: "HDD"
             on_close: "Send the shutdown signal (ACPI)
@@ -169,12 +174,13 @@ all:
                 base_mac: "0c:cb:a8:90:00:00"
                 type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
-                ip:
+                ip: 10.10.1.56
         workstation6:
           general_settings:
             name: "Test_Box_2"
             ram: "4096 MB"
             vcpus: "2"
+            type: "Ubuntu 20.04.4 LTS"
             qemu_binary: "/bin/qemu-system-x86_64"
             boot_priority: "HDD"
             on_close: "Send the shutdown signal (ACPI)"
@@ -185,12 +191,13 @@ all:
                 base_mac: "0c:50:a2:8a:00:00"
                 type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
-                ip:   
+                ip: 10.10.1.57   
         workstation7:
           general_settings:
             name: "Domain_Controller"
             ram: "4096 MB"
             vcpus: "2"
+            type: "Microsoft Windows"
             qemu_binary: "/bin/qemu-system-x86_64"
             boot_priority: "HDD"
             on_close: "Send the shutdown signal (ACPI)"
@@ -201,12 +208,13 @@ all:
                 base_mac: "0c:4f:61:d5:00:00"
                 type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
-                ip:
+                ip: 10.10.1.28
         workstation8:
           general_settings:
             name: "Ansible_Desktop"
             ram: "4096 MB"
             vcpus: "2"
+            type: "Linux 5.15.0-121-generic"
             qemu_binary: "/bin/qemu-system-x86_64"
             boot_priority: "HDD"
             on_close: "Power off the VM"
@@ -217,7 +225,7 @@ all:
                 base_mac: "0c:57:7e:50:00:00"
                 type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
-                ip:                
+                ip: 10.10.1.3            
 
 
 
