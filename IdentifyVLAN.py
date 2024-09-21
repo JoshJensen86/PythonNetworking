@@ -1,5 +1,15 @@
 import paramiko
 
+username = "admin"
+password = ""  
+devices = [
+    {"name": "switch1", "ip": "10.10.1.7"},
+    {"name": "switch2", "ip": "10.10.1.5"},
+    {"name": "switch3", "ip": "10.10.1.24"},
+    {"name": "switch4", "ip": "10.10.1.6"},
+    {"name": "switch5", "ip": "10.10.1.8"}
+]
+
 def get_vlans(switch_ip, username):
     vlan_command = "show vlan brief"  
     client = paramiko.SSHClient()
