@@ -1,63 +1,66 @@
-import paramiko
-import winrm
-import yaml
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ python3 CreateUserInventory.py 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
 
-# Credentials
-username = "student"
-password = "P@ssw0rd"
+During handling of the above exception, another exception occurred:
 
-# Device inventory
-devices = [
-    {"name": "Windows1", "ip": "10.10.1.10", "type": "windows"},
-    {"name": "Windows2", "ip": "10.10.1.11", "type": "windows"},
-    {"name": "Linux1", "ip": "10.10.1.12", "type": "linux"},
-    {"name": "Linux2", "ip": "10.10.1.13", "type": "linux"},
-    {"name": "TestBox1", "ip": "10.10.1.20", "type": "windows"},
-    {"name": "TestBox2", "ip": "10.10.1.21", "type": "windows"},
-]
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 666, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 388, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fb087d4f8e0>: Failed to establish a new connection: [Errno 113] No route to host
 
-def gather_windows_info(device):
-    session = winrm.Session(f'http://{device["ip"]}:5985/wsman', auth=(username, password))
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/student/.local/lib/python3.8/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 720, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 436, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.10.1.10', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb087d4f8e0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "CreateUserInventory.py", line 56, in <module>
+    details = gather_windows_info(device)
+  File "CreateUserInventory.py", line 22, in gather_windows_info
     result = session.run_cmd('systeminfo')
-    output = result.std_out.decode()
-    
-    # Parse output to extract relevant information as needed
-    return {"name": device["name"], "info": output}
-
-def gather_linux_info(device):
-    try:
-        ssh = paramiko.SSHClient()
-        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(device["ip"], username=username, password=password)
-        
-        stdin, stdout, stderr = ssh.exec_command("uname -a")
-        output = stdout.read().decode('utf-8')
-        
-        # Collect other required information
-        device_info = {
-            "name": device["name"],
-            "info": output,
-            # Add additional details here as necessary
-        }
-
-        ssh.close()
-        return device_info
-    except Exception as e:
-        print(f"Failed to connect to {device['ip']}: {e}")
-        return None
-
-inventory = {"all": {"children": {"workstations": {"hosts": {}}}}}
-
-for device in devices:
-    if device["type"] == "windows":
-        details = gather_windows_info(device)
-    else:
-        details = gather_linux_info(device)
-    
-    if details:
-        inventory["all"]["children"]["workstations"]["hosts"][device["name"]] = details
-
-with open('workstations_inventory.yaml', 'w') as file:
-    yaml.dump(inventory, file, default_flow_style=False)
-
-print("Workstations inventory saved to workstations_inventory.yaml")
+  File "/usr/lib/python3/dist-packages/winrm/__init__.py", line 37, in run_cmd
+    shell_id = self.protocol.open_shell()
+  File "/usr/lib/python3/dist-packages/winrm/protocol.py", line 157, in open_shell
+    res = self.send_message(xmltodict.unparse(req))
+  File "/usr/lib/python3/dist-packages/winrm/protocol.py", line 234, in send_message
+    resp = self.transport.send_message(message)
+  File "/usr/lib/python3/dist-packages/winrm/transport.py", line 265, in send_message
+    response = self._send_message_request(prepared_request, message)
+  File "/usr/lib/python3/dist-packages/winrm/transport.py", line 270, in _send_message_request
+    response = self.session.send(prepared_request, timeout=self.read_timeout_sec)
+  File "/home/student/.local/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/student/.local/lib/python3.8/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.10.1.10', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb087d4f8e0>: Failed to establish a new connection: [Errno 113] No route to host'))
