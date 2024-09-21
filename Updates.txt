@@ -1,57 +1,8 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ python3 CreateUserInventory.py 
-Gathering information from Linux workstation at 10.10.1.56...
-Linux ubserver 5.4.0-162-generic #179-Ubuntu SMP Mon Aug 14 08:51:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
-Gathering information from Linux workstation at 10.10.1.57...
-Linux ubserver 5.4.0-196-generic #216-Ubuntu SMP Thu Aug 29 13:26:53 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
-Gathering information from Windows workstation at 10.10.1.28...
-
-Host Name:                 WIN-MER518D7H0V
-OS Name:                   Microsoft Windows Server 2019 Standard
-OS Version:                10.0.17763 N/A Build 17763
-OS Manufacturer:           Microsoft Corporation
-OS Configuration:          Standalone Server
-OS Build Type:             Multiprocessor Free
-Registered Owner:          Windows User
-Registered Organization:   
-Product ID:                00429-00000-00001-AA797
-Original Install Date:     6/30/2022, 4:31:38 PM
-System Boot Time:          9/21/2024, 12:28:40 AM
-System Manufacturer:       QEMU
-System Model:              Standard PC (i440FX + PIIX, 1996)
-System Type:               x64-based PC
-Processor(s):              1 Processor(s) Installed.
-                           [01]: Intel64 Family 6 Model 6 Stepping 3 GenuineIntel ~2194 Mhz
-BIOS Version:              SeaBIOS 1.13.0-1ubuntu1.1, 4/1/2014
-Windows Directory:         C:\Windows
-System Directory:          C:\Windows\system32
-Boot Device:               \Device\HarddiskVolume1
-System Locale:             en-us;English (United States)
-Input Locale:              en-us;English (United States)
-Time Zone:                 (UTC-08:00) Pacific Time (US & Canada)
-Total Physical Memory:     4,095 MB
-Available Physical Memory: 3,062 MB
-Virtual Memory: Max Size:  4,799 MB
-Virtual Memory: Available: 3,917 MB
-Virtual Memory: In Use:    882 MB
-Page File Location(s):     C:\pagefile.sys
-Domain:                    WORKGROUP
-Logon Server:              \\WIN-MER518D7H0V
-Hotfix(s):                 6 Hotfix(s) Installed.
-                           [01]: KB5012128
-                           [02]: KB4512577
-                           [03]: KB4535680
-                           [04]: KB4589208
-                           [05]: KB5012647
-                           [06]: KB5011574
-Network Card(s):           1 NIC(s) Installed.
-                           [01]: Intel(R) PRO/1000 MT Network Connection
-                                 Connection Name: Ethernet
-                                 DHCP Enabled:    Yes
-                                 DHCP Server:     10.10.1.1
-                                 IP address(es)
-                                 [01]: 10.10.1.28
-                                 [02]: fe80::ed1a:6af7:c48c:237e
-Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.
-
-Gathering information from Linux workstation at 10.10.1.3...
-Linux student-Standard-PC-i440FX-PIIX-1996 5.15.0-121-generic #131~20.04.1-Ubuntu SMP Mon Aug 12 13:09:56 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+erInventory.py 
+Failed to gather information from Windows1 (10.10.1.10): HTTPConnectionPool(host='10.10.1.10', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc959b46a30>: Failed to establish a new connection: [Errno 113] No route to host'))
+Failed to gather information from Windows2 (10.10.1.11): HTTPConnectionPool(host='10.10.1.11', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc959a7e5b0>: Failed to establish a new connection: [Errno 113] No route to host'))
+Failed to connect to Linux1 (10.10.1.12): [Errno None] Unable to connect to port 22 on 10.10.1.12
+Failed to connect to Linux2 (10.10.1.13): [Errno None] Unable to connect to port 22 on 10.10.1.13
+Failed to gather information from TestBox1 (10.10.1.20): HTTPConnectionPool(host='10.10.1.20', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc959a892e0>: Failed to establish a new connection: [Errno 113] No route to host'))
+Failed to gather information from TestBox2 (10.10.1.21): HTTPConnectionPool(host='10.10.1.21', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fc959a89d30>: Failed to establish a new connection: [Errno 113] No route to host'))
+Workstations inventory successfully saved to /home/student/Desktop/Project/workstations_inventory.yaml
