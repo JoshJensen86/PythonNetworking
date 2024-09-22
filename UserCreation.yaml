@@ -1,67 +1,48 @@
 ---
-- name: Create local user accounts on switches, desktops, and test boxes
+- name: Admin and user account creation playbook
   hosts: all
   become: yes
-  vars:
-    users:
-      switches:
-        - name: "admin"
-          password: "{{ 'adminPassword' | password_hash('sha512') }}"
-          privilege: "15"
-      windows_desktops:
-        - name: "DesktopUser1"
-          password: "{{ 'DesktopPassword1' }}"
-          groups: "Administrators"
-        - name: "DesktopUser2"
-          password: "{{ 'DesktopPassword2' }}"
-          groups: "Administrators"
-        - name: "DesktopUser3"
-          password: "{{ 'DesktopPassword3' }}"
-          groups: "Administrators"
-        - name: "DesktopUser4"
-          password: "{{ 'DesktopPassword4' }}"
-          groups: "Administrators"
-      test_boxes:
-        - name: "TestUser1"
-          password: "{{ 'TestPassword1' | password_hash('sha512') }}"
-          groups: "sudo"
-        - name: "TestUser2"
-          password: "{{ 'TestPassword2' | password_hash('sha512') }}"
-          groups: "sudo"
-
   tasks:
-    - name: Ensure user accounts on switches
-      when: "'switch' in inventory_hostname"
-      user:
-        name: "{{ item.name }}"
-        password: "{{ item.password }}"
+  
+    - name: Create admin user on EXOS switches
+      when: "'switches' in group_names"
+      vars:
+        admin_username: "admin"
+      ansible.builtin.user:
+        name: "{{ admin_username }}"
         state: present
-        groups: "{{ item.privilege | default('') }}"
-      with_items: "{{ users.switches }}"
+        password: "{{ admin_password | default('') }}"  # EXOS switches have no password
 
-    - name: Ensure user accounts on Windows desktops
-      when: "'workstation' in inventory_hostname and inventory_hostname != 'workstation5' and inventory_hostname != 'workstation6'"
+    - name: Create users on Windows workstations
+      when: "'workstations' in group_names and ansible_facts.os_family == 'Windows'"
       win_user:
         name: "{{ item.name }}"
         password: "{{ item.password }}"
+        groups: Administrators
         state: present
-        groups: "{{ item.groups }}"
-      with_items: "{{ users.windows_desktops }}"
-
-    - name: Ensure user accounts on Linux test boxes
-      when: "'workstation5' in inventory_hostname or 'workstation6' in inventory_hostname"
-      user:
+      loop:
+        - { name: "DesktopUser1", password: "P@ssw0rd1" }
+        - { name: "DesktopUser2", password: "P@ssw0rd2" }
+        - { name: "DesktopUser3", password: "P@ssw0rd3" }
+        - { name: "DesktopUser4", password: "P@ssw0rd4" }
+      
+    - name: Create test users on Linux workstations
+      when: "'workstations' in group_names and ansible_facts.os_family == 'Debian'"
+      ansible.builtin.user:
         name: "{{ item.name }}"
-        password: "{{ item.password }}"
-        state: present
+        password: "{{ item.password | password_hash('sha512') }}"
         groups: "{{ item.groups }}"
-      with_items: "{{ users.test_boxes }}"
-
-    - name: Add the user accounts to sudoers
-      when: "'workstation5' in inventory_hostname or 'workstation6' in inventory_hostname"
-      lineinfile:
-        path: /etc/sudoers
         state: present
-        regexp: "^{{ item.name }}"
-        line: "{{ item.name }} ALL=(ALL) NOPASSWD: ALL"
-      with_items: "{{ users.test_boxes }}"
+      loop:
+        - { name: "TestUser1", password: "P@ssw0rd1", groups: "acct_network" }
+        - { name: "TestUser2", password: "P@ssw0rd2", groups: "mgmt_network" }
+
+    - name: Ensure sudo privileges for TestUser1 and TestUser2
+      when: "'workstations' in group_names and ansible_facts.os_family == 'Debian'"
+      ansible.builtin.lineinfile:
+        path: "/etc/sudoers"
+        line: "{{ item }} ALL=(ALL) NOPASSWD:ALL"
+        validate: '/usr/sbin/visudo -cf %s'
+      loop:
+        - "TestUser1"
+        - "TestUser2"
