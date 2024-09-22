@@ -1,0 +1,67 @@
+---
+- name: Create user accounts for Access Closet 1 devices
+  hosts: all
+  gather_facts: no
+  tasks:
+
+    # User creation on switches
+    - name: Create local admin user on switches
+      user:
+        name: "Local-Admin"
+        password: "{{ 'WGU123' | password_hash('sha512') }}"
+        state: present
+        groups: "sudo"  # Full access
+        shell: /bin/bash
+      when: "'switches' in group_names"
+
+    # User creation on workstations (Windows desktops)
+    - name: Create DesktopUser1 on workstation1
+      ansible.windows.win_user:
+        name: "DesktopUser1"
+        password: "WGU123"
+        groups: Administrators
+        state: present
+      when: "'workstations' in group_names and inventory_hostname == 'workstation1'"
+
+    - name: Create DesktopUser2 on workstation2
+      ansible.windows.win_user:
+        name: "DesktopUser2"
+        password: "WGU123"
+        groups: Administrators
+        state: present
+      when: "'workstations' in group_names and inventory_hostname == 'workstation2'"
+
+    - name: Create DesktopUser3 on workstation3
+      ansible.windows.win_user:
+        name: "DesktopUser3"
+        password: "WGU123"
+        groups: Administrators
+        state: present
+      when: "'workstations' in group_names and inventory_hostname == 'workstation3'"
+
+    - name: Create DesktopUser4 on workstation4
+      ansible.windows.win_user:
+        name: "DesktopUser4"
+        password: "WGU123"
+        groups: Administrators
+        state: present
+      when: "'workstations' in group_names and inventory_hostname == 'workstation4'"
+
+    # User creation on test boxes in ACCT_Network and MGMT_Network
+    - name: Create TestUser1 on ACCT_Network (Test_Box_1)
+      user:
+        name: "TestUser1"
+        password: "{{ 'WGU123' | password_hash('sha512') }}"
+        state: present
+        groups: sudo
+        shell: /bin/bash
+      when: "'workstations' in group_names and inventory_hostname == 'workstation5'"
+
+    - name: Create TestUser2 on MGMT_Network (Test_Box_2)
+      user:
+        name: "TestUser2"
+        password: "{{ 'WGU123' | password_hash('sha512') }}"
+        state: present
+        groups: sudo
+        shell: /bin/bash
+      when: "'workstations' in group_names and inventory_hostname == 'workstation6'"
