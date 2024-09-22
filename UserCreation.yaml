@@ -1,67 +1,67 @@
 ---
-- name: Create user accounts for Access Closet 1 devices
+- name: Create local user accounts on switches, desktops, and test boxes
   hosts: all
-  gather_facts: no
+  become: yes
+  vars:
+    users:
+      switches:
+        - name: "admin"
+          password: "{{ 'adminPassword' | password_hash('sha512') }}"
+          privilege: "15"
+      windows_desktops:
+        - name: "DesktopUser1"
+          password: "{{ 'DesktopPassword1' }}"
+          groups: "Administrators"
+        - name: "DesktopUser2"
+          password: "{{ 'DesktopPassword2' }}"
+          groups: "Administrators"
+        - name: "DesktopUser3"
+          password: "{{ 'DesktopPassword3' }}"
+          groups: "Administrators"
+        - name: "DesktopUser4"
+          password: "{{ 'DesktopPassword4' }}"
+          groups: "Administrators"
+      test_boxes:
+        - name: "TestUser1"
+          password: "{{ 'TestPassword1' | password_hash('sha512') }}"
+          groups: "sudo"
+        - name: "TestUser2"
+          password: "{{ 'TestPassword2' | password_hash('sha512') }}"
+          groups: "sudo"
+
   tasks:
-
-    # User creation on switches
-    - name: Create local admin user on switches
+    - name: Ensure user accounts on switches
+      when: "'switch' in inventory_hostname"
       user:
-        name: "Local-Admin"
-        password: "{{ 'WGU123' | password_hash('sha512') }}"
+        name: "{{ item.name }}"
+        password: "{{ item.password }}"
         state: present
-        groups: "sudo"  # Full access
-        shell: /bin/bash
-      when: "'switches' in group_names"
+        groups: "{{ item.privilege | default('') }}"
+      with_items: "{{ users.switches }}"
 
-    # User creation on workstations (Windows desktops)
-    - name: Create DesktopUser1 on workstation1
-      ansible.windows.win_user:
-        name: "DesktopUser1"
-        password: "WGU123"
-        groups: Administrators
+    - name: Ensure user accounts on Windows desktops
+      when: "'workstation' in inventory_hostname and inventory_hostname != 'workstation5' and inventory_hostname != 'workstation6'"
+      win_user:
+        name: "{{ item.name }}"
+        password: "{{ item.password }}"
         state: present
-      when: "'workstations' in group_names and inventory_hostname == 'workstation1'"
+        groups: "{{ item.groups }}"
+      with_items: "{{ users.windows_desktops }}"
 
-    - name: Create DesktopUser2 on workstation2
-      ansible.windows.win_user:
-        name: "DesktopUser2"
-        password: "WGU123"
-        groups: Administrators
-        state: present
-      when: "'workstations' in group_names and inventory_hostname == 'workstation2'"
-
-    - name: Create DesktopUser3 on workstation3
-      ansible.windows.win_user:
-        name: "DesktopUser3"
-        password: "WGU123"
-        groups: Administrators
-        state: present
-      when: "'workstations' in group_names and inventory_hostname == 'workstation3'"
-
-    - name: Create DesktopUser4 on workstation4
-      ansible.windows.win_user:
-        name: "DesktopUser4"
-        password: "WGU123"
-        groups: Administrators
-        state: present
-      when: "'workstations' in group_names and inventory_hostname == 'workstation4'"
-
-    # User creation on test boxes in ACCT_Network and MGMT_Network
-    - name: Create TestUser1 on ACCT_Network (Test_Box_1)
+    - name: Ensure user accounts on Linux test boxes
+      when: "'workstation5' in inventory_hostname or 'workstation6' in inventory_hostname"
       user:
-        name: "TestUser1"
-        password: "{{ 'WGU123' | password_hash('sha512') }}"
+        name: "{{ item.name }}"
+        password: "{{ item.password }}"
         state: present
-        groups: sudo
-        shell: /bin/bash
-      when: "'workstations' in group_names and inventory_hostname == 'workstation5'"
+        groups: "{{ item.groups }}"
+      with_items: "{{ users.test_boxes }}"
 
-    - name: Create TestUser2 on MGMT_Network (Test_Box_2)
-      user:
-        name: "TestUser2"
-        password: "{{ 'WGU123' | password_hash('sha512') }}"
+    - name: Add the user accounts to sudoers
+      when: "'workstation5' in inventory_hostname or 'workstation6' in inventory_hostname"
+      lineinfile:
+        path: /etc/sudoers
         state: present
-        groups: sudo
-        shell: /bin/bash
-      when: "'workstations' in group_names and inventory_hostname == 'workstation6'"
+        regexp: "^{{ item.name }}"
+        line: "{{ item.name }} ALL=(ALL) NOPASSWD: ALL"
+      with_items: "{{ users.test_boxes }}"
