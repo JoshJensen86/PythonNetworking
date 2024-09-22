@@ -1,7 +1,7 @@
 import paramiko
 
 username = "admin"
-password = ""  # Update with the correct password if needed
+password = ""  
 devices = [
     {"name": "switch1", "ip": "10.10.1.7"},
     {"name": "switch2", "ip": "10.10.1.5"},
@@ -11,7 +11,7 @@ devices = [
 ]
 
 def get_vlans(switch_ip, username, password):
-    vlan_command = "show vlan"  # Updated command to retrieve VLAN information
+    vlan_command = "show vlan"  
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     
@@ -19,7 +19,7 @@ def get_vlans(switch_ip, username, password):
         client.connect(switch_ip, username=username, password=password)
         stdin, stdout, stderr = client.exec_command(vlan_command)
         
-        # Capture output and errors
+        
         vlans = stdout.read().decode()
         error = stderr.read().decode()
         
