@@ -3,6 +3,8 @@ all:
     switches:
       hosts:
         switch1:
+          ansible_host: 10.10.1.7
+          ansible_user: admin
           general_settings:
             name: "ACCT_Network"
             ram: "512 MB"
@@ -20,6 +22,8 @@ all:
                 ip: 10.10.1.32
                 managementIP: 10.10.1.7
         switch2:
+          ansible_host: 10.10.1.5
+          ansible_user: admin
           general_settings:
             name: "IT_Network"
             ram: "512 MB"
@@ -37,6 +41,8 @@ all:
                 ip: 10.10.1.30
                 managementIP: 10.10.1.5
         switch3:
+          ansible_host: 10.10.1.24
+          ansible_user: admin
           general_settings:
             name: "Local_Switch"
             ram: "512 MB"
@@ -54,6 +60,8 @@ all:
                 ip: 10.10.1.24
                 managementIP: 10.10.1.24
         switch4:
+          ansible_host: 10.10.1.6
+          ansible_user: admin
           general_settings:
             name: "MGMT_Network"
             ram: "512 MB"
@@ -71,6 +79,8 @@ all:
                 ip: 10.10.1.6
                 managementIP: 10.10.1.6
         switch5:
+          ansible_host: 10.10.1.8
+          ansible_user: admin
           general_settings:
             name: "User_Network"
             ram: "512 MB"
@@ -86,11 +96,13 @@ all:
                 type: "Realtek 8139 Ethernet (rtl8139)"
                 replicate_network_state: true
                 ip: 10.10.1.22
-                managementIP: 10.10.1.8                                               
-
+                managementIP: 10.10.1.8
     workstations:
       hosts:
         workstation1:
+          ansible_host: 10.10.1.35
+          ansible_user: student
+          ansible_password: P@ssw0rd
           general_settings:
             name: "WindowsDesktop-1"
             ram: "4096 MB"
@@ -104,18 +116,21 @@ all:
             adapters:
               - name: "Ethernet0"
                 base_mac: "0c:4b:3c:0a:00:00"
-                type: "Intel Gitabit Ethernet (e1000)"
+                type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
                 ip: 10.10.1.35
         workstation2:
+          ansible_host: 10.10.1.36
+          ansible_user: student
+          ansible_password: P@ssw0rd
           general_settings:
-            name: "Workstation2WindowsDesktop-2"
+            name: "WindowsDesktop-2"
             ram: "4096 MB"
             vcpus: "2"
             type: "Microsoft Windows"
             qemu_binary: "/bin/qemu-system-x86_64"
             boot_priority: "HDD"
-            on_close: "Send the shutdown signal(ACPI)"
+            on_close: "Send the shutdown signal (ACPI)"
             console_type: "vnc"
           network_settings:
             adapters:
@@ -125,6 +140,9 @@ all:
                 replicate_network_state: true
                 ip: 10.10.1.36
         workstation3:
+          ansible_host: 10.10.1.43
+          ansible_user: student
+          ansible_password: P@ssw0rd
           general_settings:
             name: "WindowsDesktop-3"
             ram: "4096 MB"
@@ -142,6 +160,9 @@ all:
                 replicate_network_state: true
                 ip: 10.10.1.43
         workstation4:
+          ansible_host: 10.10.1.29
+          ansible_user: student
+          ansible_password: P@ssw0rd
           general_settings:
             name: "WindowsDesktop-4"
             ram: "4096 MB"
@@ -159,6 +180,9 @@ all:
                 replicate_network_state: true
                 ip: 10.10.1.29
         workstation5:
+          ansible_host: 10.10.1.56
+          ansible_user: student
+          ansible_password: P@ssw0rd
           general_settings:
             name: "Test_Box_1"
             ram: "4096 MB"
@@ -166,7 +190,7 @@ all:
             type: "Ubuntu 20.04.4 LTS"
             qemu_binary: "/bin/qemu-system-x86_64"
             boot_priority: "HDD"
-            on_close: "Send the shutdown signal (ACPI)
+            on_close: "Send the shutdown signal (ACPI)"
             console_type: "vnc"
           network_settings:
             adapters:
@@ -176,6 +200,9 @@ all:
                 replicate_network_state: true
                 ip: 10.10.1.56
         workstation6:
+          ansible_host: 10.10.1.57
+          ansible_user: student
+          ansible_password: P@ssw0rd
           general_settings:
             name: "Test_Box_2"
             ram: "4096 MB"
@@ -191,47 +218,4 @@ all:
                 base_mac: "0c:50:a2:8a:00:00"
                 type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
-                ip: 10.10.1.57   
-        workstation7:
-          general_settings:
-            name: "Domain_Controller"
-            ram: "4096 MB"
-            vcpus: "2"
-            type: "Microsoft Windows"
-            qemu_binary: "/bin/qemu-system-x86_64"
-            boot_priority: "HDD"
-            on_close: "Send the shutdown signal (ACPI)"
-            console_type: "vnc"
-          network_settings:
-            adapters:
-              - name: "Ethernet0"
-                base_mac: "0c:4f:61:d5:00:00"
-                type: "Intel Gigabit Ethernet (e1000)"
-                replicate_network_state: true
-                ip: 10.10.1.28
-        workstation8:
-          general_settings:
-            name: "Ansible_Desktop"
-            ram: "4096 MB"
-            vcpus: "2"
-            type: "Linux 5.15.0-121-generic"
-            qemu_binary: "/bin/qemu-system-x86_64"
-            boot_priority: "HDD"
-            on_close: "Power off the VM"
-            console_type: "vnc"
-          network_settings:
-            adapters:
-              - name: "Ethernet0"
-                base_mac: "0c:57:7e:50:00:00"
-                type: "Intel Gigabit Ethernet (e1000)"
-                replicate_network_state: true
-                ip: 10.10.1.3            
-
-
-
-  vars:
-    ansible_connection: ssh
-    ansible_user: "admin"
-    ansible_ssh_pass: ""
-    ansible_become: yes
-    ansible_become_method: sudo
+                ip:
