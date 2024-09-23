@@ -1,48 +1,48 @@
 ---
-- name: Admin and user account creation playbook
+- name: Create local user accounts on switches, desktops, and test boxes
   hosts: all
-  become: yes
-  tasks:
-  
-    - name: Create admin user on EXOS switches
-      when: "'switches' in group_names"
-      vars:
-        admin_username: "admin"
-      ansible.builtin.user:
-        name: "{{ admin_username }}"
-        state: present
-        password: "{{ admin_password | default('') }}"  # EXOS switches have no password
+  gather_facts: no
 
-    - name: Create users on Windows workstations
-      when: "'workstations' in group_names and ansible_facts.os_family == 'Windows'"
+  tasks:
+
+    - name: Create Local-Admin user on switches
+      when: "'switches' in group_names"
+      ios_user:
+        name: "Local-Admin"
+        password: "WGU123"
+        privilege: 15
+        state: present
+
+    - name: Create DesktopUsers on Windows desktops
+      when: "'windows_desktops' in group_names"
+      vars:
+        users:
+          - name: "DesktopUser1"
+          - name: "DesktopUser2"
+          - name: "DesktopUser3"
+          - name: "DesktopUser4"
       win_user:
         name: "{{ item.name }}"
-        password: "{{ item.password }}"
-        groups: Administrators
+        password: "WGU123"
+        groups:
+          - Administrators
         state: present
-      loop:
-        - { name: "DesktopUser1", password: "P@ssw0rd1" }
-        - { name: "DesktopUser2", password: "P@ssw0rd2" }
-        - { name: "DesktopUser3", password: "P@ssw0rd3" }
-        - { name: "DesktopUser4", password: "P@ssw0rd4" }
-      
-    - name: Create test users on Linux workstations
-      when: "'workstations' in group_names and ansible_facts.os_family == 'Debian'"
-      ansible.builtin.user:
-        name: "{{ item.name }}"
-        password: "{{ item.password | password_hash('sha512') }}"
-        groups: "{{ item.groups }}"
-        state: present
-      loop:
-        - { name: "TestUser1", password: "P@ssw0rd1", groups: "acct_network" }
-        - { name: "TestUser2", password: "P@ssw0rd2", groups: "mgmt_network" }
+      loop: "{{ users }}"
 
-    - name: Ensure sudo privileges for TestUser1 and TestUser2
-      when: "'workstations' in group_names and ansible_facts.os_family == 'Debian'"
-      ansible.builtin.lineinfile:
-        path: "/etc/sudoers"
-        line: "{{ item }} ALL=(ALL) NOPASSWD:ALL"
-        validate: '/usr/sbin/visudo -cf %s'
-      loop:
-        - "TestUser1"
-        - "TestUser2"
+    - name: Create TestUser1 on test_box_acct
+      when: inventory_hostname == 'test_box_acct'
+      user:
+        name: "TestUser1"
+        password: "{{ 'WGU123' | password_hash('sha512') }}"
+        groups: "sudo"
+        shell: /bin/bash
+        state: present
+
+    - name: Create TestUser2 on test_box_mgmt
+      when: inventory_hostname == 'test_box_mgmt'
+      user:
+        name: "TestUser2"
+        password: "{{ 'WGU123' | password_hash('sha512') }}"
+        groups: "sudo"
+        shell: /bin/bash
+        state: present
