@@ -1,23 +1,24 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible -i switchInventory.yaml all -m ping
-switch3 | UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to create temporary directory. In some cases, you may have been able to authenticate and did not have permissions on the target directory. Consider changing the remote tmp path in ansible.cfg to a path rooted in \"/tmp\", for more error information use -vvv. Failed command was: ( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp `\"&& mkdir \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122226.7045834-3899-430124826736 `\" && echo ansible-tmp-1727122226.7045834-3899-430124826736=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122226.7045834-3899-430124826736 `\" ), exited with result 254, stdout output: %% Unrecognized command:  \"/bin/sh -c '( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp `\"&& mkdir \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122226.7045834-3899-430124826736 `\" && echo ansible-tmp-1727122226.7045834-3899-430124826736=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122226.7045834-3899-430124826736 `\" ) && sleep 0'\"\n%% Invalid input detected.\r\n",
-    "unreachable": true
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible -i switchInventory.yaml switches -m ansible.netcommon.cli_command
+switch1 | FAILED! => {
+    "msg": "network os generic is not supported"
 }
-switch1 | UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to create temporary directory. In some cases, you may have been able to authenticate and did not have permissions on the target directory. Consider changing the remote tmp path in ansible.cfg to a path rooted in \"/tmp\", for more error information use -vvv. Failed command was: ( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp `\"&& mkdir \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.211231-3897-22234309377438 `\" && echo ansible-tmp-1727122242.211231-3897-22234309377438=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.211231-3897-22234309377438 `\" ), exited with result 254, stdout output: %% Unrecognized command:  \"/bin/sh -c '( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp `\"&& mkdir \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.211231-3897-22234309377438 `\" && echo ansible-tmp-1727122242.211231-3897-22234309377438=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.211231-3897-22234309377438 `\" ) && sleep 0'\"\n%% Invalid input detected.\r\n",
-    "unreachable": true
+switch2 | FAILED! => {
+    "msg": "network os generic is not supported"
 }
-switch4 | UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to create temporary directory. In some cases, you may have been able to authenticate and did not have permissions on the target directory. Consider changing the remote tmp path in ansible.cfg to a path rooted in \"/tmp\", for more error information use -vvv. Failed command was: ( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp `\"&& mkdir \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.4758244-3900-199111341742261 `\" && echo ansible-tmp-1727122242.4758244-3900-199111341742261=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.4758244-3900-199111341742261 `\" ), exited with result 254, stdout output: %% Unrecognized command:  \"/bin/sh -c '( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp `\"&& mkdir \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.4758244-3900-199111341742261 `\" && echo ansible-tmp-1727122242.4758244-3900-199111341742261=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.4758244-3900-199111341742261 `\" ) && sleep 0'\"\n%% Invalid input detected.\r\n",
-    "unreachable": true
+switch5 | FAILED! => {
+    "msg": "network os generic is not supported"
 }
-switch2 | UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to create temporary directory. In some cases, you may have been able to authenticate and did not have permissions on the target directory. Consider changing the remote tmp path in ansible.cfg to a path rooted in \"/tmp\", for more error information use -vvv. Failed command was: ( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp `\"&& mkdir \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.4937363-3898-234317309696290 `\" && echo ansible-tmp-1727122242.4937363-3898-234317309696290=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.4937363-3898-234317309696290 `\" ), exited with result 254, stdout output: %% Unrecognized command:  \"/bin/sh -c '( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp `\"&& mkdir \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.4937363-3898-234317309696290 `\" && echo ansible-tmp-1727122242.4937363-3898-234317309696290=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727122242.4937363-3898-234317309696290 `\" ) && sleep 0'\"\n%% Invalid input detected.\r\n",
-    "unreachable": true
+switch3 | FAILED! => {
+    "msg": "network os generic is not supported"
 }
-^C [ERROR]: User interrupted execution
+switch4 | FAILED! => {
+    "msg": "network os generic is not supported"
+}
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible -i switchInventory.yaml switches -m ansible.netcommon.cli_command -a "command= show version"
+ERROR! this task 'ansible.netcommon.cli_command' has extra params, which is only allowed in the following modules: ansible.legacy.shell, include_tasks, ansible.builtin.include_role, ansible.windows.win_shell, group_by, ansible.windows.win_command, ansible.builtin.set_fact, ansible.legacy.import_role, ansible.legacy.include_vars, win_shell, ansible.builtin.script, ansible.legacy.command, set_fact, ansible.legacy.group_by, add_host, ansible.legacy.set_fact, include_role, ansible.builtin.group_by, ansible.legacy.raw, ansible.legacy.include_role, ansible.legacy.win_command, ansible.legacy.win_shell, raw, ansible.builtin.import_role, ansible.legacy.import_tasks, import_tasks, ansible.legacy.include_tasks, script, command, ansible.builtin.win_command, ansible.legacy.include, win_command, ansible.builtin.include_tasks, import_role, ansible.builtin.include_vars, shell, ansible.builtin.shell, ansible.builtin.win_shell, ansible.legacy.add_host, ansible.builtin.command, include_vars, ansible.builtin.add_host, ansible.builtin.include, include, ansible.legacy.meta, ansible.builtin.meta, ansible.legacy.script, meta, ansible.builtin.raw, ansible.builtin.import_tasks
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-galaxy collection install ansible.netcommon
+Starting galaxy collection install process
+Nothing to do. All requested collections are already installed. If you want to reinstall them, consider using `--force`.
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible -i switchInventory.yaml switches -m ansible.netcommon.cli_command -a "command= show version"
+ERROR! this task 'ansible.netcommon.cli_command' has extra params, which is only allowed in the following modules: ansible.legacy.add_host, ansible.windows.win_shell, ansible.builtin.add_host, meta, ansible.builtin.raw, import_tasks, ansible.legacy.script, win_shell, include, ansible.builtin.group_by, ansible.builtin.import_tasks, ansible.legacy.meta, command, ansible.builtin.win_command, raw, ansible.legacy.include_role, set_fact, ansible.legacy.raw, ansible.legacy.set_fact, shell, ansible.legacy.shell, ansible.legacy.include, ansible.legacy.group_by, ansible.legacy.win_command, import_role, ansible.builtin.command, include_role, ansible.builtin.include_role, ansible.builtin.win_shell, ansible.legacy.include_vars, ansible.builtin.import_role, ansible.legacy.import_role, ansible.builtin.meta, ansible.legacy.import_tasks, include_vars, ansible.legacy.command, ansible.builtin.include, ansible.builtin.script, add_host, win_command, script, ansible.legacy.win_shell, ansible.legacy.include_tasks, ansible.builtin.shell, ansible.builtin.include_tasks, ansible.builtin.set_fact, ansible.builtin.include_vars, ansible.windows.win_command, include_tasks, group_by
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
