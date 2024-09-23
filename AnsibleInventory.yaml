@@ -5,48 +5,33 @@ all:
         switch1:
           ansible_host: 10.10.1.7
           ansible_user: admin
-          ansible_ssh_pass: ''
+          ansible_password: ''
           ansible_connection: network_cli
-          ansible_network_os: extreme.exos.exos
-          ansible_become: yes
-          ansible_become_method: enable
-          ansible_become_pass: ''
+          ansible_network_os: extremenetworks.exos.exos
         switch2:
           ansible_host: 10.10.1.5
           ansible_user: admin
-          ansible_ssh_pass: ''
+          ansible_password: ''
           ansible_connection: network_cli
-          ansible_network_os: extreme.exos.exos
-          ansible_become: yes
-          ansible_become_method: enable
-          ansible_become_pass: ''
+          ansible_network_os: extremenetworks.exos.exos
         switch3:
           ansible_host: 10.10.1.24
           ansible_user: admin
-          ansible_ssh_pass: ''
+          ansible_password: ''
           ansible_connection: network_cli
-          ansible_network_os: extreme.exos.exos
-          ansible_become: yes
-          ansible_become_method: enable
-          ansible_become_pass: ''
+          ansible_network_os: extremenetworks.exos.exos
         switch4:
           ansible_host: 10.10.1.6
           ansible_user: admin
-          ansible_ssh_pass: ''
+          ansible_password: ''
           ansible_connection: network_cli
-          ansible_network_os: extreme.exos.exos
-          ansible_become: yes
-          ansible_become_method: enable
-          ansible_become_pass: ''
+          ansible_network_os: extremenetworks.exos.exos
         switch5:
           ansible_host: 10.10.1.8
           ansible_user: admin
-          ansible_ssh_pass: ''
+          ansible_password: ''
           ansible_connection: network_cli
-          ansible_network_os: extreme.exos.exos
-          ansible_become: yes
-          ansible_become_method: enable
-          ansible_become_pass: ''
+          ansible_network_os: extremenetworks.exos.exos
 
     windows_desktops:
       hosts:
@@ -88,7 +73,7 @@ all:
         test_box_acct:
           ansible_host: 10.10.1.56
           ansible_user: student
-          ansible_ssh_pass: 'P@ssw0rd'
+          ansible_password: 'P@ssw0rd'
           ansible_connection: ssh
           ansible_become: yes
           ansible_become_method: sudo
@@ -96,7 +81,7 @@ all:
         test_box_mgmt:
           ansible_host: 10.10.1.57
           ansible_user: student
-          ansible_ssh_pass: 'P@ssw0rd'
+          ansible_password: 'P@ssw0rd'
           ansible_connection: ssh
           ansible_become: yes
           ansible_become_method: sudo
