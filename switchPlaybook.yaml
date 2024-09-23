@@ -1,25 +1,14 @@
 ---
-- name: Create Local-Admin user on VyOS switches using raw module
+- name: Create Local-Admin user on ExtremeXOS switches
   hosts: switches
   gather_facts: no
+  collections:
+    - extremenetworks.exos
   vars:
-    vyos_username: "Local-Admin"
-    vyos_password: "WGU123"
+    exos_username: "Local-Admin"
+    exos_password: "WGU123"
   tasks:
-    - name: Enter configuration mode
-      raw: configure
-
-    - name: Set user authentication
-      raw: set system login user {{ vyos_username }} authentication plaintext-password {{ vyos_password }}
-
-    - name: Set user level
-      raw: set system login user {{ vyos_username }} level admin
-
-    - name: Commit configuration changes
-      raw: commit
-
-    - name: Save configuration
-      raw: save
-
-    - name: Exit configuration mode
-      raw: exit
+    - name: Create Local-Admin user with admin privileges
+      exos_config:
+        lines:
+          - create account {{ exos_username }} password {{ exos_password }} privilege 15
