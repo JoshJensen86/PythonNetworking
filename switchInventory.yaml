@@ -8,32 +8,47 @@ all:
           ansible_password: ''  
           ansible_connection: ssh
           ansible_ssh_pass: '{{ ansible_password }}'
-          ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no'
+          ansible_ssh_common_args: >-
+            -o StrictHostKeyChecking=no
+            -o PreferredAuthentications=password
+            -o PubkeyAuthentication=no
         switch2:
           ansible_host: 10.10.1.5
           ansible_user: admin
           ansible_password: ''
           ansible_connection: ssh
           ansible_ssh_pass: '{{ ansible_password }}'
-          ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no'
+          ansible_ssh_common_args: >-
+            -o StrictHostKeyChecking=no
+            -o PreferredAuthentications=password
+            -o PubkeyAuthentication=no
         switch3:
           ansible_host: 10.10.1.24
           ansible_user: admin
           ansible_password: ''
           ansible_connection: ssh
           ansible_ssh_pass: '{{ ansible_password }}'
-          ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no'
+          ansible_ssh_common_args: >-
+            -o StrictHostKeyChecking=no
+            -o PreferredAuthentications=password
+            -o PubkeyAuthentication=no
         switch4:
           ansible_host: 10.10.1.6
           ansible_user: admin
           ansible_password: ''
           ansible_connection: ssh
           ansible_ssh_pass: '{{ ansible_password }}'
-          ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no'
+          ansible_ssh_common_args: >-
+            -o StrictHostKeyChecking=no
+            -o PreferredAuthentications=password
+            -o PubkeyAuthentication=no
         switch5:
           ansible_host: 10.10.1.8
           ansible_user: admin
           ansible_password: ''
           ansible_connection: ssh
           ansible_ssh_pass: '{{ ansible_password }}'
-          ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no
+          ansible_ssh_common_args: >-
+            -o StrictHostKeyChecking=no
+            -o PreferredAuthentications=password
+            -o PubkeyAuthentication=no
