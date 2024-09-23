@@ -1,10 +1,229 @@
-ERROR! this task 'ansible.builtin.meta' has extra params, which is only allowed in the following modules: add_host, meta, import_role, set_fact, command, raw, import_tasks, win_shell, include_role, script, include, group_by, include_tasks, win_command, include_vars, shell
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i Inventory.yaml UserCreation.yaml 
 
-The error appears to be in '/home/student/Desktop/Project/UserCreation.yaml': line 20, column 7, but may
-be elsewhere in the file depending on the exact syntax problem.
+PLAY [Create user accounts on switches, desktops, and test boxes] **************
 
-The offending line appears to be:
+TASK [Create Local-Admin user on VyOS switches] ********************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+fatal: [switch2]: FAILED! => {"changed": false, "msg": "Connection type ssh is not valid for this module"}
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+fatal: [switch4]: FAILED! => {"changed": false, "msg": "Connection type ssh is not valid for this module"}
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+fatal: [switch1]: FAILED! => {"changed": false, "msg": "Connection type ssh is not valid for this module"}
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+fatal: [switch3]: FAILED! => {"changed": false, "msg": "Connection type ssh is not valid for this module"}
+fatal: [switch5]: FAILED! => {"changed": false, "msg": "Connection type ssh is not valid for this module"}
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation1]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation2]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation6]
+skipping: [workstation5]
 
-  tasks:
-    - name: Install vyos.vyos collection
-      ^ here
+TASK [Save configuration on VyOS switches] *************************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation1]
+skipping: [workstation5]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation2]
+skipping: [workstation6]
+
+TASK [Create DesktopUsers on Windows desktops] *********************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation1] => (item=DesktopUser1) 
+skipping: [workstation1] => (item=DesktopUser2) 
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation2] => (item=DesktopUser1) 
+skipping: [workstation2] => (item=DesktopUser2) 
+skipping: [workstation2] => (item=DesktopUser3) 
+skipping: [workstation1] => (item=DesktopUser3) 
+skipping: [workstation2] => (item=DesktopUser4) 
+skipping: [workstation1] => (item=DesktopUser4) 
+skipping: [workstation5] => (item=DesktopUser1) 
+skipping: [workstation5] => (item=DesktopUser2) 
+skipping: [workstation5] => (item=DesktopUser3) 
+skipping: [workstation5] => (item=DesktopUser4) 
+skipping: [workstation6] => (item=DesktopUser1) 
+skipping: [workstation6] => (item=DesktopUser2) 
+skipping: [workstation6] => (item=DesktopUser3) 
+skipping: [workstation6] => (item=DesktopUser4) 
+
+TASK [Create Test Users on Linux Test Boxes] ***********************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/core.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-
+packages/ansible/plugins/filter/mathstuff.py) as it seems to be invalid: cannot
+import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation1] => (item={'name': 'TestUser1', 'host': 'test_box_acct'}) 
+skipping: [workstation1] => (item={'name': 'TestUser2', 'host': 'test_box_mgmt'}) 
+skipping: [workstation6] => (item={'name': 'TestUser1', 'host': 'test_box_acct'}) 
+skipping: [workstation6] => (item={'name': 'TestUser2', 'host': 'test_box_mgmt'}) 
+skipping: [workstation5] => (item={'name': 'TestUser1', 'host': 'test_box_acct'}) 
+skipping: [workstation5] => (item={'name': 'TestUser2', 'host': 'test_box_mgmt'}) 
+skipping: [workstation2] => (item={'name': 'TestUser1', 'host': 'test_box_acct'}) 
+skipping: [workstation2] => (item={'name': 'TestUser2', 'host': 'test_box_mgmt'}) 
+
+PLAY RECAP *********************************************************************
+switch1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch2                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch3                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch4                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch5                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+workstation1               : ok=0    changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+workstation2               : ok=0    changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+workstation5               : ok=0    changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+workstation6               : ok=0    changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
