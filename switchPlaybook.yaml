@@ -1,30 +1,16 @@
 ---
-- name: Create Local-Admin user on VyOS switches
+- name: Create Local-Admin user on VyOS switches using raw module
   hosts: switches
   gather_facts: no
   vars:
     vyos_username: "Local-Admin"
     vyos_password: "WGU123"
   tasks:
-    - name: Enter configuration mode
-      ansible.netcommon.cli_command:
-        command: 'configure'
-      register: config_mode
-
-    - name: Configure Local-Admin user with admin privileges
-      ansible.netcommon.cli_config:
-        config:
-          - set system login user {{ vyos_username }} authentication plaintext-password {{ vyos_password }}
-          - set system login user {{ vyos_username }} level admin
-
-    - name: Commit configuration changes
-      ansible.netcommon.cli_command:
-        command: 'commit'
-
-    - name: Save configuration
-      ansible.netcommon.cli_command:
-        command: 'save'
-
-    - name: Exit configuration mode
-      ansible.netcommon.cli_command:
-        command: 'exit'
+    - name: Send configuration commands to VyOS switches
+      raw: |
+        configure
+        set system login user {{ vyos_username }} authentication plaintext-password {{ vyos_password }}
+        set system login user {{ vyos_username }} level admin
+        commit
+        save
+        exit
