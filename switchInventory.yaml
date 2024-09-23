@@ -1,37 +1,20 @@
 all:
-  hosts:
-    switch1:
-      ansible_host: 10.10.1.7
-      ansible_user: admin
-      ansible_password: 'password' 
-      ansible_connection: ssh
-      ansible_ssh_pass: '{{ ansible_password }}'
-      ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PubkeyAuthentication=no'
-    switch2:
-      ansible_host: 10.10.1.5
-      ansible_user: admin
-      ansible_password: 'password'
-      ansible_connection: ssh
-      ansible_ssh_pass: '{{ ansible_password }}'
-      ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PubkeyAuthentication=no'
-    switch3:
-      ansible_host: 10.10.1.24
-      ansible_user: admin
-      ansible_password: 'password'
-      ansible_connection: ssh
-      ansible_ssh_pass: '{{ ansible_password }}'
-      ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PubkeyAuthentication=no'
-    switch4:
-      ansible_host: 10.10.1.6
-      ansible_user: admin
-      ansible_password: 'password'
-      ansible_connection: ssh
-      ansible_ssh_pass: '{{ ansible_password }}'
-      ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PubkeyAuthentication=no'
-    switch5:
-      ansible_host: 10.10.1.8
-      ansible_user: admin
-      ansible_password: 'password'
-      ansible_connection: ssh
-      ansible_ssh_pass: '{{ ansible_password }}'
-      ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PubkeyAuthentication=no'
+  children:
+    switches:
+      hosts:
+        switch1:
+          ansible_host: 10.10.1.7
+        switch2:
+          ansible_host: 10.10.1.5
+        switch3:
+          ansible_host: 10.10.1.24
+        switch4:
+          ansible_host: 10.10.1.6
+        switch5:
+          ansible_host: 10.10.1.8
+      vars:
+        ansible_user: admin
+        ansible_password: 'password'  
+        ansible_connection: network_cli
+        ansible_network_os: generic
+        ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
