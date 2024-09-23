@@ -1,14 +1,9 @@
 ---
-- name: Create Local-Admin user on ExtremeXOS switches
-  hosts: switches
+- name: Create Local-Admin user on ExtremeXOS switches using raw module
+  hosts: all
   gather_facts: no
-  collections:
-    - extremenetworks.exos
-  vars:
-    exos_username: "Local-Admin"
-    exos_password: "WGU123"
   tasks:
     - name: Create Local-Admin user with admin privileges
-      exos_config:
-        lines:
-          - create account {{ exos_username }} password {{ exos_password }} privilege 15
+      raw: |
+        create account Local-Admin password WGU123 privilege 15
+        save configuration
