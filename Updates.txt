@@ -1,197 +1,27 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~$ cd Desktop/Project/
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ls
-AddandConfigVLAN.py     IdentifyVLAN.py       UserCreation.yaml
-AnsibleInventory.yaml   Inventory.yaml        VerifyVLAN.py
-createUserAccount.yaml  switchInventory.yaml  VLANIdent.py
-CreateUserInventory.py  switchPlaybook.yaml
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ rm switchInventory.yaml switchPlaybook.yaml 
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ls
-AddandConfigVLAN.py     CreateUserInventory.py  UserCreation.yaml
-AnsibleInventory.yaml   IdentifyVLAN.py         VerifyVLAN.py
-createUserAccount.yaml  Inventory.yaml          VLANIdent.py
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible -i switchInventory.yaml switches -m exos_command -a "commands=show version"
-ERROR! this task 'exos_command' has extra params, which is only allowed in the following modules: win_command, ansible.builtin.add_host, ansible.legacy.win_shell, ansible.legacy.include_role, meta, ansible.legacy.add_host, ansible.legacy.import_role, ansible.builtin.script, include_role, ansible.legacy.command, win_shell, ansible.builtin.include_vars, ansible.builtin.raw, raw, ansible.legacy.include, ansible.builtin.include_tasks, import_role, ansible.windows.win_shell, ansible.builtin.shell, ansible.windows.win_command, import_tasks, command, ansible.builtin.import_tasks, include_vars, script, group_by, ansible.legacy.raw, add_host, ansible.legacy.import_tasks, ansible.legacy.meta, ansible.builtin.group_by, ansible.legacy.script, ansible.legacy.win_command, ansible.legacy.shell, ansible.legacy.include_tasks, set_fact, ansible.builtin.include_role, shell, ansible.builtin.command, ansible.builtin.include, ansible.builtin.meta, include_tasks, ansible.builtin.import_role, ansible.legacy.set_fact, ansible.builtin.set_fact, ansible.legacy.group_by, include, ansible.legacy.include_vars, ansible.builtin.win_shell, ansible.builtin.win_command
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ pip uninstall ansible ansible-base ansible-core -y
-Found existing installation: ansible 6.7.0
-Uninstalling ansible-6.7.0:
-ERROR: Exception:
-Traceback (most recent call last):
-  File "/usr/lib/python3.8/shutil.py", line 791, in move
-    os.rename(src, real_dst)
-PermissionError: [Errno 13] Permission denied: '/usr/local/bin/ansible-community' -> '/tmp/pip-uninstall-3ptbsp88/ansible-community'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/pip/_internal/cli/base_command.py", line 186, in _main
-    status = self.run(options, args)
-  File "/usr/lib/python3/dist-packages/pip/_internal/commands/uninstall.py", line 78, in run
-    uninstall_pathset = req.uninstall(
-  File "/usr/lib/python3/dist-packages/pip/_internal/req/req_install.py", line 687, in uninstall
-    uninstalled_pathset.remove(auto_confirm, verbose)
-  File "/usr/lib/python3/dist-packages/pip/_internal/req/req_uninstall.py", line 394, in remove
-    moved.stash(path)
-  File "/usr/lib/python3/dist-packages/pip/_internal/req/req_uninstall.py", line 283, in stash
-    renames(path, new_path)
-  File "/usr/lib/python3/dist-packages/pip/_internal/utils/misc.py", line 334, in renames
-    shutil.move(old, new)
-  File "/usr/lib/python3.8/shutil.py", line 812, in move
-    os.unlink(src)
-PermissionError: [Errno 13] Permission denied: '/usr/local/bin/ansible-community'
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ nano pip uninstall ansible ansible-base ansible-core -y
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ nano pip uninstall ansible ansible-base ansible-core -y
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ sudo pip uninstall ansible ansible-base ansible-core -y
-[sudo] password for student: 
-Found existing installation: ansible 6.7.0
-Uninstalling ansible-6.7.0:
-  Successfully uninstalled ansible-6.7.0
-WARNING: Skipping ansible-base as it is not installed.
-Found existing installation: ansible-core 2.13.13
-Uninstalling ansible-core-2.13.13:
-  Successfully uninstalled ansible-core-2.13.13
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ pip install ansible==2.14.5
-ERROR: Could not find a version that satisfies the requirement ansible==2.14.5 (from versions: 1.0, 1.1, 1.2, 1.2.1, 1.2.2, 1.2.3, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.4, 1.4.1, 1.4.2, 1.4.3, 1.4.4, 1.4.5, 1.5, 1.5.1, 1.5.2, 1.5.3, 1.5.4, 1.5.5, 1.6, 1.6.1, 1.6.2, 1.6.3, 1.6.4, 1.6.5, 1.6.6, 1.6.7, 1.6.8, 1.6.9, 1.6.10, 1.7, 1.7.1, 1.7.2, 1.8, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.9.0.1, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.9.5, 1.9.6, 2.0.0.0, 2.0.0.1, 2.0.0.2, 2.0.1.0, 2.0.2.0, 2.1.0.0, 2.1.1.0, 2.1.2.0, 2.1.3.0, 2.1.4.0, 2.1.5.0, 2.1.6.0, 2.2.0.0, 2.2.1.0, 2.2.2.0, 2.2.3.0, 2.3.0.0, 2.3.1.0, 2.3.2.0, 2.3.3.0, 2.4.0.0, 2.4.1.0, 2.4.2.0, 2.4.3.0, 2.4.4.0, 2.4.5.0, 2.4.6.0, 2.5.0a1, 2.5.0b1, 2.5.0b2, 2.5.0rc1, 2.5.0rc2, 2.5.0rc3, 2.5.0, 2.5.1, 2.5.2, 2.5.3, 2.5.4, 2.5.5, 2.5.6, 2.5.7, 2.5.8, 2.5.9, 2.5.10, 2.5.11, 2.5.12, 2.5.13, 2.5.14, 2.5.15, 2.6.0a1, 2.6.0a2, 2.6.0rc1, 2.6.0rc2, 2.6.0rc3, 2.6.0rc4, 2.6.0rc5, 2.6.0, 2.6.1, 2.6.2, 2.6.3, 2.6.4, 2.6.5, 2.6.6, 2.6.7, 2.6.8, 2.6.9, 2.6.10, 2.6.11, 2.6.12, 2.6.13, 2.6.14, 2.6.15, 2.6.16, 2.6.17, 2.6.18, 2.6.19, 2.6.20, 2.7.0.dev0, 2.7.0a1, 2.7.0b1, 2.7.0rc1, 2.7.0rc2, 2.7.0rc3, 2.7.0rc4, 2.7.0, 2.7.1, 2.7.2, 2.7.3, 2.7.4, 2.7.5, 2.7.6, 2.7.7, 2.7.8, 2.7.9, 2.7.10, 2.7.11, 2.7.12, 2.7.13, 2.7.14, 2.7.15, 2.7.16, 2.7.17, 2.7.18, 2.8.0a1, 2.8.0b1, 2.8.0rc1, 2.8.0rc2, 2.8.0rc3, 2.8.0, 2.8.1, 2.8.2, 2.8.3, 2.8.4, 2.8.5, 2.8.6, 2.8.7, 2.8.8, 2.8.9, 2.8.10, 2.8.11, 2.8.12, 2.8.13, 2.8.14, 2.8.15, 2.8.16rc1, 2.8.16, 2.8.17rc1, 2.8.17, 2.8.18rc1, 2.8.18, 2.8.19rc1, 2.8.19, 2.8.20rc1, 2.8.20, 2.9.0b1, 2.9.0rc1, 2.9.0rc2, 2.9.0rc3, 2.9.0rc4, 2.9.0rc5, 2.9.0, 2.9.1, 2.9.2, 2.9.3, 2.9.4, 2.9.5, 2.9.6, 2.9.7, 2.9.8, 2.9.9, 2.9.10, 2.9.11, 2.9.12, 2.9.13, 2.9.14rc1, 2.9.14, 2.9.15rc1, 2.9.15, 2.9.16rc1, 2.9.16, 2.9.17rc1, 2.9.17, 2.9.18rc1, 2.9.18, 2.9.19rc1, 2.9.19, 2.9.20rc1, 2.9.20, 2.9.21rc1, 2.9.21, 2.9.22rc1, 2.9.22, 2.9.23rc1, 2.9.23, 2.9.24rc1, 2.9.24, 2.9.25rc1, 2.9.25, 2.9.26rc1, 2.9.26, 2.9.27rc1, 2.9.27, 2.10.0a1, 2.10.0a2, 2.10.0a3, 2.10.0a4, 2.10.0a5, 2.10.0a6, 2.10.0a7, 2.10.0a8, 2.10.0a9, 2.10.0b1, 2.10.0b2, 2.10.0rc1, 2.10.0, 2.10.1, 2.10.2, 2.10.3, 2.10.4, 2.10.5, 2.10.6, 2.10.7, 3.0.0b1, 3.0.0rc1, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.4.0, 4.0.0a1, 4.0.0a2, 4.0.0a3, 4.0.0a4, 4.0.0b1, 4.0.0b2, 4.0.0rc1, 4.0.0, 4.1.0, 4.2.0, 4.3.0, 4.4.0, 4.5.0, 4.6.0, 4.7.0, 4.8.0, 4.9.0, 4.10.0, 5.0.0a1, 5.0.0a2, 5.0.0a3, 5.0.0b1, 5.0.0b2, 5.0.0rc1, 5.0.1, 5.1.0, 5.2.0, 5.3.0, 5.4.0, 5.5.0, 5.6.0, 5.7.0, 5.7.1, 5.8.0, 5.9.0, 5.10.0, 6.0.0a1, 6.0.0a2, 6.0.0a3, 6.0.0b1, 6.0.0b2, 6.0.0rc1, 6.0.0, 6.1.0, 6.2.0, 6.3.0, 6.4.0, 6.5.0, 6.6.0, 6.7.0, 9.0.0a1, 9.0.0a2, 9.0.0a3, 9.0.0b1, 9.0.0rc1, 9.0.0)
-ERROR: No matching distribution found for ansible==2.14.5
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ sudo pip install ansible
-Collecting ansible
-  Using cached ansible-6.7.0-py3-none-any.whl (42.8 MB)
-Collecting ansible-core~=2.13.7
-  Using cached ansible_core-2.13.13-py3-none-any.whl (2.1 MB)
-Requirement already satisfied: resolvelib<0.9.0,>=0.5.3 in /usr/local/lib/python3.8/dist-packages (from ansible-core~=2.13.7->ansible) (0.8.1)
-Requirement already satisfied: cryptography in /usr/local/lib/python3.8/dist-packages (from ansible-core~=2.13.7->ansible) (40.0.2)
-Requirement already satisfied: packaging in /usr/local/lib/python3.8/dist-packages (from ansible-core~=2.13.7->ansible) (24.1)
-Requirement already satisfied: jinja2>=3.0.0 in /usr/local/lib/python3.8/dist-packages (from ansible-core~=2.13.7->ansible) (3.1.4)
-Requirement already satisfied: PyYAML>=5.1 in /usr/lib/python3/dist-packages (from ansible-core~=2.13.7->ansible) (5.3.1)
-Requirement already satisfied: cffi>=1.12 in /usr/local/lib/python3.8/dist-packages (from cryptography->ansible-core~=2.13.7->ansible) (1.15.1)
-Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.8/dist-packages (from jinja2>=3.0.0->ansible-core~=2.13.7->ansible) (2.1.5)
-Requirement already satisfied: pycparser in /usr/local/lib/python3.8/dist-packages (from cffi>=1.12->cryptography->ansible-core~=2.13.7->ansible) (2.21)
-Installing collected packages: ansible-core, ansible
-Successfully installed ansible-6.7.0 ansible-core-2.13.13
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-galaxy collection list
-
-# /usr/local/lib/python3.8/dist-packages/ansible_collections
-Collection                    Version
------------------------------ -------
-amazon.aws                    3.5.0  
-ansible.netcommon             3.1.3  
-ansible.posix                 1.4.0  
-ansible.utils                 2.8.0  
-ansible.windows               1.12.0 
-arista.eos                    5.0.1  
-awx.awx                       21.10.0
-azure.azcollection            1.14.0 
-check_point.mgmt              2.3.0  
-chocolatey.chocolatey         1.3.1  
-cisco.aci                     2.3.0  
-cisco.asa                     3.1.0  
-cisco.dnac                    6.6.1  
-cisco.intersight              1.0.22 
-cisco.ios                     3.3.2  
-cisco.iosxr                   3.3.1  
-cisco.ise                     2.5.9  
-cisco.meraki                  2.13.0 
-cisco.mso                     2.1.0  
-cisco.nso                     1.0.3  
-cisco.nxos                    3.2.0  
-cisco.ucs                     1.8.0  
-cloud.common                  2.1.2  
-cloudscale_ch.cloud           2.2.3  
-community.aws                 3.6.0  
-community.azure               1.1.0  
-community.ciscosmb            1.0.5  
-community.crypto              2.9.0  
-community.digitalocean        1.22.0 
-community.dns                 2.4.2  
-community.docker              2.7.3  
-community.fortios             1.0.0  
-community.general             5.8.3  
-community.google              1.0.0  
-community.grafana             1.5.3  
-community.hashi_vault         3.4.0  
-community.hrobot              1.6.0  
-community.libvirt             1.2.0  
-community.mongodb             1.4.2  
-community.mysql               3.5.1  
-community.network             4.0.2  
-community.okd                 2.2.0  
-community.postgresql          2.3.1  
-community.proxysql            1.4.0  
-community.rabbitmq            1.2.3  
-community.routeros            2.5.0  
-community.sap                 1.0.0  
-community.sap_libs            1.4.0  
-community.skydive             1.0.0  
-community.sops                1.5.0  
-community.vmware              2.10.2 
-community.windows             1.11.1 
-community.zabbix              1.9.0  
-containers.podman             1.10.1 
-cyberark.conjur               1.2.0  
-cyberark.pas                  1.0.14 
-dellemc.enterprise_sonic      1.1.2  
-dellemc.openmanage            5.5.0  
-dellemc.os10                  1.1.1  
-dellemc.os6                   1.0.7  
-dellemc.os9                   1.0.4  
-f5networks.f5_modules         1.21.0 
-fortinet.fortimanager         2.1.7  
-fortinet.fortios              2.2.1  
-frr.frr                       2.0.0  
-gluster.gluster               1.0.2  
-google.cloud                  1.0.2  
-hetzner.hcloud                1.9.0  
-hpe.nimble                    1.1.4  
-ibm.qradar                    2.1.0  
-ibm.spectrum_virtualize       1.10.0 
-infinidat.infinibox           1.3.12 
-infoblox.nios_modules         1.4.1  
-inspur.ispim                  1.2.0  
-inspur.sm                     2.3.0  
-junipernetworks.junos         3.1.0  
-kubernetes.core               2.3.2  
-lowlydba.sqlserver            1.2.0  
-mellanox.onyx                 1.0.0  
-netapp.aws                    21.7.0 
-netapp.azure                  21.10.0
-netapp.cloudmanager           21.21.0
-netapp.elementsw              21.7.0 
-netapp.ontap                  21.24.1
-netapp.storagegrid            21.11.1
-netapp.um_info                21.8.0 
-netapp_eseries.santricity     1.3.1  
-netbox.netbox                 3.9.0  
-ngine_io.cloudstack           2.3.0  
-ngine_io.exoscale             1.0.0  
-ngine_io.vultr                1.1.2  
-openstack.cloud               1.10.0 
-openvswitch.openvswitch       2.1.0  
-ovirt.ovirt                   2.4.1  
-purestorage.flasharray        1.15.0 
-purestorage.flashblade        1.10.0 
-purestorage.fusion            1.2.0  
-sensu.sensu_go                1.13.1 
-servicenow.servicenow         1.0.6  
-splunk.es                     2.1.0  
-t_systems_mms.icinga_director 1.31.4 
-theforeman.foreman            3.7.0  
-vmware.vmware_rest            2.2.0  
-vultr.cloud                   1.3.1  
-vyos.vyos                     3.0.1  
-wti.remote                    1.0.4  
-
-# /home/student/.ansible/collections/ansible_collections
-Collection        Version
------------------ -------
-ansible.netcommon 5.2.0  
-ansible.utils     2.11.0 
-ansible.windows   2.1.0  
-extreme.exos      0.1.1  
-vyos.vyos         5.0.0  
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-galaxy collection install extremenetworks.exos
-Starting galaxy collection install process
-Process install dependency map
-ERROR! Failed to resolve the requested dependencies map. Could not satisfy the following requirements:
-* extremenetworks.exos:* (direct request)
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible -i switchInventory.yaml switches -m extremenetworks.exos.exos_command -a "commands=show version"
-ERROR! this task 'extremenetworks.exos.exos_command' has extra params, which is only allowed in the following modules: script, ansible.builtin.include, ansible.builtin.include_vars, win_command, ansible.builtin.raw, command, ansible.builtin.command, ansible.windows.win_shell, ansible.builtin.group_by, ansible.legacy.include_role, meta, ansible.builtin.include_tasks, ansible.legacy.include_tasks, ansible.builtin.script, ansible.legacy.set_fact, ansible.builtin.win_command, add_host, ansible.legacy.import_tasks, set_fact, group_by, ansible.builtin.meta, ansible.builtin.win_shell, ansible.legacy.win_shell, ansible.legacy.script, ansible.legacy.add_host, import_tasks, ansible.builtin.include_role, ansible.builtin.import_role, ansible.legacy.import_role, win_shell, ansible.legacy.group_by, ansible.legacy.command, ansible.builtin.add_host, ansible.legacy.include, ansible.legacy.include_vars, include_tasks, include_role, include_vars, ansible.legacy.raw, ansible.windows.win_command, ansible.legacy.win_command, ansible.builtin.shell, include, ansible.legacy.shell, ansible.legacy.meta, ansible.builtin.import_tasks, import_role, raw, shell, ansible.builtin.set_fact
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ sudo ansible -i switchInventory.yaml all -m ping
+switch3 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Invalid/incorrect password: Warning: Permanently added '10.10.1.24' (RSA) to the list of known hosts.\r\nPermission denied, please try again.",
+    "unreachable": true
+}
+switch4 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Invalid/incorrect password: Warning: Permanently added '10.10.1.6' (RSA) to the list of known hosts.\r\nPermission denied, please try again.",
+    "unreachable": true
+}
+switch5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Invalid/incorrect password: Warning: Permanently added '10.10.1.8' (RSA) to the list of known hosts.\r\nPermission denied, please try again.",
+    "unreachable": true
+}
+switch1 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Invalid/incorrect password: Warning: Permanently added '10.10.1.7' (RSA) to the list of known hosts.\r\nPermission denied, please try again.",
+    "unreachable": true
+}
+switch2 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Invalid/incorrect password: Warning: Permanently added '10.10.1.5' (RSA) to the list of known hosts.\r\nPermission denied, please try again.",
+    "unreachable": true
+}
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
