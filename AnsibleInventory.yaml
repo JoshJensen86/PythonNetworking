@@ -1,0 +1,106 @@
+all:
+  children:
+    switches:
+      hosts:
+        switch1:
+          ansible_host: 10.10.1.7
+          ansible_user: admin
+          ansible_ssh_pass: ''
+          ansible_connection: network_cli
+          ansible_network_os: extreme.exos.exos
+          ansible_become: yes
+          ansible_become_method: enable
+          ansible_become_pass: ''
+        switch2:
+          ansible_host: 10.10.1.5
+          ansible_user: admin
+          ansible_ssh_pass: ''
+          ansible_connection: network_cli
+          ansible_network_os: extreme.exos.exos
+          ansible_become: yes
+          ansible_become_method: enable
+          ansible_become_pass: ''
+        switch3:
+          ansible_host: 10.10.1.24
+          ansible_user: admin
+          ansible_ssh_pass: ''
+          ansible_connection: network_cli
+          ansible_network_os: extreme.exos.exos
+          ansible_become: yes
+          ansible_become_method: enable
+          ansible_become_pass: ''
+        switch4:
+          ansible_host: 10.10.1.6
+          ansible_user: admin
+          ansible_ssh_pass: ''
+          ansible_connection: network_cli
+          ansible_network_os: extreme.exos.exos
+          ansible_become: yes
+          ansible_become_method: enable
+          ansible_become_pass: ''
+        switch5:
+          ansible_host: 10.10.1.8
+          ansible_user: admin
+          ansible_ssh_pass: ''
+          ansible_connection: network_cli
+          ansible_network_os: extreme.exos.exos
+          ansible_become: yes
+          ansible_become_method: enable
+          ansible_become_pass: ''
+
+    windows_desktops:
+      hosts:
+        workstation1:
+          ansible_host: 10.10.1.35
+          ansible_user: student
+          ansible_password: 'P@ssw0rd'
+          ansible_connection: winrm
+          ansible_port: 5985
+          ansible_winrm_transport: ntlm
+          ansible_winrm_server_cert_validation: ignore
+        workstation2:
+          ansible_host: 10.10.1.36
+          ansible_user: student
+          ansible_password: 'P@ssw0rd'
+          ansible_connection: winrm
+          ansible_port: 5985
+          ansible_winrm_transport: ntlm
+          ansible_winrm_server_cert_validation: ignore
+        workstation3:
+          ansible_host: 10.10.1.43
+          ansible_user: student
+          ansible_password: 'P@ssw0rd'
+          ansible_connection: winrm
+          ansible_port: 5985
+          ansible_winrm_transport: ntlm
+          ansible_winrm_server_cert_validation: ignore
+        workstation4:
+          ansible_host: 10.10.1.29
+          ansible_user: student
+          ansible_password: 'P@ssw0rd'
+          ansible_connection: winrm
+          ansible_port: 5985
+          ansible_winrm_transport: ntlm
+          ansible_winrm_server_cert_validation: ignore
+
+    test_boxes:
+      hosts:
+        test_box_acct:
+          ansible_host: 10.10.1.56
+          ansible_user: student
+          ansible_ssh_pass: 'P@ssw0rd'
+          ansible_connection: ssh
+          ansible_become: yes
+          ansible_become_method: sudo
+          ansible_become_pass: 'P@ssw0rd'
+        test_box_mgmt:
+          ansible_host: 10.10.1.57
+          ansible_user: student
+          ansible_ssh_pass: 'P@ssw0rd'
+          ansible_connection: ssh
+          ansible_become: yes
+          ansible_become_method: sudo
+          ansible_become_pass: 'P@ssw0rd'
+
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
