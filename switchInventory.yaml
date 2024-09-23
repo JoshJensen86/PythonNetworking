@@ -5,7 +5,7 @@ all:
         switch1:
           ansible_host: 10.10.1.7
           ansible_user: admin
-          ansible_password: ''  # Replace with actual password
+          ansible_password: ''
           ansible_connection: ssh
           ansible_ssh_pass: '{{ ansible_password }}'
         switch2:
