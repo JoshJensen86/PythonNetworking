@@ -1,19 +1,362 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i inventory.yaml UserCreation.yaml 
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i AnsibleInventory.yaml createUserAccount.yaml 
 
-PLAY [Create local user accounts on switches, desktops, and test boxes] ********
+PLAY [Create user accounts for Access Closet 1 devices] ************************************************
 
-TASK [Gathering Facts] *********************************************************
-fatal: [workstation1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname workstation1: Temporary failure in name resolution", "unreachable": true}
-fatal: [workstation2]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname workstation2: Temporary failure in name resolution", "unreachable": true}
-fatal: [workstation3]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname workstation3: Temporary failure in name resolution", "unreachable": true}
-fatal: [workstation4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname workstation4: Temporary failure in name resolution", "unreachable": true}
-fatal: [workstation5]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname workstation5: Temporary failure in name resolution", "unreachable": true}
-fatal: [workstation6]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname workstation6: Temporary failure in name resolution", "unreachable": true}
+TASK [Create local admin user on switches] *************************************************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+fatal: [switch1]: FAILED! => {"msg": "template error while templating string: No filter named 'password_hash'.. String: {{ 'WGU123' | password_hash('sha512') }}"}
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+fatal: [switch2]: FAILED! => {"msg": "template error while templating string: No filter named 'password_hash'.. String: {{ 'WGU123' | password_hash('sha512') }}"}
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+fatal: [switch3]: FAILED! => {"msg": "template error while templating string: No filter named 'password_hash'.. String: {{ 'WGU123' | password_hash('sha512') }}"}
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+fatal: [switch4]: FAILED! => {"msg": "template error while templating string: No filter named 'password_hash'.. String: {{ 'WGU123' | password_hash('sha512') }}"}
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+fatal: [switch5]: FAILED! => {"msg": "template error while templating string: No filter named 'password_hash'.. String: {{ 'WGU123' | password_hash('sha512') }}"}
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation1]
+skipping: [workstation2]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation3]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation4]
+skipping: [test_box_acct]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [test_box_mgmt]
 
-PLAY RECAP *********************************************************************
-workstation1               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-workstation2               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-workstation3               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-workstation4               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-workstation5               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-workstation6               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0  
+TASK [Create DesktopUser1 on workstation1] *************************************************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation1]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation2]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation4]
+skipping: [workstation3]
+skipping: [test_box_acct]
+skipping: [test_box_mgmt]
+
+TASK [Create DesktopUser2 on workstation2] *************************************************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation1]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation2]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation3]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation4]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [test_box_acct]
+skipping: [test_box_mgmt]
+
+TASK [Create DesktopUser3 on workstation3] *************************************************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation1]
+skipping: [workstation3]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation2]
+skipping: [test_box_acct]
+skipping: [workstation4]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [test_box_mgmt]
+
+TASK [Create DesktopUser4 on workstation4] *************************************************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation3]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation1]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation2]
+skipping: [workstation4]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [test_box_acct]
+skipping: [test_box_mgmt]
+
+TASK [Create TestUser1 on ACCT_Network (Test_Box_1)] ***************************************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation1]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation2]
+skipping: [workstation4]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [test_box_acct]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation3]
+skipping: [test_box_mgmt]
+
+TASK [Create TestUser2 on MGMT_Network (Test_Box_2)] ***************************************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation2]
+skipping: [workstation1]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation3]
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+skipping: [workstation4]
+skipping: [test_box_acct]
+skipping: [test_box_mgmt]
+
+PLAY RECAP *********************************************************************************************
+switch1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch2                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch3                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch4                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch5                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+test_box_acct              : ok=0    changed=0    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+test_box_mgmt              : ok=0    changed=0    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+workstation1               : ok=0    changed=0    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+workstation2               : ok=0    changed=0    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+workstation3               : ok=0    changed=0    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+workstation4               : ok=0    changed=0    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ^C
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
