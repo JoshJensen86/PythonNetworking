@@ -7,31 +7,31 @@ all:
           ansible_user: admin
           ansible_password: ''
           ansible_connection: network_cli
-          ansible_network_os: extremenetworks.exos.exos
+          ansible_network_os: vyos.vyos.vyos
         switch2:
           ansible_host: 10.10.1.5
           ansible_user: admin
           ansible_password: ''
           ansible_connection: network_cli
-          ansible_network_os: extremenetworks.exos.exos
+          ansible_network_os: vyos.vyos.vyos
         switch3:
           ansible_host: 10.10.1.24
           ansible_user: admin
           ansible_password: ''
           ansible_connection: network_cli
-          ansible_network_os: extremenetworks.exos.exos
+          ansible_network_os: vyos.vyos.vyos
         switch4:
           ansible_host: 10.10.1.6
           ansible_user: admin
           ansible_password: ''
           ansible_connection: network_cli
-          ansible_network_os: extremenetworks.exos.exos
+          ansible_network_os: vyos.vyos.vyos
         switch5:
           ansible_host: 10.10.1.8
           ansible_user: admin
           ansible_password: ''
           ansible_connection: network_cli
-          ansible_network_os: extremenetworks.exos.exos
+          ansible_network_os: vyos.vyos.vyos
 
     windows_desktops:
       hosts:
@@ -40,7 +40,6 @@ all:
           ansible_user: student
           ansible_password: 'P@ssw0rd'
           ansible_connection: winrm
-          ansible_port: 5985
           ansible_winrm_transport: ntlm
           ansible_winrm_server_cert_validation: ignore
         workstation2:
@@ -48,7 +47,6 @@ all:
           ansible_user: student
           ansible_password: 'P@ssw0rd'
           ansible_connection: winrm
-          ansible_port: 5985
           ansible_winrm_transport: ntlm
           ansible_winrm_server_cert_validation: ignore
         workstation3:
@@ -56,7 +54,6 @@ all:
           ansible_user: student
           ansible_password: 'P@ssw0rd'
           ansible_connection: winrm
-          ansible_port: 5985
           ansible_winrm_transport: ntlm
           ansible_winrm_server_cert_validation: ignore
         workstation4:
@@ -64,7 +61,6 @@ all:
           ansible_user: student
           ansible_password: 'P@ssw0rd'
           ansible_connection: winrm
-          ansible_port: 5985
           ansible_winrm_transport: ntlm
           ansible_winrm_server_cert_validation: ignore
 
