@@ -1,3 +1,89 @@
+student@student-Standard-PC-i440FX-PIIX-1996:~$ ssh admin@10.10.1.7
+admin@10.10.1.7's password: 
+ExtremeXOS
+Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
+This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
+==============================================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There has been 1 successful login since last reboot and 0 failed logins since last successful login
+No prior logins by this user since last reboot
+
+
+EXOS-VM.1 # exit
+Connection to 10.10.1.7 closed.
+student@student-Standard-PC-i440FX-PIIX-1996:~$ ssh admin@10.10.1.5
+admin@10.10.1.5's password: 
+ExtremeXOS
+Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
+This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
+==============================================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There has been 1 successful login since last reboot and 0 failed logins since last successful login
+No prior logins by this user since last reboot
+
+
+EXOS-VM.1 # exit
+Connection to 10.10.1.5 closed.
+student@student-Standard-PC-i440FX-PIIX-1996:~$ ssh admin@10.10.1.24
+admin@10.10.1.24's password: 
+ExtremeXOS
+Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
+This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
+==============================================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There has been 1 successful login since last reboot and 0 failed logins since last successful login
+No prior logins by this user since last reboot
+
+
+EXOS-VM.1 # exit
+Connection to 10.10.1.24 closed.
+student@student-Standard-PC-i440FX-PIIX-1996:~$ ssh admin@10.10.1.6
+admin@10.10.1.6's password: 
+ExtremeXOS
+Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
+This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
+==============================================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There has been 1 successful login since last reboot and 0 failed logins since last successful login
+No prior logins by this user since last reboot
+
+
+EXOS-VM.1 # exit
+Connection to 10.10.1.6 closed.
+student@student-Standard-PC-i440FX-PIIX-1996:~$ ssh admin@10.10.1.8
+admin@10.10.1.8's password: 
+ExtremeXOS
+Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
+This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
+==============================================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There has been 1 successful login since last reboot and 0 failed logins since last successful login
+No prior logins by this user since last reboot
+
+
+EXOS-VM.1 # exit
+Connection to 10.10.1.8 closed.
+student@student-Standard-PC-i440FX-PIIX-1996:~$ cd Desktop/Project/
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i switchInventory.yaml switchPlaybook.yaml -vvv
 ansible-playbook 2.9.6
   config file = /etc/ansible/ansible.cfg
@@ -8,57 +94,62 @@ ansible-playbook 2.9.6
 Using /etc/ansible/ansible.cfg as config file
 host_list declined parsing /home/student/Desktop/Project/switchInventory.yaml as it did not pass its verify_file() method
 script declined parsing /home/student/Desktop/Project/switchInventory.yaml as it did not pass its verify_file() method
-toml declined parsing /home/student/Desktop/Project/switchInventory.yaml as it did not pass its verify_file() method
-[WARNING]:  * Failed to parse
-/home/student/Desktop/Project/switchInventory.yaml with auto plugin: Syntax
-Error while loading YAML.   found unexpected end of stream  The error appears
-to be in '/home/student/Desktop/Project/switchInventory.yaml': line 40, column
-1, but may be elsewhere in the file depending on the exact syntax problem.
-(specified line no longer in file, maybe it changed?)
-  File "/usr/lib/python3/dist-packages/ansible/inventory/manager.py", line 280, in parse_source
-    plugin.parse(self._inventory, self._loader, source, cache=cache)
-  File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/auto.py", line 40, in parse
-    config_data = loader.load_from_file(path, cache=False)
-  File "/usr/lib/python3/dist-packages/ansible/parsing/dataloader.py", line 89, in load_from_file
-    parsed_data = self.load(data=file_data, file_name=file_name, show_content=show_content)
-  File "/usr/lib/python3/dist-packages/ansible/parsing/dataloader.py", line 72, in load
-    return from_yaml(data, file_name, show_content, self._vault.secrets)
-  File "/usr/lib/python3/dist-packages/ansible/parsing/utils/yaml.py", line 76, in from_yaml
-    _handle_error(yaml_exc, file_name, show_content)
-  File "/usr/lib/python3/dist-packages/ansible/parsing/utils/yaml.py", line 41, in _handle_error
-    raise AnsibleParserError(YAML_SYNTAX_ERROR % to_native(err_msg), obj=err_obj, show_content=show_content, orig_exc=yaml_exc)
-[WARNING]:  * Failed to parse
-/home/student/Desktop/Project/switchInventory.yaml with yaml plugin: Syntax
-Error while loading YAML.   found unexpected end of stream  The error appears
-to be in '/home/student/Desktop/Project/switchInventory.yaml': line 40, column
-1, but may be elsewhere in the file depending on the exact syntax problem.
-(specified line no longer in file, maybe it changed?)
-  File "/usr/lib/python3/dist-packages/ansible/inventory/manager.py", line 280, in parse_source
-    plugin.parse(self._inventory, self._loader, source, cache=cache)
-  File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/yaml.py", line 105, in parse
-    raise AnsibleParserError(e)
-[WARNING]:  * Failed to parse
-/home/student/Desktop/Project/switchInventory.yaml with ini plugin: Invalid
-host pattern 'all:' supplied, ending in ':' is not allowed, this character is
-reserved to provide a port.
-  File "/usr/lib/python3/dist-packages/ansible/inventory/manager.py", line 280, in parse_source
-    plugin.parse(self._inventory, self._loader, source, cache=cache)
-  File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/ini.py", line 138, in parse
-    raise AnsibleParserError(e)
-[WARNING]: Unable to parse /home/student/Desktop/Project/switchInventory.yaml
-as an inventory source
-[WARNING]: No inventory was parsed, only implicit localhost is available
-[WARNING]: provided hosts list is empty, only localhost is available. Note that
-the implicit localhost does not match 'all'
+Parsed /home/student/Desktop/Project/switchInventory.yaml inventory source with yaml plugin
 
 PLAYBOOK: switchPlaybook.yaml **************************************************
 1 plays in switchPlaybook.yaml
-[WARNING]: Could not match supplied host pattern, ignoring: switches
 
 PLAY [Create Local-Admin user on VyOS switches using raw module] ***************
-skipping: no hosts matched
+META: ran handlers
+
+TASK [Enter configuration mode] ************************************************
+task path: /home/student/Desktop/Project/switchPlaybook.yaml:9
+<10.10.1.7> ESTABLISH SSH CONNECTION FOR USER: admin
+<10.10.1.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ControlPath=/home/student/.ansible/cp/5634475755 -tt 10.10.1.7 configure
+<10.10.1.5> ESTABLISH SSH CONNECTION FOR USER: admin
+<10.10.1.8> ESTABLISH SSH CONNECTION FOR USER: admin
+<10.10.1.5> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ControlPath=/home/student/.ansible/cp/eace7eaa4d -tt 10.10.1.5 configure
+<10.10.1.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ControlPath=/home/student/.ansible/cp/65fbc20206 -tt 10.10.1.8 configure
+<10.10.1.24> ESTABLISH SSH CONNECTION FOR USER: admin
+<10.10.1.24> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ControlPath=/home/student/.ansible/cp/9b06d0f924 -tt 10.10.1.24 configure
+<10.10.1.6> ESTABLISH SSH CONNECTION FOR USER: admin
+<10.10.1.6> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ControlPath=/home/student/.ansible/cp/d4345871f3 -tt 10.10.1.6 configure
+<10.10.1.24> (255, b'', b'admin@10.10.1.24: Permission denied (publickey,password).\r\n')
+fatal: [switch3]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: admin@10.10.1.24: Permission denied (publickey,password).",
+    "unreachable": true
+}
+<10.10.1.5> (255, b'', b'ssh: connect to host 10.10.1.5 port 22: Connection timed out\r\n')
+<10.10.1.7> (255, b'', b'ssh: connect to host 10.10.1.7 port 22: Connection timed out\r\n')
+fatal: [switch2]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.1.5 port 22: Connection timed out",
+    "unreachable": true
+}
+fatal: [switch1]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.1.7 port 22: Connection timed out",
+    "unreachable": true
+}
+<10.10.1.8> (255, b'', b'ssh: connect to host 10.10.1.8 port 22: Connection timed out\r\n')
+fatal: [switch5]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.1.8 port 22: Connection timed out",
+    "unreachable": true
+}
+<10.10.1.6> (255, b'', b'ssh: connect to host 10.10.1.6 port 22: Connection timed out\r\n')
+fatal: [switch4]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.1.6 port 22: Connection timed out",
+    "unreachable": true
+}
 
 PLAY RECAP *********************************************************************
+switch1                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch2                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch3                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch4                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch5                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ^C
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
