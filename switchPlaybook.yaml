@@ -1,0 +1,19 @@
+---
+- name: Create Local-Admin user on VyOS switches
+  hosts: switches
+  gather_facts: no
+  collections:
+    - vyos.vyos
+  vars:
+    vyos_username: "Local-Admin"
+    vyos_password: "WGU123"
+  tasks:
+    - name: Create Local-Admin user with admin privileges
+      vyos_config:
+        lines:
+          - set system login user {{ vyos_username }} authentication plaintext-password {{ vyos_password }}
+          - set system login user {{ vyos_username }} level admin
+
+    - name: Save configuration on VyOS switches
+      vyos_config:
+        save: yes
