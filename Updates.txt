@@ -1,69 +1,79 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i switchInventory.yaml.yaml switchPlaybook.yaml 
-[WARNING]: Unable to parse /home/student/Desktop/Project/switchInventory.yaml.yaml as an inventory
-source
-[WARNING]: No inventory was parsed, only implicit localhost is available
-[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost
-does not match 'all'
-[WARNING]: Could not match supplied host pattern, ignoring: switches
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i switchInventory.yaml switchPlaybook.yaml 
 
 PLAY [Create Local-Admin user on VyOS switches] ********************************************************
-skipping: no hosts matched
+
+TASK [Create Local-Admin user with admin privileges] ***************************************************
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
+to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
+seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
+(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
+[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host switch2 should use /usr/bin/python3, but is 
+using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release 
+will default to using the discovered platform python for this host. See 
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more 
+information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+fatal: [switch2]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unsupported parameters for (ansible.netcommon.cli_config) module: save_when Supported parameters include: backup, backup_options, commit, commit_comment, config, defaults, diff_ignore_lines, diff_match, diff_replace, multiline_delimiter, replace, rollback"}
+[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host switch4 should use /usr/bin/python3, but is 
+using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release 
+will default to using the discovered platform python for this host. See 
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more 
+information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+fatal: [switch4]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unsupported parameters for (ansible.netcommon.cli_config) module: save_when Supported parameters include: backup, backup_options, commit, commit_comment, config, defaults, diff_ignore_lines, diff_match, diff_replace, multiline_delimiter, replace, rollback"}
+[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host switch3 should use /usr/bin/python3, but is 
+using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release 
+will default to using the discovered platform python for this host. See 
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more 
+information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+fatal: [switch3]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unsupported parameters for (ansible.netcommon.cli_config) module: save_when Supported parameters include: backup, backup_options, commit, commit_comment, config, defaults, diff_ignore_lines, diff_match, diff_replace, multiline_delimiter, replace, rollback"}
+[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host switch5 should use /usr/bin/python3, but is 
+using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release 
+will default to using the discovered platform python for this host. See 
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more 
+information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+fatal: [switch5]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unsupported parameters for (ansible.netcommon.cli_config) module: save_when Supported parameters include: backup, backup_options, commit, commit_comment, config, defaults, diff_ignore_lines, diff_match, diff_replace, multiline_delimiter, replace, rollback"}
+[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host switch1 should use /usr/bin/python3, but is 
+using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release 
+will default to using the discovered platform python for this host. See 
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more 
+information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+fatal: [switch1]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unsupported parameters for (ansible.netcommon.cli_config) module: save_when Supported parameters include: backup, backup_options, commit, commit_comment, config, defaults, diff_ignore_lines, diff_match, diff_replace, multiline_delimiter, replace, rollback"}
 
 PLAY RECAP *********************************************************************************************
+switch1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch2                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch3                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch4                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch5                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
 
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ cat switchInventory.yaml 
-all:
-  children:
-    switches:
-      hosts:
-        switch1:
-          ansible_host: 10.10.1.7
-          ansible_user: vyos
-          ansible_password: 'vyos_password'
-          ansible_connection: network_cli
-          ansible_network_os: vyos.vyos.vyos
-        switch2:
-          ansible_host: 10.10.1.5
-          ansible_user: vyos
-          ansible_password: 'vyos_password'
-          ansible_connection: network_cli
-          ansible_network_os: vyos.vyos.vyos
-        switch3:
-          ansible_host: 10.10.1.24
-          ansible_user: vyos
-          ansible_password: 'vyos_password'
-          ansible_connection: network_cli
-          ansible_network_os: vyos.vyos.vyos
-        switch4:
-          ansible_host: 10.10.1.6
-          ansible_user: vyos
-          ansible_password: 'vyos_password'
-          ansible_connection: network_cli
-          ansible_network_os: vyos.vyos.vyos
-        switch5:
-          ansible_host: 10.10.1.8
-          ansible_user: vyos
-          ansible_password: 'vyos_password'
-          ansible_connection: network_cli
-          ansible_network_os: vyos.vyos.vyos
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ cat switchPlaybook.yaml 
----
-- name: Create Local-Admin user on VyOS switches
-  hosts: switches
-  gather_facts: no
-  collections:
-    - vyos.vyos
-  vars:
-    vyos_username: "Local-Admin"
-    vyos_password: "WGU123"
-  tasks:
-    - name: Create Local-Admin user with admin privileges
-      vyos_config:
-        lines:
-          - set system login user {{ vyos_username }} authentication plaintext-password {{ vyos_password }}
-          - set system login user {{ vyos_username }} level admin
-
-    - name: Save configuration on VyOS switches
-      vyos_config:
-        save: yes
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
