@@ -1,239 +1,69 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i Ansible Inventory.yaml UserCreation.yaml 
-[WARNING]: Unable to parse /home/student/Desktop/Project/Ansible as an inventory source
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i switchInventory.yaml.yaml switchPlaybook.yaml 
+[WARNING]: Unable to parse /home/student/Desktop/Project/switchInventory.yaml.yaml as an inventory
+source
 [WARNING]: No inventory was parsed, only implicit localhost is available
 [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost
 does not match 'all'
-ERROR! A playbook must be a list of plays, got a <class 'ansible.parsing.yaml.objects.AnsibleMapping'> instead
+[WARNING]: Could not match supplied host pattern, ignoring: switches
 
-The error appears to be in '/home/student/Desktop/Project/Inventory.yaml': line 1, column 1, but may
-be elsewhere in the file depending on the exact syntax problem.
-
-The offending line appears to be:
-
-
-all:
-^ here
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i AnsibleInventory.yaml UserCreation.yaml 
-
-PLAY [Create user accounts on switches, desktops, and test boxes] **************************************
-
-TASK [Create Local-Admin user on VyOS switches] ********************************************************
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-fatal: [switch2]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-skipping: [workstation1]
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-fatal: [switch1]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
-skipping: [workstation2]
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-skipping: [workstation3]
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-fatal: [switch4]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-fatal: [switch3]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
-skipping: [workstation4]
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-skipping: [test_box_acct]
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-skipping: [test_box_mgmt]
-fatal: [switch5]: FAILED! => {"changed": false, "msg": "Internal error"}
-
-TASK [Save configuration on VyOS switches] *************************************************************
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-skipping: [workstation4]
-skipping: [workstation1]
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-skipping: [workstation2]
-skipping: [workstation3]
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-skipping: [test_box_acct]
-skipping: [test_box_mgmt]
-
-TASK [Create DesktopUsers on Windows desktops] *********************************************************
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-skipping: [test_box_acct] => (item=DesktopUser1) 
-skipping: [test_box_acct] => (item=DesktopUser2) 
-skipping: [test_box_acct] => (item=DesktopUser3) 
-skipping: [test_box_acct] => (item=DesktopUser4) 
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-skipping: [test_box_mgmt] => (item=DesktopUser1) 
-skipping: [test_box_mgmt] => (item=DesktopUser2) 
-skipping: [test_box_mgmt] => (item=DesktopUser3) 
-skipping: [test_box_mgmt] => (item=DesktopUser4) 
-failed: [workstation4] (item=DesktopUser1) => {"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05cd400>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation2] (item=DesktopUser1) => {"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05c3b50>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation1] (item=DesktopUser1) => {"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05c65b0>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation3] (item=DesktopUser1) => {"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05ca1f0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation4] (item=DesktopUser2) => {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f0508250>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation2] (item=DesktopUser2) => {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05cd460>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation1] (item=DesktopUser2) => {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f04fa490>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation3] (item=DesktopUser2) => {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05cd790>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation4] (item=DesktopUser3) => {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f050b160>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation2] (item=DesktopUser3) => {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f050cb20>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation3] (item=DesktopUser3) => {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f050fac0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation1] (item=DesktopUser3) => {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f050aac0>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}
-failed: [workstation4] (item=DesktopUser4) => {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05c19d0>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}
-fatal: [workstation4]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05cd400>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f0508250>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f050b160>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05c19d0>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}]}
-failed: [workstation2] (item=DesktopUser4) => {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05172b0>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}
-fatal: [workstation2]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05c3b50>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05cd460>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f050cb20>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05172b0>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}]}
-failed: [workstation3] (item=DesktopUser4) => {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f0516670>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
-fatal: [workstation3]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05ca1f0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05cd790>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f050fac0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f0516670>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}]}
-failed: [workstation1] (item=DesktopUser4) => {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05162b0>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}
-fatal: [workstation1]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05c65b0>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f04fa490>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f050aac0>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f86f05162b0>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}]}
-
-TASK [Create Test Users on Linux Test Boxes] ***********************************************************
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-fatal: [test_box_acct]: FAILED! => {"msg": "template error while templating string: No filter named 'password_hash'.. String: {{ 'WGU123' | password_hash('sha512') }}"}
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-skipping: [test_box_mgmt] => (item={'name': 'TestUser1', 'host': 'test_box_acct'}) 
-fatal: [test_box_mgmt]: FAILED! => {"msg": "template error while templating string: No filter named 'password_hash'.. String: {{ 'WGU123' | password_hash('sha512') }}"}
+PLAY [Create Local-Admin user on VyOS switches] ********************************************************
+skipping: no hosts matched
 
 PLAY RECAP *********************************************************************************************
-switch1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch2                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch3                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch4                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch5                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-test_box_acct              : ok=0    changed=0    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   
-test_box_mgmt              : ok=0    changed=0    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   
-workstation1               : ok=0    changed=0    unreachable=1    failed=0    skipped=2    rescued=0    ignored=0   
-workstation2               : ok=0    changed=0    unreachable=1    failed=0    skipped=2    rescued=0    ignored=0   
-workstation3               : ok=0    changed=0    unreachable=1    failed=0    skipped=2    rescued=0    ignored=0   
-workstation4               : ok=0    changed=0    unreachable=1    failed=0    skipped=2    rescued=0    ignored=0   
 
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ cat switchInventory.yaml 
+all:
+  children:
+    switches:
+      hosts:
+        switch1:
+          ansible_host: 10.10.1.7
+          ansible_user: vyos
+          ansible_password: 'vyos_password'
+          ansible_connection: network_cli
+          ansible_network_os: vyos.vyos.vyos
+        switch2:
+          ansible_host: 10.10.1.5
+          ansible_user: vyos
+          ansible_password: 'vyos_password'
+          ansible_connection: network_cli
+          ansible_network_os: vyos.vyos.vyos
+        switch3:
+          ansible_host: 10.10.1.24
+          ansible_user: vyos
+          ansible_password: 'vyos_password'
+          ansible_connection: network_cli
+          ansible_network_os: vyos.vyos.vyos
+        switch4:
+          ansible_host: 10.10.1.6
+          ansible_user: vyos
+          ansible_password: 'vyos_password'
+          ansible_connection: network_cli
+          ansible_network_os: vyos.vyos.vyos
+        switch5:
+          ansible_host: 10.10.1.8
+          ansible_user: vyos
+          ansible_password: 'vyos_password'
+          ansible_connection: network_cli
+          ansible_network_os: vyos.vyos.vyos
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ cat switchPlaybook.yaml 
+---
+- name: Create Local-Admin user on VyOS switches
+  hosts: switches
+  gather_facts: no
+  collections:
+    - vyos.vyos
+  vars:
+    vyos_username: "Local-Admin"
+    vyos_password: "WGU123"
+  tasks:
+    - name: Create Local-Admin user with admin privileges
+      vyos_config:
+        lines:
+          - set system login user {{ vyos_username }} authentication plaintext-password {{ vyos_password }}
+          - set system login user {{ vyos_username }} level admin
+
+    - name: Save configuration on VyOS switches
+      vyos_config:
+        save: yes
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
