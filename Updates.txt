@@ -1,35 +1,39 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ssh Local-Admin@10.10.1.7
-Local-Admin@10.10.1.7's password: 
-Permission denied, please try again.
-Local-Admin@10.10.1.7's password: 
-Permission denied, please try again.
-Local-Admin@10.10.1.7's password: 
-Received disconnect from 10.10.1.7 port 22:2: Too many authentication failures
-Disconnected from 10.10.1.7 port 22
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ssh Local-Admin@10.10.1.7
-Local-Admin@10.10.1.7's password: 
-Permission denied, please try again.
-Local-Admin@10.10.1.7's password: 
-
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ssh admin@10.10.1.7
-admin@10.10.1.7's password: 
-Connection closed by 10.10.1.7 port 22
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ls
+AddandConfigVLAN.py     IdentifyVLAN.py       UserCreation.yaml
+AnsibleInventory.yaml   Inventory.yaml        VerifyVLAN.py
+createUserAccount.yaml  switchInventory.yaml  VLANIdent.py
+CreateUserInventory.py  switchPlaybook.yaml
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i switchInventory.yaml switchPlaybook.yaml 
 
-PLAY [Create Local-Admin user on VyOS switches using raw module] ***************************************
+PLAY [Create Local-Admin user on VyOS switches using raw module] ***************
 
-TASK [Enter configuration mode] ************************************************************************
+TASK [Enter configuration mode] ************************************************
 fatal: [switch3]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.24: Permission denied (publickey,password).", "unreachable": true}
 fatal: [switch1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.7: Permission denied (publickey,password).", "unreachable": true}
 fatal: [switch4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.6: Permission denied (publickey,password).", "unreachable": true}
-fatal: [switch5]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.8: Permission denied (publickey,password).", "unreachable": true}
 fatal: [switch2]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.5: Permission denied (publickey,password).", "unreachable": true}
+fatal: [switch5]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.8: Permission denied (publickey,password).", "unreachable": true}
 
-PLAY RECAP *********************************************************************************************
+PLAY RECAP *********************************************************************
 switch1                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 switch2                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 switch3                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 switch4                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 switch5                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ssh admin@10.10.1.8
+admin@10.10.1.8's password: 
+ExtremeXOS
+Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
+This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
+==============================================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There has been 1 successful login since last reboot and 0 failed logins since last successful login
+No prior logins by this user since last reboot
+
+
+EXOS-VM.1 # 
