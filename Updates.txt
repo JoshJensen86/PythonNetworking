@@ -1,55 +1,75 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~$ ssh admin@10.10.1.7
-admin@10.10.1.7's password: 
-ExtremeXOS
-Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
-This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
-==============================================================================
-
-
-Press the <tab> or '?' key at any time for completions.
-Remember to save your configuration changes.
-
-There has been 1 successful login since last reboot and 0 failed logins since last successful login
-No prior logins by this user since last reboot
-
-
-EXOS-VM.1 # exit
-Connection to 10.10.1.7 closed.
-student@student-Standard-PC-i440FX-PIIX-1996:~$ ssh admin@10.10.1.5
-admin@10.10.1.5's password: 
-ExtremeXOS
-Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
-This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
-==============================================================================
-
-
-Press the <tab> or '?' key at any time for completions.
-Remember to save your configuration changes.
-
-There has been 1 successful login since last reboot and 0 failed logins since last successful login
-No prior logins by this user since last reboot
-
-
-EXOS-VM.1 # exit
-Connection to 10.10.1.5 closed.
-student@student-Standard-PC-i440FX-PIIX-1996:~$ ssh admin@10.10.1.24
-admin@10.10.1.24's password: 
-ExtremeXOS
-Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
-This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
-==============================================================================
-
-
-Press the <tab> or '?' key at any time for completions.
-Remember to save your configuration changes.
-
-There has been 1 successful login since last reboot and 0 failed logins since last successful login
-No prior logins by this user since last reboot
-
-
-EXOS-VM.1 # exit
-Connection to 10.10.1.24 closed.
-student@student-Standard-PC-i440FX-PIIX-1996:~$ ssh admin@10.10.1.6
+student@student-Standard-PC-i440FX-PIIX-1996:~$ cd Desktop/Pro
+bash: cd: Desktop/Pro: No such file or directory
+student@student-Standard-PC-i440FX-PIIX-1996:~$ cd Desktop/Project/
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible switches -i switchInventory.yaml switchPlaybook.yaml -vvvv
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD]
+               [--become-user BECOME_USER] [-K] [-i INVENTORY] [--list-hosts]
+               [-l SUBSET] [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [-k]
+               [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT]
+               [--ssh-common-args SSH_COMMON_ARGS]
+               [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS]
+               [--ssh-extra-args SSH_EXTRA_ARGS] [-C] [--syntax-check] [-D]
+               [-e EXTRA_VARS] [--vault-id VAULT_IDS]
+               [--ask-vault-pass | --vault-password-file VAULT_PASSWORD_FILES]
+               [-f FORKS] [-M MODULE_PATH] [--playbook-dir BASEDIR]
+               [-a MODULE_ARGS] [-m MODULE_NAME]
+               pattern
+ansible: error: unrecognized arguments: switchPlaybook.yaml
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible switches -i switchInventory.yaml -m raw -a 'show version' -vvv
+ansible 2.9.6
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.8.10 (default, Sep 11 2024, 16:02:53) [GCC 9.4.0]
+Using /etc/ansible/ansible.cfg as config file
+host_list declined parsing /home/student/Desktop/Project/switchInventory.yaml as it did not pass its verify_file() method
+script declined parsing /home/student/Desktop/Project/switchInventory.yaml as it did not pass its verify_file() method
+Parsed /home/student/Desktop/Project/switchInventory.yaml inventory source with yaml plugin
+META: ran handlers
+<10.10.1.6> ESTABLISH SSH CONNECTION FOR USER: admin
+<10.10.1.24> ESTABLISH SSH CONNECTION FOR USER: admin
+<10.10.1.24> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=password -o PubkeyAuthentication=no -o KbdInteractiveAuthentication=yes -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=60 -o ControlPath=/home/student/.ansible/cp/9b06d0f924 -tt 10.10.1.24 'show version'
+<10.10.1.7> ESTABLISH SSH CONNECTION FOR USER: admin
+<10.10.1.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=password -o PubkeyAuthentication=no -o KbdInteractiveAuthentication=yes -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=60 -o ControlPath=/home/student/.ansible/cp/5634475755 -tt 10.10.1.7 'show version'
+<10.10.1.5> ESTABLISH SSH CONNECTION FOR USER: admin
+<10.10.1.5> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=password -o PubkeyAuthentication=no -o KbdInteractiveAuthentication=yes -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=60 -o ControlPath=/home/student/.ansible/cp/eace7eaa4d -tt 10.10.1.5 'show version'
+<10.10.1.6> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=password -o PubkeyAuthentication=no -o KbdInteractiveAuthentication=yes -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=60 -o ControlPath=/home/student/.ansible/cp/d4345871f3 -tt 10.10.1.6 'show version'
+<10.10.1.8> ESTABLISH SSH CONNECTION FOR USER: admin
+<10.10.1.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=password -o PubkeyAuthentication=no -o KbdInteractiveAuthentication=yes -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=60 -o ControlPath=/home/student/.ansible/cp/65fbc20206 -tt 10.10.1.8 'show version'
+<10.10.1.24> (255, b'', b'admin@10.10.1.24: Permission denied (publickey,password).\r\n')
+switch3 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: admin@10.10.1.24: Permission denied (publickey,password).",
+    "unreachable": true
+}
+<10.10.1.5> (255, b'', b'admin@10.10.1.5: Permission denied (publickey,password).\r\n')
+switch2 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: admin@10.10.1.5: Permission denied (publickey,password).",
+    "unreachable": true
+}
+<10.10.1.8> (255, b'', b'admin@10.10.1.8: Permission denied (publickey,password).\r\n')
+switch5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: admin@10.10.1.8: Permission denied (publickey,password).",
+    "unreachable": true
+}
+<10.10.1.7> (255, b'', b'admin@10.10.1.7: Permission denied (publickey,password).\r\n')
+switch1 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: admin@10.10.1.7: Permission denied (publickey,password).",
+    "unreachable": true
+}
+<10.10.1.6> (255, b'', b'admin@10.10.1.6: Permission denied (publickey,password).\r\n')
+switch4 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: admin@10.10.1.6: Permission denied (publickey,password).",
+    "unreachable": true
+}
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ssh admin@10.10.1.6
 admin@10.10.1.6's password: 
 ExtremeXOS
 Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
@@ -64,92 +84,4 @@ There has been 1 successful login since last reboot and 0 failed logins since la
 No prior logins by this user since last reboot
 
 
-EXOS-VM.1 # exit
-Connection to 10.10.1.6 closed.
-student@student-Standard-PC-i440FX-PIIX-1996:~$ ssh admin@10.10.1.8
-admin@10.10.1.8's password: 
-ExtremeXOS
-Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
-This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
-==============================================================================
-
-
-Press the <tab> or '?' key at any time for completions.
-Remember to save your configuration changes.
-
-There has been 1 successful login since last reboot and 0 failed logins since last successful login
-No prior logins by this user since last reboot
-
-
-EXOS-VM.1 # exit
-Connection to 10.10.1.8 closed.
-student@student-Standard-PC-i440FX-PIIX-1996:~$ cd Desktop/Project/
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i switchInventory.yaml switchPlaybook.yaml -vvv
-ansible-playbook 2.9.6
-  config file = /etc/ansible/ansible.cfg
-  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/lib/python3/dist-packages/ansible
-  executable location = /usr/bin/ansible-playbook
-  python version = 3.8.10 (default, Sep 11 2024, 16:02:53) [GCC 9.4.0]
-Using /etc/ansible/ansible.cfg as config file
-host_list declined parsing /home/student/Desktop/Project/switchInventory.yaml as it did not pass its verify_file() method
-script declined parsing /home/student/Desktop/Project/switchInventory.yaml as it did not pass its verify_file() method
-Parsed /home/student/Desktop/Project/switchInventory.yaml inventory source with yaml plugin
-
-PLAYBOOK: switchPlaybook.yaml **************************************************
-1 plays in switchPlaybook.yaml
-
-PLAY [Create Local-Admin user on VyOS switches using raw module] ***************
-META: ran handlers
-
-TASK [Enter configuration mode] ************************************************
-task path: /home/student/Desktop/Project/switchPlaybook.yaml:9
-<10.10.1.7> ESTABLISH SSH CONNECTION FOR USER: admin
-<10.10.1.7> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ControlPath=/home/student/.ansible/cp/5634475755 -tt 10.10.1.7 configure
-<10.10.1.5> ESTABLISH SSH CONNECTION FOR USER: admin
-<10.10.1.8> ESTABLISH SSH CONNECTION FOR USER: admin
-<10.10.1.5> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ControlPath=/home/student/.ansible/cp/eace7eaa4d -tt 10.10.1.5 configure
-<10.10.1.8> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ControlPath=/home/student/.ansible/cp/65fbc20206 -tt 10.10.1.8 configure
-<10.10.1.24> ESTABLISH SSH CONNECTION FOR USER: admin
-<10.10.1.24> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ControlPath=/home/student/.ansible/cp/9b06d0f924 -tt 10.10.1.24 configure
-<10.10.1.6> ESTABLISH SSH CONNECTION FOR USER: admin
-<10.10.1.6> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="admin"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ControlPath=/home/student/.ansible/cp/d4345871f3 -tt 10.10.1.6 configure
-<10.10.1.24> (255, b'', b'admin@10.10.1.24: Permission denied (publickey,password).\r\n')
-fatal: [switch3]: UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: admin@10.10.1.24: Permission denied (publickey,password).",
-    "unreachable": true
-}
-<10.10.1.5> (255, b'', b'ssh: connect to host 10.10.1.5 port 22: Connection timed out\r\n')
-<10.10.1.7> (255, b'', b'ssh: connect to host 10.10.1.7 port 22: Connection timed out\r\n')
-fatal: [switch2]: UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.1.5 port 22: Connection timed out",
-    "unreachable": true
-}
-fatal: [switch1]: UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.1.7 port 22: Connection timed out",
-    "unreachable": true
-}
-<10.10.1.8> (255, b'', b'ssh: connect to host 10.10.1.8 port 22: Connection timed out\r\n')
-fatal: [switch5]: UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.1.8 port 22: Connection timed out",
-    "unreachable": true
-}
-<10.10.1.6> (255, b'', b'ssh: connect to host 10.10.1.6 port 22: Connection timed out\r\n')
-fatal: [switch4]: UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.1.6 port 22: Connection timed out",
-    "unreachable": true
-}
-
-PLAY RECAP *********************************************************************
-switch1                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-switch2                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-switch3                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-switch4                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-switch5                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
+* EXOS-VM.1 # 
