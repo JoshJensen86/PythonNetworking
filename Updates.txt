@@ -1,29 +1,35 @@
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ssh Local-Admin@10.10.1.7
+Local-Admin@10.10.1.7's password: 
+Permission denied, please try again.
+Local-Admin@10.10.1.7's password: 
+Permission denied, please try again.
+Local-Admin@10.10.1.7's password: 
+Received disconnect from 10.10.1.7 port 22:2: Too many authentication failures
+Disconnected from 10.10.1.7 port 22
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ssh Local-Admin@10.10.1.7
+Local-Admin@10.10.1.7's password: 
+Permission denied, please try again.
+Local-Admin@10.10.1.7's password: 
+
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ssh admin@10.10.1.7
+admin@10.10.1.7's password: 
+Connection closed by 10.10.1.7 port 22
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i switchInventory.yaml switchPlaybook.yaml 
 
-PLAY [Create Local-Admin user on VyOS switches] ********************************************************
+PLAY [Create Local-Admin user on VyOS switches using raw module] ***************************************
 
 TASK [Enter configuration mode] ************************************************************************
-[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
-[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
-[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
-[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
-[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
-[WARNING]: ansible-pylibssh not installed, falling back to paramiko
-[WARNING]: ansible-pylibssh not installed, falling back to paramiko
-[WARNING]: ansible-pylibssh not installed, falling back to paramiko
-[WARNING]: ansible-pylibssh not installed, falling back to paramiko
-[WARNING]: ansible-pylibssh not installed, falling back to paramiko
-fatal: [switch1]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
-fatal: [switch4]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
-fatal: [switch3]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
-fatal: [switch5]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
-fatal: [switch2]: FAILED! => {"changed": false, "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."}
+fatal: [switch3]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.24: Permission denied (publickey,password).", "unreachable": true}
+fatal: [switch1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.7: Permission denied (publickey,password).", "unreachable": true}
+fatal: [switch4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.6: Permission denied (publickey,password).", "unreachable": true}
+fatal: [switch5]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.8: Permission denied (publickey,password).", "unreachable": true}
+fatal: [switch2]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: admin@10.10.1.5: Permission denied (publickey,password).", "unreachable": true}
 
 PLAY RECAP *********************************************************************************************
-switch1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch2                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch3                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch4                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch5                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch1                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch2                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch3                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch4                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch5                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
