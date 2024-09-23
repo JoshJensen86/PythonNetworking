@@ -3,8 +3,8 @@
   hosts: all
   gather_facts: no
   vars:
-    switch_username: "Local-Admin"
-    switch_password: "WGU123"
+    vyos_username: "Local-Admin"
+    vyos_password: "WGU123"
     desktop_users:
       - "DesktopUser1"
       - "DesktopUser2"
@@ -17,13 +17,28 @@
         host: "test_box_mgmt"
 
   tasks:
-    - name: Create Local-Admin user on EXOS switches
+    - name: Install vyos.vyos collection
+      ansible.builtin.meta: require_collection
+      collections:
+        - vyos.vyos
+
+    - name: Create Local-Admin user on VyOS switches
       when: "'switches' in group_names"
-      extremenetworks.exos.exos_user:
-        username: "{{ switch_username }}"
-        password: "{{ switch_password }}"
-        privilege: rw
-        state: present
+      vyos.vyos.vyos_config:
+        lines:
+          - set system login user {{ vyos_username }} authentication plaintext-password {{ vyos_password }}
+          - set system login user {{ vyos_username }} level admin
+      connection: network_cli
+      vars:
+        ansible_network_os: vyos.vyos.vyos
+
+    - name: Save configuration on VyOS switches
+      when: "'switches' in group_names"
+      vyos.vyos.vyos_config:
+        save: yes
+      connection: network_cli
+      vars:
+        ansible_network_os: vyos.vyos.vyos
 
     - name: Create DesktopUsers on Windows desktops
       when: "'windows_desktops' in group_names"
