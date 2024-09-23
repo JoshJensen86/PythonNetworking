@@ -6,11 +6,20 @@
     vyos_username: "Local-Admin"
     vyos_password: "WGU123"
   tasks:
-    - name: Send configuration commands to VyOS switches
-      raw: |
-        configure
-        set system login user {{ vyos_username }} authentication plaintext-password {{ vyos_password }}
-        set system login user {{ vyos_username }} level admin
-        commit
-        save
-        exit
+    - name: Enter configuration mode
+      raw: configure
+
+    - name: Set user authentication
+      raw: set system login user {{ vyos_username }} authentication plaintext-password {{ vyos_password }}
+
+    - name: Set user level
+      raw: set system login user {{ vyos_username }} level admin
+
+    - name: Commit configuration changes
+      raw: commit
+
+    - name: Save configuration
+      raw: save
+
+    - name: Exit configuration mode
+      raw: exit
