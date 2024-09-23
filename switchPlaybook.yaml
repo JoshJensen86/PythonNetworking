@@ -6,18 +6,25 @@
     vyos_username: "Local-Admin"
     vyos_password: "WGU123"
   tasks:
-    - name: Create Local-Admin user with admin privileges
+    - name: Enter configuration mode
+      ansible.netcommon.cli_command:
+        command: 'configure'
+      register: config_mode
+
+    - name: Configure Local-Admin user with admin privileges
       ansible.netcommon.cli_config:
         config:
           - set system login user {{ vyos_username }} authentication plaintext-password {{ vyos_password }}
           - set system login user {{ vyos_username }} level admin
-        save_when: changed
 
-    - name: Commit and save configuration
+    - name: Commit configuration changes
+      ansible.netcommon.cli_command:
+        command: 'commit'
+
+    - name: Save configuration
       ansible.netcommon.cli_command:
         command: 'save'
-      register: save_output
 
-    - name: Display save output
-      debug:
-        var: save_output.stdout_lines
+    - name: Exit configuration mode
+      ansible.netcommon.cli_command:
+        command: 'exit'
