@@ -2,72 +2,22 @@ student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook
 
 PLAY [Create Local-Admin user on VyOS switches] ********************************************************
 
-TASK [Create Local-Admin user with admin privileges] ***************************************************
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/core.py) as it seems
-to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[WARNING]: Skipping plugin (/usr/lib/python3/dist-packages/ansible/plugins/filter/mathstuff.py) as it
-seems to be invalid: cannot import name 'environmentfilter' from 'jinja2.filters'
-(/home/student/.local/lib/python3.8/site-packages/jinja2/filters.py)
-[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host switch2 should use /usr/bin/python3, but is 
-using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release 
-will default to using the discovered platform python for this host. See 
-https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more 
-information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by 
-setting deprecation_warnings=False in ansible.cfg.
-fatal: [switch2]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unsupported parameters for (ansible.netcommon.cli_config) module: save_when Supported parameters include: backup, backup_options, commit, commit_comment, config, defaults, diff_ignore_lines, diff_match, diff_replace, multiline_delimiter, replace, rollback"}
-[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host switch4 should use /usr/bin/python3, but is 
-using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release 
-will default to using the discovered platform python for this host. See 
-https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more 
-information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by 
-setting deprecation_warnings=False in ansible.cfg.
-fatal: [switch4]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unsupported parameters for (ansible.netcommon.cli_config) module: save_when Supported parameters include: backup, backup_options, commit, commit_comment, config, defaults, diff_ignore_lines, diff_match, diff_replace, multiline_delimiter, replace, rollback"}
-[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host switch3 should use /usr/bin/python3, but is 
-using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release 
-will default to using the discovered platform python for this host. See 
-https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more 
-information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by 
-setting deprecation_warnings=False in ansible.cfg.
-fatal: [switch3]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unsupported parameters for (ansible.netcommon.cli_config) module: save_when Supported parameters include: backup, backup_options, commit, commit_comment, config, defaults, diff_ignore_lines, diff_match, diff_replace, multiline_delimiter, replace, rollback"}
-[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host switch5 should use /usr/bin/python3, but is 
-using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release 
-will default to using the discovered platform python for this host. See 
-https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more 
-information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by 
-setting deprecation_warnings=False in ansible.cfg.
-fatal: [switch5]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unsupported parameters for (ansible.netcommon.cli_config) module: save_when Supported parameters include: backup, backup_options, commit, commit_comment, config, defaults, diff_ignore_lines, diff_match, diff_replace, multiline_delimiter, replace, rollback"}
-[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host switch1 should use /usr/bin/python3, but is 
-using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release 
-will default to using the discovered platform python for this host. See 
-https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more 
-information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by 
-setting deprecation_warnings=False in ansible.cfg.
-fatal: [switch1]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "msg": "Unsupported parameters for (ansible.netcommon.cli_config) module: save_when Supported parameters include: backup, backup_options, commit, commit_comment, config, defaults, diff_ignore_lines, diff_match, diff_replace, multiline_delimiter, replace, rollback"}
+TASK [Enter configuration mode] ************************************************************************
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+[WARNING]: ansible-pylibssh not installed, falling back to paramiko
+[WARNING]: ansible-pylibssh not installed, falling back to paramiko
+[WARNING]: ansible-pylibssh not installed, falling back to paramiko
+[WARNING]: ansible-pylibssh not installed, falling back to paramiko
+[WARNING]: ansible-pylibssh not installed, falling back to paramiko
+fatal: [switch3]: FAILED! => {"changed": false, "msg": "Failed to authenticate: Authentication failed."}
+fatal: [switch1]: FAILED! => {"changed": false, "msg": "Failed to authenticate: Authentication failed."}
+fatal: [switch4]: FAILED! => {"changed": false, "msg": "Failed to authenticate: Authentication failed."}
+fatal: [switch5]: FAILED! => {"changed": false, "msg": "Failed to authenticate: Authentication failed."}
+fatal: [switch2]: FAILED! => {"changed": false, "msg": "Failed to authenticate: Authentication failed."}
 
 PLAY RECAP *********************************************************************************************
 switch1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
@@ -76,4 +26,17 @@ switch3                    : ok=0    changed=0    unreachable=0    failed=1    s
 switch4                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
 switch5                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
 
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible --version
+ansible [core 2.13.13]
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/student/.local/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible
+  python version = 3.8.10 (default, Sep 11 2024, 16:02:53) [GCC 9.4.0]
+  jinja version = 3.0.3
+  libyaml = True
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ pip install upgrade ansible
+ERROR: Could not find a version that satisfies the requirement upgrade (from versions: none)
+ERROR: No matching distribution found for upgrade
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
