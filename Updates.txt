@@ -1,6 +1,3 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~$ ansible-galaxy collection install extremeNetworks.exos
-Process install dependency map
-ERROR! Cannot meet requirement * for dependency extremeNetworks.exos from source 'https://galaxy.ansible.com/api/'. Available versions before last requirement added: 
-Requirements from:
-	base - 'extremeNetworks.exos:*'
-student@student-Standard-PC-i440FX-PIIX-1996:~$ 
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible -i switchInventory.yaml switches -m exos_command -a "commands=show version"
+ERROR! this task 'exos_command' has extra params, which is only allowed in the following modules: win_command, ansible.builtin.add_host, ansible.legacy.win_shell, ansible.legacy.include_role, meta, ansible.legacy.add_host, ansible.legacy.import_role, ansible.builtin.script, include_role, ansible.legacy.command, win_shell, ansible.builtin.include_vars, ansible.builtin.raw, raw, ansible.legacy.include, ansible.builtin.include_tasks, import_role, ansible.windows.win_shell, ansible.builtin.shell, ansible.windows.win_command, import_tasks, command, ansible.builtin.import_tasks, include_vars, script, group_by, ansible.legacy.raw, add_host, ansible.legacy.import_tasks, ansible.legacy.meta, ansible.builtin.group_by, ansible.legacy.script, ansible.legacy.win_command, ansible.legacy.shell, ansible.legacy.include_tasks, set_fact, ansible.builtin.include_role, shell, ansible.builtin.command, ansible.builtin.include, ansible.builtin.meta, include_tasks, ansible.builtin.import_role, ansible.legacy.set_fact, ansible.builtin.set_fact, ansible.legacy.group_by, include, ansible.legacy.include_vars, ansible.builtin.win_shell, ansible.builtin.win_command
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
