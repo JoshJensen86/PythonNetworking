@@ -1,0 +1,245 @@
+all:
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PubkeyAuthentication=no'
+
+  children:
+    switches:
+      hosts:
+        switch1:
+          ansible_host: 10.10.1.7
+          ansible_user: "admin"
+          ansible_password: 'password'  # Replace with the actual password
+          ansible_connection: ssh
+          general_settings:
+            name: "ACCT_Network"
+            ram: "512 MB"
+            vcpus: "1"
+            qemu_binary: "/usr/bin/qemu-system-x86_64"
+            boot_priority: "CD/DVD-ROM or HDD"
+            on_close: "Power off the VM"
+            console_type: "telnet"
+          network_settings:
+            adapters:
+              - total: "13"
+                base_mac: "0c:40:34:07:00:00"
+                type: "Realtek 8139 Ethernet (rtl8139)"
+                replicate_network_state: true
+                ip: 10.10.1.32
+                managementIP: 10.10.1.7
+
+        switch2:
+          ansible_host: 10.10.1.5
+          ansible_user: "admin"
+          ansible_password: 'password'
+          ansible_connection: ssh
+          general_settings:
+            name: "IT_Network"
+            ram: "512 MB"
+            vcpus: "1"
+            qemu_binary: "/usr/bin/qemu-system-x86_64"
+            boot_priority: "CD/DVD-ROM or HDD"
+            on_close: "Power off the VM"
+            console_type: "telnet"
+          network_settings:
+            adapters:
+              - total: "13"
+                base_mac: "0c:1c:b2:85:00:00"
+                type: "Realtek 8139 Ethernet (rtl8139)"
+                replicate_network_state: true
+                ip: 10.10.1.30
+                managementIP: 10.10.1.5
+
+        switch3:
+          ansible_host: 10.10.1.24
+          ansible_user: "admin"
+          ansible_password: 'password'
+          ansible_connection: ssh
+          general_settings:
+            name: "Local_Switch"
+            ram: "512 MB"
+            vcpus: "1"
+            qemu_binary: "/usr/bin/qemu-system-x86_64"
+            boot_priority: "CD/DVD-ROM or HDD"
+            on_close: "Power off the VM"
+            console_type: "telnet"
+          network_settings:
+            adapters:
+              - total: "13"
+                base_mac: "0c:c0:5e:66:00:00"
+                type: "Realtek 8139 Ethernet (rtl8139)"
+                replicate_network_state: true
+                ip: 10.10.1.24
+                managementIP: 10.10.1.24
+
+        switch4:
+          ansible_host: 10.10.1.6
+          ansible_user: "admin"
+          ansible_password: 'password'
+          ansible_connection: ssh
+          general_settings:
+            name: "MGMT_Network"
+            ram: "512 MB"
+            vcpus: "1"
+            qemu_binary: "/usr/bin/qemu-system-x86_64"
+            boot_priority: "CD/DVD-ROM or HDD"
+            on_close: "Power off the VM"
+            console_type: "telnet"
+          network_settings:
+            adapters:
+              - total: "13"
+                base_mac: "0c:cc:78:5d:00:00"
+                type: "Realtek 8139 Ethernet (rtl8139)"
+                replicate_network_state: true
+                ip: 10.10.1.6
+                managementIP: 10.10.1.6
+
+    windows_desktops:
+      hosts:
+        workstation1:
+          ansible_host: 10.10.1.35
+          ansible_user: "student"
+          ansible_password: 'P@ssw0rd'
+          ansible_connection: winrm
+          ansible_winrm_transport: ntlm
+          ansible_winrm_server_cert_validation: ignore
+          general_settings:
+            name: "WindowsDesktop-1"
+            ram: "4096 MB"
+            vcpus: "2"
+            type: "Microsoft Windows"
+            qemu_binary: "/bin/qemu-system-x86_64"
+            boot_priority: "HDD"
+            on_close: "Send the shutdown signal (ACPI)"
+            console_type: "vnc"
+          network_settings:
+            adapters:
+              - name: "Ethernet0"
+                base_mac: "0c:4b:3c:0a:00:00"
+                type: "Intel Gigabit Ethernet (e1000)"
+                replicate_network_state: true
+                ip: 10.10.1.35
+
+        workstation2:
+          ansible_host: 10.10.1.36
+          ansible_user: "student"
+          ansible_password: 'P@ssw0rd'
+          ansible_connection: winrm
+          ansible_winrm_transport: ntlm
+          ansible_winrm_server_cert_validation: ignore
+          general_settings:
+            name: "WindowsDesktop-2"
+            ram: "4096 MB"
+            vcpus: "2"
+            type: "Microsoft Windows"
+            qemu_binary: "/bin/qemu-system-x86_64"
+            boot_priority: "HDD"
+            on_close: "Send the shutdown signal (ACPI)"
+            console_type: "vnc"
+          network_settings:
+            adapters:
+              - name: "Ethernet0"
+                base_mac: "0c:59:fd:86:00:00"
+                type: "Intel Gigabit Ethernet (e1000)"
+                replicate_network_state: true
+                ip: 10.10.1.36
+
+        workstation3:
+          ansible_host: 10.10.1.43
+          ansible_user: "student"
+          ansible_password: 'P@ssw0rd'
+          ansible_connection: winrm
+          ansible_winrm_transport: ntlm
+          ansible_winrm_server_cert_validation: ignore
+          general_settings:
+            name: "WindowsDesktop-3"
+            ram: "4096 MB"
+            vcpus: "2"
+            type: "Microsoft Windows"
+            qemu_binary: "/bin/qemu-system-x86_64"
+            boot_priority: "HDD"
+            on_close: "Send the shutdown signal (ACPI)"
+            console_type: "vnc"
+          network_settings:
+            adapters:
+              - name: "Ethernet0"
+                base_mac: "0c:xx:xx:xx:xx:xx"  # Replace with actual MAC
+                type: "Intel Gigabit Ethernet (e1000)"
+                replicate_network_state: true
+                ip: 10.10.1.43
+
+        workstation4:
+          ansible_host: 10.10.1.29
+          ansible_user: "student"
+          ansible_password: 'P@ssw0rd'
+          ansible_connection: winrm
+          ansible_winrm_transport: ntlm
+          ansible_winrm_server_cert_validation: ignore
+          general_settings:
+            name: "WindowsDesktop-4"
+            ram: "4096 MB"
+            vcpus: "2"
+            type: "Microsoft Windows"
+            qemu_binary: "/bin/qemu-system-x86_64"
+            boot_priority: "HDD"
+            on_close: "Send the shutdown signal (ACPI)"
+            console_type: "vnc"
+          network_settings:
+            adapters:
+              - name: "Ethernet0"
+                base_mac: "0c:xx:xx:xx:xx:xx"  # Replace with actual MAC
+                type: "Intel Gigabit Ethernet (e1000)"
+                replicate_network_state: true
+                ip: 10.10.1.29
+
+    test_boxes:
+      hosts:
+        test_box_acct:
+          ansible_host: 10.10.1.56
+          ansible_user: "student"
+          ansible_password: 'P@ssw0rd'
+          ansible_connection: ssh
+          ansible_become: yes
+          ansible_become_method: sudo
+          ansible_become_pass: 'P@ssw0rd'
+          general_settings:
+            name: "Test_Box_ACCT"
+            ram: "4096 MB"
+            vcpus: "2"
+            type: "Ubuntu 20.04.4 LTS"
+            qemu_binary: "/bin/qemu-system-x86_64"
+            boot_priority: "HDD"
+            on_close: "Send the shutdown signal (ACPI)"
+            console_type: "vnc"
+          network_settings:
+            adapters:
+              - name: "Ethernet0"
+                base_mac: "0c:cb:a8:90:00:00"
+                type: "Intel Gigabit Ethernet (e1000)"
+                replicate_network_state: true
+                ip: 10.10.1.56
+
+        test_box_mgmt:
+          ansible_host: 10.10.1.57
+          ansible_user: "student"
+          ansible_password: 'P@ssw0rd'
+          ansible_connection: ssh
+          ansible_become: yes
+          ansible_become_method: sudo
+          ansible_become_pass: 'P@ssw0rd'
+          general_settings:
+            name: "Test_Box_MGMT"
+            ram: "4096 MB"
+            vcpus: "2"
+            type: "Ubuntu 20.04.4 LTS"
+            qemu_binary: "/bin/qemu-system-x86_64"
+            boot_priority: "HDD"
+            on_close: "Send the shutdown signal (ACPI)"
+            console_type: "vnc"
+          network_settings:
+            adapters:
+              - name: "Ethernet0"
+                base_mac: "0c:50:a2:8a:00:00"
+                type: "Intel Gigabit Ethernet (e1000)"
+                replicate_network_state: true
+                ip: 10.10.1.57
