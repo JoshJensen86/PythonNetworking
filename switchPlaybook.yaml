@@ -1,9 +1,0 @@
----
-- name: Create Local-Admin user on switches
-  hosts: all
-  gather_facts: no
-  tasks:
-    - name: Create Local-Admin user with Read/Write access
-      raw: |
-        create account Local-Admin password WGU123 privilege 15
-        save configuration
