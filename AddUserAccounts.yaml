@@ -1,0 +1,73 @@
+---
+- name: Create local user accounts on switches
+  hosts: switches
+  gather_facts: no
+  vars:
+    switch_username: "Local-Admin"
+    switch_password: "WGU123"  
+    switch_privilege: "15"       
+  tasks:
+    - name: Create Local-Admin user with Read/Write access
+      raw: |
+        create account {{ switch_username }} password {{ switch_password }} privilege {{ switch_privilege }}
+        save configuration
+      register: switch_user_creation
+      ignore_errors: yes
+
+    - name: Display switch user creation result
+      debug:
+        var: switch_user_creation
+
+- name: Create desktop users on Windows desktops
+  hosts: workstations
+  gather_facts: no
+  vars:
+    desktop_users:
+      - name: "DesktopUser1"
+      - name: "DesktopUser2"
+      - name: "DesktopUser3"
+      - name: "DesktopUser4"
+      - name: "DesktopUser5"
+      - name: "DesktopUser6"
+      - name: "DesktopUser7"
+      - name: "DesktopUser8"
+    desktop_user_password: "WGU123"  
+  tasks:
+    - name: Create Desktop Users
+      win_user:
+        name: "{{ item.name }}"
+        password: "{{ desktop_user_password }}"
+        groups:
+          - "Administrators"
+        state: present
+      loop: "{{ desktop_users }}"
+      register: desktop_user_creation
+      ignore_errors: yes
+
+    - name: Display desktop user creation results
+      debug:
+        var: desktop_user_creation
+
+- name: Create test users on Linux test boxes
+  hosts: linux_machines
+  gather_facts: no
+  vars:
+    test_users:
+      - name: "TestUser1"
+      - name: "TestUser2"
+    test_user_password: "WGU123"  
+  tasks:
+    - name: Create Test Users
+      user:
+        name: "{{ item.name }}"
+        password: "{{ test_user_password | password_hash('sha512') }}"
+        groups: sudo
+        shell: /bin/bash
+        state: present
+      loop: "{{ test_users }}"
+      register: test_user_creation
+      ignore_errors: yes
+
+    - name: Display test user creation results
+      debug:
+        var: test_user_creation
