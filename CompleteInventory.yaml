@@ -9,7 +9,7 @@ all:
         switch1:
           ansible_host: 10.10.1.7
           ansible_user: "admin"
-          ansible_password: 'password'  # Replace with the actual password
+          ansible_password: 'password'  
           ansible_connection: ssh
           general_settings:
             name: "ACCT_Network"
