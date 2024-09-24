@@ -1,24 +1,89 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible -i switchInventory.yaml switches -m ansible.netcommon.cli_command
-switch1 | FAILED! => {
-    "msg": "network os generic is not supported"
-}
-switch2 | FAILED! => {
-    "msg": "network os generic is not supported"
-}
-switch5 | FAILED! => {
-    "msg": "network os generic is not supported"
-}
-switch3 | FAILED! => {
-    "msg": "network os generic is not supported"
-}
-switch4 | FAILED! => {
-    "msg": "network os generic is not supported"
-}
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible -i switchInventory.yaml switches -m ansible.netcommon.cli_command -a "command= show version"
-ERROR! this task 'ansible.netcommon.cli_command' has extra params, which is only allowed in the following modules: ansible.legacy.shell, include_tasks, ansible.builtin.include_role, ansible.windows.win_shell, group_by, ansible.windows.win_command, ansible.builtin.set_fact, ansible.legacy.import_role, ansible.legacy.include_vars, win_shell, ansible.builtin.script, ansible.legacy.command, set_fact, ansible.legacy.group_by, add_host, ansible.legacy.set_fact, include_role, ansible.builtin.group_by, ansible.legacy.raw, ansible.legacy.include_role, ansible.legacy.win_command, ansible.legacy.win_shell, raw, ansible.builtin.import_role, ansible.legacy.import_tasks, import_tasks, ansible.legacy.include_tasks, script, command, ansible.builtin.win_command, ansible.legacy.include, win_command, ansible.builtin.include_tasks, import_role, ansible.builtin.include_vars, shell, ansible.builtin.shell, ansible.builtin.win_shell, ansible.legacy.add_host, ansible.builtin.command, include_vars, ansible.builtin.add_host, ansible.builtin.include, include, ansible.legacy.meta, ansible.builtin.meta, ansible.legacy.script, meta, ansible.builtin.raw, ansible.builtin.import_tasks
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-galaxy collection install ansible.netcommon
-Starting galaxy collection install process
-Nothing to do. All requested collections are already installed. If you want to reinstall them, consider using `--force`.
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible -i switchInventory.yaml switches -m ansible.netcommon.cli_command -a "command= show version"
-ERROR! this task 'ansible.netcommon.cli_command' has extra params, which is only allowed in the following modules: ansible.legacy.add_host, ansible.windows.win_shell, ansible.builtin.add_host, meta, ansible.builtin.raw, import_tasks, ansible.legacy.script, win_shell, include, ansible.builtin.group_by, ansible.builtin.import_tasks, ansible.legacy.meta, command, ansible.builtin.win_command, raw, ansible.legacy.include_role, set_fact, ansible.legacy.raw, ansible.legacy.set_fact, shell, ansible.legacy.shell, ansible.legacy.include, ansible.legacy.group_by, ansible.legacy.win_command, import_role, ansible.builtin.command, include_role, ansible.builtin.include_role, ansible.builtin.win_shell, ansible.legacy.include_vars, ansible.builtin.import_role, ansible.legacy.import_role, ansible.builtin.meta, ansible.legacy.import_tasks, include_vars, ansible.legacy.command, ansible.builtin.include, ansible.builtin.script, add_host, win_command, script, ansible.legacy.win_shell, ansible.legacy.include_tasks, ansible.builtin.shell, ansible.builtin.include_tasks, ansible.builtin.set_fact, ansible.builtin.include_vars, ansible.windows.win_command, include_tasks, group_by
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i CompleteInventory.yaml CompletePlaybook.yaml 
+
+PLAY [Create user accounts on switches, desktops, and test boxes] **************
+
+TASK [Create Local-Admin user on switches] *************************************
+skipping: [workstation1]
+skipping: [workstation2]
+skipping: [workstation3]
+skipping: [workstation4]
+skipping: [test_box_acct]
+skipping: [test_box_mgmt]
+changed: [switch3]
+changed: [switch1]
+changed: [switch2]
+changed: [switch4]
+
+TASK [Create Desktop Users on Windows desktops] ********************************
+skipping: [switch1] => (item=DesktopUser1) 
+skipping: [switch1] => (item=DesktopUser2) 
+skipping: [switch1] => (item=DesktopUser3) 
+skipping: [switch1] => (item=DesktopUser4) 
+skipping: [switch3] => (item=DesktopUser1) 
+skipping: [switch3] => (item=DesktopUser2) 
+skipping: [switch3] => (item=DesktopUser3) 
+skipping: [switch3] => (item=DesktopUser4) 
+skipping: [switch2] => (item=DesktopUser1) 
+skipping: [switch2] => (item=DesktopUser2) 
+skipping: [switch2] => (item=DesktopUser3) 
+skipping: [switch2] => (item=DesktopUser4) 
+skipping: [switch4] => (item=DesktopUser1) 
+skipping: [switch4] => (item=DesktopUser2) 
+skipping: [switch4] => (item=DesktopUser3) 
+skipping: [switch4] => (item=DesktopUser4) 
+skipping: [test_box_acct] => (item=DesktopUser1) 
+skipping: [test_box_acct] => (item=DesktopUser2) 
+skipping: [test_box_acct] => (item=DesktopUser3) 
+skipping: [test_box_acct] => (item=DesktopUser4) 
+skipping: [test_box_mgmt] => (item=DesktopUser1) 
+skipping: [test_box_mgmt] => (item=DesktopUser2) 
+skipping: [test_box_mgmt] => (item=DesktopUser3) 
+skipping: [test_box_mgmt] => (item=DesktopUser4) 
+failed: [workstation1] (item=DesktopUser1) => {"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9658160>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation2] (item=DesktopUser1) => {"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9765f70>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation3] (item=DesktopUser1) => {"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e97659d0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation4] (item=DesktopUser1) => {"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9765640>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation1] (item=DesktopUser2) => {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e97746a0>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation2] (item=DesktopUser2) => {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9774640>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation4] (item=DesktopUser2) => {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e97747c0>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation3] (item=DesktopUser2) => {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e976f520>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation2] (item=DesktopUser3) => {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e976f430>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation1] (item=DesktopUser3) => {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9742d60>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation3] (item=DesktopUser3) => {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9765dc0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation4] (item=DesktopUser3) => {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e973fee0>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation2] (item=DesktopUser4) => {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e973f580>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}
+fatal: [workstation2]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9765f70>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9774640>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e976f430>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.36', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e973f580>, 'Connection to 10.10.1.36 timed out. (connect timeout=30)'))", "unreachable": true}]}
+failed: [workstation1] (item=DesktopUser4) => {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e97748e0>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}
+fatal: [workstation1]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9658160>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e97746a0>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9742d60>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.35', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e97748e0>, 'Connection to 10.10.1.35 timed out. (connect timeout=30)'))", "unreachable": true}]}
+failed: [workstation4] (item=DesktopUser4) => {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e8086ca0>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}
+fatal: [workstation4]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9765640>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e97747c0>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e973fee0>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.29', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e8086ca0>, 'Connection to 10.10.1.29 timed out. (connect timeout=30)'))", "unreachable": true}]}
+failed: [workstation3] (item=DesktopUser4) => {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e80864c0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+fatal: [workstation3]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": "DesktopUser1", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e97659d0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser2", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e976f520>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser3", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e9765dc0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": "DesktopUser4", "msg": "ntlm: HTTPSConnectionPool(host='10.10.1.43', port=5986): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd6e80864c0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}]}
+
+TASK [Create Test Users on Linux Test Boxes] ***********************************
+skipping: [switch1] => (item={'name': 'TestUser1', 'host': 'test_box_acct'}) 
+skipping: [switch1] => (item={'name': 'TestUser2', 'host': 'test_box_mgmt'}) 
+skipping: [switch2] => (item={'name': 'TestUser1', 'host': 'test_box_acct'}) 
+skipping: [switch2] => (item={'name': 'TestUser2', 'host': 'test_box_mgmt'}) 
+skipping: [switch3] => (item={'name': 'TestUser1', 'host': 'test_box_acct'}) 
+skipping: [switch3] => (item={'name': 'TestUser2', 'host': 'test_box_mgmt'}) 
+skipping: [switch4] => (item={'name': 'TestUser1', 'host': 'test_box_acct'}) 
+skipping: [switch4] => (item={'name': 'TestUser2', 'host': 'test_box_mgmt'}) 
+skipping: [test_box_mgmt] => (item={'name': 'TestUser1', 'host': 'test_box_acct'}) 
+changed: [test_box_mgmt] => (item={'name': 'TestUser2', 'host': 'test_box_mgmt'})
+changed: [test_box_acct] => (item={'name': 'TestUser1', 'host': 'test_box_acct'})
+skipping: [test_box_acct] => (item={'name': 'TestUser2', 'host': 'test_box_mgmt'}) 
+
+PLAY RECAP *********************************************************************
+switch1                    : ok=1    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+switch2                    : ok=1    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+switch3                    : ok=1    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+switch4                    : ok=1    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+test_box_acct              : ok=1    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+test_box_mgmt              : ok=1    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+workstation1               : ok=0    changed=0    unreachable=1    failed=0    skipped=1    rescued=0    ignored=0   
+workstation2               : ok=0    changed=0    unreachable=1    failed=0    skipped=1    rescued=0    ignored=0   
+workstation3               : ok=0    changed=0    unreachable=1    failed=0    skipped=1    rescued=0    ignored=0   
+workstation4               : ok=0    changed=0    unreachable=1    failed=0    skipped=1    rescued=0    ignored=0   
+
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
