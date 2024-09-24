@@ -163,7 +163,7 @@ all:
           network_settings:
             adapters:
               - name: "Ethernet0"
-                base_mac: "0c:xx:xx:xx:xx:xx"  # Replace with actual MAC
+                base_mac: "0c:xx:xx:xx:xx:xx"  # need MAC
                 type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
                 ip: 10.10.1.43
@@ -187,7 +187,7 @@ all:
           network_settings:
             adapters:
               - name: "Ethernet0"
-                base_mac: "0c:xx:xx:xx:xx:xx"  # Replace with actual MAC
+                base_mac: "0c:xx:xx:xx:xx:xx"  # need MAC
                 type: "Intel Gigabit Ethernet (e1000)"
                 replicate_network_state: true
                 ip: 10.10.1.29
