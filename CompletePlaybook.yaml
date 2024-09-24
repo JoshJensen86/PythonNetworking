@@ -1,0 +1,53 @@
+---
+- name: Create user accounts on switches, desktops, and test boxes
+  hosts: all
+  gather_facts: no
+  vars:
+    # Credentials and user details
+    switch_username: "Local-Admin"
+    switch_password: "WGU123"
+    desktop_users:
+      - "DesktopUser1"
+      - "DesktopUser2"
+      - "DesktopUser3"
+      - "DesktopUser4"
+    desktop_user_password: "WGU123"
+    test_users:
+      - name: "TestUser1"
+        host: "test_box_acct"
+      - name: "TestUser2"
+        host: "test_box_mgmt"
+    test_user_password: "WGU123"
+
+  tasks:
+    # Create Local-Admin user on switches
+    - name: Create Local-Admin user on switches
+      when: "'switches' in group_names"
+      raw: |
+        create account {{ switch_username }} password {{ switch_password }} privilege 15
+        save configuration
+      vars:
+        ansible_shell_type: csh
+        ansible_shell_executable: /bin/sh
+
+    # Create Desktop Users on Windows desktops
+    - name: Create Desktop Users on Windows desktops
+      when: "'windows_desktops' in group_names"
+      win_user:
+        name: "{{ item }}"
+        password: "{{ desktop_user_password }}"
+        groups:
+          - Administrators
+        state: present
+      loop: "{{ desktop_users }}"
+
+    # Create Test Users on Linux Test Boxes
+    - name: Create Test Users on Linux Test Boxes
+      when: inventory_hostname == item.host
+      user:
+        name: "{{ item.name }}"
+        password: "{{ test_user_password | password_hash('sha512') }}"
+        groups: sudo
+        shell: /bin/bash
+        state: present
+      loop: "{{ test_users }}"
