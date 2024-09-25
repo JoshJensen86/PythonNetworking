@@ -305,4 +305,5 @@ all:
                 ip: "10.10.1.57"
     
   vars:
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PubkeyAuthentication=no'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o ServerAliveInterval=30'
+    ansible_command_timeout: 120
