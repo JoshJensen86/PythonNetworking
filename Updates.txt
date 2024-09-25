@@ -1,4 +1,20 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-galaxy collection list | grep vyos
-vyos.vyos                     3.0.1  
-vyos.vyos         5.0.0  
-vyos.vyos                     2.8.0 
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i SwitchInventory.yaml SwitchPlaybook.yaml 
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+
+PLAY [Configure users on VyOS switches] ****************************************
+
+TASK [Create Local-Admin user with Read/Write access on switches] **************
+fatal: [switch1]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_user) module: privilege. Supported parameters include: configured_password, name, level (role), aggregate (collection, users), state, purge, update_password, full_name."}
+fatal: [switch3]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_user) module: privilege. Supported parameters include: configured_password, name, level (role), aggregate (collection, users), state, purge, update_password, full_name."}
+fatal: [switch4]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_user) module: privilege. Supported parameters include: configured_password, name, level (role), aggregate (collection, users), state, purge, update_password, full_name."}
+fatal: [switch5]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_user) module: privilege. Supported parameters include: configured_password, name, level (role), aggregate (collection, users), state, purge, update_password, full_name."}
+fatal: [switch2]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_user) module: privilege. Supported parameters include: configured_password, name, level (role), aggregate (collection, users), state, purge, update_password, full_name."}
+
+PLAY RECAP *********************************************************************
+switch1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch2                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch3                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch4                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch5                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
