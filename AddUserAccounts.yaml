@@ -79,7 +79,6 @@
         state: present
       loop: "{{ test_users }}"
       register: test_user_creation
-      ignore_errors: yes
 
     - name: Display test user creation results
       debug:
