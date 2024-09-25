@@ -1,20 +1,11 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i SwitchInventory.yaml SwitchPlaybook.yaml 
-[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
-
-PLAY [Configure users on VyOS switches] ****************************************
-
-TASK [Create Local-Admin user with Read/Write access on switches] **************
-fatal: [switch1]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_user) module: privilege. Supported parameters include: configured_password, name, level (role), aggregate (collection, users), state, purge, update_password, full_name."}
-fatal: [switch3]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_user) module: privilege. Supported parameters include: configured_password, name, level (role), aggregate (collection, users), state, purge, update_password, full_name."}
-fatal: [switch4]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_user) module: privilege. Supported parameters include: configured_password, name, level (role), aggregate (collection, users), state, purge, update_password, full_name."}
-fatal: [switch5]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_user) module: privilege. Supported parameters include: configured_password, name, level (role), aggregate (collection, users), state, purge, update_password, full_name."}
-fatal: [switch2]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_user) module: privilege. Supported parameters include: configured_password, name, level (role), aggregate (collection, users), state, purge, update_password, full_name."}
-
-PLAY RECAP *********************************************************************
-switch1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch2                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch3                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch4                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-switch5                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible --version
+ansible [core 2.13.13]
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.8/dist-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/local/bin/ansible
+  python version = 3.8.10 (default, Sep 11 2024, 16:02:53) [GCC 9.4.0]
+  jinja version = 3.0.3
+  libyaml = True
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
