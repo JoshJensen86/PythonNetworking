@@ -7,7 +7,8 @@ all:
           ansible_host: 10.10.1.7
           ansible_user: "admin"
           ansible_password: "password"  
-          ansible_connection: ssh
+          ansible_connection: network_cli
+          ansible_network_os: vyos.vyos.vyos
           general_settings:
             name: "ACCT_Network"
             ram: "512 MB"
@@ -29,7 +30,8 @@ all:
           ansible_host: 10.10.1.5
           ansible_user: "admin"
           ansible_password: "password" 
-          ansible_connection: ssh
+          ansible_connection: network_cli
+          ansible_network_os: vyos.vyos.vyos
           general_settings:
             name: "IT_Network"
             ram: "512 MB"
@@ -51,7 +53,8 @@ all:
           ansible_host: 10.10.1.24
           ansible_user: "admin"
           ansible_password: "password"  
-          ansible_connection: ssh
+          ansible_connection: network_cli
+          ansible_network_os: vyos.vyos.vyos
           general_settings:
             name: "Local_Switch"
             ram: "512 MB"
@@ -73,7 +76,8 @@ all:
           ansible_host: 10.10.1.6
           ansible_user: "admin"
           ansible_password: "password"  
-          ansible_connection: ssh
+          ansible_connection: network_cli
+          ansible_network_os: vyos.vyos.vyos
           general_settings:
             name: "MGMT_Network"
             ram: "512 MB"
@@ -95,7 +99,8 @@ all:
           ansible_host: 10.10.1.8
           ansible_user: "admin"
           ansible_password: "password"  
-          ansible_connection: ssh
+          ansible_connection: network_cli
+          ansible_network_os: vyos.vyos.vyos
           general_settings:
             name: "User_Network"
             ram: "512 MB"
