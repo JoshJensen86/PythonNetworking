@@ -8,5 +8,5 @@
       vyos.vyos.vyos_user:
         name: Local-Admin
         configured_password: WGU123  
-        privilege: admin  
+        level: admin  
         state: present
