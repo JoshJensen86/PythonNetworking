@@ -26,35 +26,6 @@ META: ran handlers
 
 TASK [Configure Local-Admin user] **********************************************
 task path: /home/student/Desktop/Project/AddUserAccounts.yaml:10
-redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
-redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
-redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
-redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
-redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
-The full traceback is:
-  File "/home/student/.ansible/collections/ansible_collections/vyos/vyos/plugins/module_utils/network/vyos/vyos.py", line 60, in get_capabilities
-    capabilities = Connection(module._socket_path).get_capabilities()
-  File "/usr/local/lib/python3.8/dist-packages/ansible/module_utils/connection.py", line 200, in __rpc__
-    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'), code=code)
-fatal: [switch1]: FAILED! => {
-    "changed": false,
-    "invocation": {
-        "module_args": {
-            "backup": false,
-            "backup_options": null,
-            "comment": "configured by vyos_config",
-            "config": null,
-            "lines": [
-                "set system login user Local-Admin authentication plaintext-password 'WGU123'",
-                "set system login user Local-Admin level 15"
-            ],
-            "match": "line",
-            "save": true,
-            "src": null
-        }
-    },
-    "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."
-}
 The full traceback is:
   File "/home/student/.ansible/collections/ansible_collections/vyos/vyos/plugins/module_utils/network/vyos/vyos.py", line 60, in get_capabilities
     capabilities = Connection(module._socket_path).get_capabilities()
@@ -84,7 +55,31 @@ The full traceback is:
     capabilities = Connection(module._socket_path).get_capabilities()
   File "/usr/local/lib/python3.8/dist-packages/ansible/module_utils/connection.py", line 200, in __rpc__
     raise ConnectionError(to_text(msg, errors='surrogate_then_replace'), code=code)
-fatal: [switch5]: FAILED! => {
+fatal: [switch1]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "backup": false,
+            "backup_options": null,
+            "comment": "configured by vyos_config",
+            "config": null,
+            "lines": [
+                "set system login user Local-Admin authentication plaintext-password 'WGU123'",
+                "set system login user Local-Admin level 15"
+            ],
+            "match": "line",
+            "save": true,
+            "src": null
+        }
+    },
+    "msg": "command timeout triggered, timeout value is 30 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."
+}
+The full traceback is:
+  File "/home/student/.ansible/collections/ansible_collections/vyos/vyos/plugins/module_utils/network/vyos/vyos.py", line 60, in get_capabilities
+    capabilities = Connection(module._socket_path).get_capabilities()
+  File "/usr/local/lib/python3.8/dist-packages/ansible/module_utils/connection.py", line 200, in __rpc__
+    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'), code=code)
+fatal: [switch2]: FAILED! => {
     "changed": false,
     "invocation": {
         "module_args": {
@@ -132,7 +127,7 @@ The full traceback is:
     capabilities = Connection(module._socket_path).get_capabilities()
   File "/usr/local/lib/python3.8/dist-packages/ansible/module_utils/connection.py", line 200, in __rpc__
     raise ConnectionError(to_text(msg, errors='surrogate_then_replace'), code=code)
-fatal: [switch2]: FAILED! => {
+fatal: [switch5]: FAILED! => {
     "changed": false,
     "invocation": {
         "module_args": {
