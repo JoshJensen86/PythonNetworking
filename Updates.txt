@@ -1,11 +1,197 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible --version
-ansible [core 2.13.13]
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i SwitchInventory.yaml SwitchPlaybook.yaml -vvv
+ansible-playbook [core 2.13.13]
   config file = /etc/ansible/ansible.cfg
   configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/local/lib/python3.8/dist-packages/ansible
   ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
-  executable location = /usr/local/bin/ansible
+  executable location = /usr/local/bin/ansible-playbook
   python version = 3.8.10 (default, Sep 11 2024, 16:02:53) [GCC 9.4.0]
   jinja version = 3.0.3
   libyaml = True
+Using /etc/ansible/ansible.cfg as config file
+host_list declined parsing /home/student/Desktop/Project/SwitchInventory.yaml as it did not pass its verify_file() method
+script declined parsing /home/student/Desktop/Project/SwitchInventory.yaml as it did not pass its verify_file() method
+Parsed /home/student/Desktop/Project/SwitchInventory.yaml inventory source with yaml plugin
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+Skipping callback 'default', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+
+PLAYBOOK: SwitchPlaybook.yaml **************************************************
+1 plays in SwitchPlaybook.yaml
+
+PLAY [Configure users on VyOS switches] ****************************************
+META: ran handlers
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+
+TASK [Create Local-Admin user with Read/Write access on switches] **************
+task path: /home/student/Desktop/Project/SwitchPlaybook.yaml:7
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+<10.10.1.7> ESTABLISH LOCAL CONNECTION FOR USER: student
+<10.10.1.7> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/student/.ansible/tmp/ansible-local-2710eajachru `"&& mkdir "` echo /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.672929-2715-48968394957190 `" && echo ansible-tmp-1727282659.672929-2715-48968394957190="` echo /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.672929-2715-48968394957190 `" ) && sleep 0'
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+<10.10.1.24> ESTABLISH LOCAL CONNECTION FOR USER: student
+<10.10.1.24> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/student/.ansible/tmp/ansible-local-2710eajachru `"&& mkdir "` echo /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.8168924-2717-209200826517960 `" && echo ansible-tmp-1727282659.8168924-2717-209200826517960="` echo /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.8168924-2717-209200826517960 `" ) && sleep 0'
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+<10.10.1.6> ESTABLISH LOCAL CONNECTION FOR USER: student
+<10.10.1.6> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/student/.ansible/tmp/ansible-local-2710eajachru `"&& mkdir "` echo /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.899506-2718-42971528805360 `" && echo ansible-tmp-1727282659.899506-2718-42971528805360="` echo /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.899506-2718-42971528805360 `" ) && sleep 0'
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+<10.10.1.5> ESTABLISH LOCAL CONNECTION FOR USER: student
+<10.10.1.5> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/student/.ansible/tmp/ansible-local-2710eajachru `"&& mkdir "` echo /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.9049056-2716-62954408053051 `" && echo ansible-tmp-1727282659.9049056-2716-62954408053051="` echo /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.9049056-2716-62954408053051 `" ) && sleep 0'
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+redirecting (type: action) vyos.vyos.vyos_user to vyos.vyos.vyos
+<10.10.1.8> ESTABLISH LOCAL CONNECTION FOR USER: student
+<10.10.1.8> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/student/.ansible/tmp/ansible-local-2710eajachru `"&& mkdir "` echo /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.957757-2719-94648323016011 `" && echo ansible-tmp-1727282659.957757-2719-94648323016011="` echo /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.957757-2719-94648323016011 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible_collections/vyos/vyos/plugins/modules/vyos_user.py
+<10.10.1.7> PUT /home/student/.ansible/tmp/ansible-local-2710eajachru/tmp44kv8740 TO /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.672929-2715-48968394957190/AnsiballZ_vyos_user.py
+<10.10.1.7> EXEC /bin/sh -c 'chmod u+x /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.672929-2715-48968394957190/ /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.672929-2715-48968394957190/AnsiballZ_vyos_user.py && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible_collections/vyos/vyos/plugins/modules/vyos_user.py
+Using module file /usr/lib/python3/dist-packages/ansible_collections/vyos/vyos/plugins/modules/vyos_user.py
+Using module file /usr/lib/python3/dist-packages/ansible_collections/vyos/vyos/plugins/modules/vyos_user.py
+<10.10.1.8> PUT /home/student/.ansible/tmp/ansible-local-2710eajachru/tmppck339_a TO /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.957757-2719-94648323016011/AnsiballZ_vyos_user.py
+<10.10.1.8> EXEC /bin/sh -c 'chmod u+x /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.957757-2719-94648323016011/ /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.957757-2719-94648323016011/AnsiballZ_vyos_user.py && sleep 0'
+<10.10.1.5> PUT /home/student/.ansible/tmp/ansible-local-2710eajachru/tmpebvjtagg TO /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.9049056-2716-62954408053051/AnsiballZ_vyos_user.py
+Using module file /usr/lib/python3/dist-packages/ansible_collections/vyos/vyos/plugins/modules/vyos_user.py
+<10.10.1.24> PUT /home/student/.ansible/tmp/ansible-local-2710eajachru/tmpdd6m12ny TO /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.8168924-2717-209200826517960/AnsiballZ_vyos_user.py
+<10.10.1.5> EXEC /bin/sh -c 'chmod u+x /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.9049056-2716-62954408053051/ /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.9049056-2716-62954408053051/AnsiballZ_vyos_user.py && sleep 0'
+<10.10.1.6> PUT /home/student/.ansible/tmp/ansible-local-2710eajachru/tmp19ricot6 TO /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.899506-2718-42971528805360/AnsiballZ_vyos_user.py
+<10.10.1.24> EXEC /bin/sh -c 'chmod u+x /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.8168924-2717-209200826517960/ /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.8168924-2717-209200826517960/AnsiballZ_vyos_user.py && sleep 0'
+<10.10.1.6> EXEC /bin/sh -c 'chmod u+x /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.899506-2718-42971528805360/ /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.899506-2718-42971528805360/AnsiballZ_vyos_user.py && sleep 0'
+<10.10.1.24> EXEC /bin/sh -c '/usr/bin/python3 /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.8168924-2717-209200826517960/AnsiballZ_vyos_user.py && sleep 0'
+<10.10.1.8> EXEC /bin/sh -c '/usr/bin/python3 /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.957757-2719-94648323016011/AnsiballZ_vyos_user.py && sleep 0'
+<10.10.1.7> EXEC /bin/sh -c '/usr/bin/python3 /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.672929-2715-48968394957190/AnsiballZ_vyos_user.py && sleep 0'
+<10.10.1.5> EXEC /bin/sh -c '/usr/bin/python3 /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.9049056-2716-62954408053051/AnsiballZ_vyos_user.py && sleep 0'
+<10.10.1.6> EXEC /bin/sh -c '/usr/bin/python3 /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.899506-2718-42971528805360/AnsiballZ_vyos_user.py && sleep 0'
+<10.10.1.7> EXEC /bin/sh -c 'rm -f -r /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.672929-2715-48968394957190/ > /dev/null 2>&1 && sleep 0'
+<10.10.1.8> EXEC /bin/sh -c 'rm -f -r /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.957757-2719-94648323016011/ > /dev/null 2>&1 && sleep 0'
+<10.10.1.24> EXEC /bin/sh -c 'rm -f -r /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.8168924-2717-209200826517960/ > /dev/null 2>&1 && sleep 0'
+The full traceback is:
+  File "/tmp/ansible_vyos.vyos.vyos_user_payload_scfls73w/ansible_vyos.vyos.vyos_user_payload.zip/ansible_collections/vyos/vyos/plugins/module_utils/network/vyos/vyos.py", line 84, in get_capabilities
+    capabilities = Connection(module._socket_path).get_capabilities()
+  File "/tmp/ansible_vyos.vyos.vyos_user_payload_scfls73w/ansible_vyos.vyos.vyos_user_payload.zip/ansible/module_utils/connection.py", line 200, in __rpc__
+    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'), code=code)
+[WARNING]: Module did not set no_log for update_password
+<10.10.1.6> EXEC /bin/sh -c 'rm -f -r /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.899506-2718-42971528805360/ > /dev/null 2>&1 && sleep 0'
+fatal: [switch1]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "aggregate": null,
+            "configured_password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "full_name": null,
+            "level": "admin",
+            "name": "Local-Admin",
+            "provider": null,
+            "purge": false,
+            "state": "present",
+            "update_password": "always"
+        }
+    },
+    "msg": "command timeout triggered, timeout value is 120 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."
+}
+The full traceback is:
+  File "/tmp/ansible_vyos.vyos.vyos_user_payload_mup7d6h9/ansible_vyos.vyos.vyos_user_payload.zip/ansible_collections/vyos/vyos/plugins/module_utils/network/vyos/vyos.py", line 84, in get_capabilities
+    capabilities = Connection(module._socket_path).get_capabilities()
+  File "/tmp/ansible_vyos.vyos.vyos_user_payload_mup7d6h9/ansible_vyos.vyos.vyos_user_payload.zip/ansible/module_utils/connection.py", line 200, in __rpc__
+    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'), code=code)
+fatal: [switch3]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "aggregate": null,
+            "configured_password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "full_name": null,
+            "level": "admin",
+            "name": "Local-Admin",
+            "provider": null,
+            "purge": false,
+            "state": "present",
+            "update_password": "always"
+        }
+    },
+    "msg": "command timeout triggered, timeout value is 120 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."
+}
+The full traceback is:
+  File "/tmp/ansible_vyos.vyos.vyos_user_payload_kxg0m_9o/ansible_vyos.vyos.vyos_user_payload.zip/ansible_collections/vyos/vyos/plugins/module_utils/network/vyos/vyos.py", line 84, in get_capabilities
+    capabilities = Connection(module._socket_path).get_capabilities()
+  File "/tmp/ansible_vyos.vyos.vyos_user_payload_kxg0m_9o/ansible_vyos.vyos.vyos_user_payload.zip/ansible/module_utils/connection.py", line 200, in __rpc__
+    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'), code=code)
+fatal: [switch5]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "aggregate": null,
+            "configured_password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "full_name": null,
+            "level": "admin",
+            "name": "Local-Admin",
+            "provider": null,
+            "purge": false,
+            "state": "present",
+            "update_password": "always"
+        }
+    },
+    "msg": "command timeout triggered, timeout value is 120 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."
+}
+The full traceback is:
+  File "/tmp/ansible_vyos.vyos.vyos_user_payload_tyb59r_r/ansible_vyos.vyos.vyos_user_payload.zip/ansible_collections/vyos/vyos/plugins/module_utils/network/vyos/vyos.py", line 84, in get_capabilities
+    capabilities = Connection(module._socket_path).get_capabilities()
+  File "/tmp/ansible_vyos.vyos.vyos_user_payload_tyb59r_r/ansible_vyos.vyos.vyos_user_payload.zip/ansible/module_utils/connection.py", line 200, in __rpc__
+    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'), code=code)
+fatal: [switch4]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "aggregate": null,
+            "configured_password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "full_name": null,
+            "level": "admin",
+            "name": "Local-Admin",
+            "provider": null,
+            "purge": false,
+            "state": "present",
+            "update_password": "always"
+        }
+    },
+    "msg": "command timeout triggered, timeout value is 120 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."
+}
+<10.10.1.5> EXEC /bin/sh -c 'rm -f -r /home/student/.ansible/tmp/ansible-local-2710eajachru/ansible-tmp-1727282659.9049056-2716-62954408053051/ > /dev/null 2>&1 && sleep 0'
+The full traceback is:
+  File "/tmp/ansible_vyos.vyos.vyos_user_payload_upv_us53/ansible_vyos.vyos.vyos_user_payload.zip/ansible_collections/vyos/vyos/plugins/module_utils/network/vyos/vyos.py", line 84, in get_capabilities
+    capabilities = Connection(module._socket_path).get_capabilities()
+  File "/tmp/ansible_vyos.vyos.vyos_user_payload_upv_us53/ansible_vyos.vyos.vyos_user_payload.zip/ansible/module_utils/connection.py", line 200, in __rpc__
+    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'), code=code)
+fatal: [switch2]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "aggregate": null,
+            "configured_password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "full_name": null,
+            "level": "admin",
+            "name": "Local-Admin",
+            "provider": null,
+            "purge": false,
+            "state": "present",
+            "update_password": "always"
+        }
+    },
+    "msg": "command timeout triggered, timeout value is 120 secs.\nSee the timeout setting options in the Network Debug and Troubleshooting Guide."
+}
+
+PLAY RECAP *********************************************************************
+switch1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch2                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch3                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch4                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+switch5                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
