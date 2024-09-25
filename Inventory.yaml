@@ -9,7 +9,7 @@ all:
           ansible_password: password  
           ansible_connection: ansible.netcommon.network_cli
           ansible_network_os: vyos.vyos.vyos
-          ansible_collection: vyos.vyos:5.0.0
+          ansible_collection: vyos.vyos:1.2.0
           ansible_command_timeout: 120
           general_settings:
             name: "ACCT_Network"
@@ -34,7 +34,7 @@ all:
           ansible_password: password  
           ansible_connection: ansible.netcommon.network_cli
           ansible_network_os: vyos.vyos.vyos
-          ansible_collection: vyos.vyos:5.0.0
+          ansible_collection: vyos.vyos:1.2.0
           ansible_command_timeout: 120
           general_settings:
             name: "IT_Network"
@@ -59,7 +59,7 @@ all:
           ansible_password: password  
           ansible_connection: ansible.netcommon.network_cli
           ansible_network_os: vyos.vyos.vyos
-          ansible_collection: vyos.vyos:5.0.0
+          ansible_collection: vyos.vyos:1.2.0
           ansible_command_timeout: 120
           general_settings:
             name: "Local_Switch"
@@ -84,7 +84,7 @@ all:
           ansible_password: password  
           ansible_connection: ansible.netcommon.network_cli
           ansible_network_os: vyos.vyos.vyos
-          ansible_collection: vyos.vyos:5.0.0
+          ansible_collection: vyos.vyos:1.2.0
           ansible_command_timeout: 120
           general_settings:
             name: "MGMT_Network"
@@ -109,7 +109,7 @@ all:
           ansible_password: password  
           ansible_connection: ansible.netcommon.network_cli
           ansible_network_os: vyos.vyos.vyos
-          ansible_collection: vyos.vyos:5.0.0
+          ansible_collection: vyos.vyos:1.2.0
           ansible_command_timeout: 120
           general_settings:
             name: "User_Network"
