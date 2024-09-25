@@ -1,5 +1,5 @@
 ---
-- name: Create local user accounts on switches
+- name: Create local user accounts on VyOS switches
   hosts: switches
   gather_facts: no
   vars:
@@ -8,28 +8,17 @@
     switch_privilege: "15"       
   tasks:
     - name: Create Local-Admin user with Read/Write access
-      expect:
-        command: "create account user {{ switch_username }} " 
-        responses:
-          'password:': "{{ switch_password }}"
-          'confirm password:': "{{ switch_password }}"
-          'exit': "y"
+      vyos.vyos.vyos_config:
+        lines:
+          - set system login user {{ switch_username }} authentication plaintext-password '{{ switch_password }} '
+          - set system login user {{ switch_username }} level {{ switch_privilege }}
+        commit: true
+        save: true
       register: switch_user_creation
-
-    - name: Save configuration
-      expect:
-        command: "save configuration"
-        responses:
-          'Confirm saving configuration? [y/n]:': "y"
-      register: switch_save_config
 
     - name: Display switch user creation result
       debug:
         var: switch_user_creation
-        
-    - name: Display switch save configureation result
-      debug:
-        var: switch_save_config
 
 - name: Create desktop users on Windows desktops
   hosts: workstations
