@@ -1,15 +1,15 @@
-tudent@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i Inventory.yaml AddUserAccounts.yaml 
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i Inventory.yaml AddUserAccounts.yaml 
 
-PLAY [Create local user accounts on switches] **********************************************************
+PLAY [Create local user accounts on switches] **********************************
 
-TASK [Create Local-Admin user with Read/Write access] **************************************************
+TASK [Create Local-Admin user with Read/Write access] **************************
 changed: [switch3]
 changed: [switch1]
 changed: [switch4]
-changed: [switch2]
 changed: [switch5]
+changed: [switch2]
 
-TASK [Display switch user creation result] *************************************************************
+TASK [Display switch user creation result] *************************************
 ok: [switch1] => {
     "switch_user_creation": {
         "changed": true,
@@ -19,33 +19,13 @@ ok: [switch1] => {
         "stderr_lines": [
             "Shared connection to 10.10.1.7 closed."
         ],
-        "stdout": "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"\r\n%% Invalid input detected.\r\r\nThe configuration file primary.cfg already exists.\r\nSaving configuration primary.cfg  on master .. done!\r\nConfiguration saved to primary.cfg successfully.\r\n",
+        "stdout": "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"\r\n%% Invalid input detected.\r\r\nThe configuration file primary.cfg already exists.\r\nSaving configuration primary.cfg  on master .... done!\r\nConfiguration saved to primary.cfg successfully.\r\n",
         "stdout_lines": [
             "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"",
             "%% Invalid input detected.",
             "",
             "The configuration file primary.cfg already exists.",
-            "Saving configuration primary.cfg  on master .. done!",
-            "Configuration saved to primary.cfg successfully."
-        ]
-    }
-}
-ok: [switch3] => {
-    "switch_user_creation": {
-        "changed": true,
-        "failed": false,
-        "rc": 0,
-        "stderr": "Shared connection to 10.10.1.24 closed.\r\n",
-        "stderr_lines": [
-            "Shared connection to 10.10.1.24 closed."
-        ],
-        "stdout": "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"\r\n%% Invalid input detected.\r\r\nThe configuration file primary.cfg already exists.\r\nSaving configuration primary.cfg  on master .. done!\r\nConfiguration saved to primary.cfg successfully.\r\n",
-        "stdout_lines": [
-            "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"",
-            "%% Invalid input detected.",
-            "",
-            "The configuration file primary.cfg already exists.",
-            "Saving configuration primary.cfg  on master .. done!",
+            "Saving configuration primary.cfg  on master .... done!",
             "Configuration saved to primary.cfg successfully."
         ]
     }
@@ -59,13 +39,33 @@ ok: [switch2] => {
         "stderr_lines": [
             "Shared connection to 10.10.1.5 closed."
         ],
-        "stdout": "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"\r\n%% Invalid input detected.\r\r\nThe configuration file primary.cfg already exists.\r\nSaving configuration primary.cfg  on master .. done!\r\nConfiguration saved to primary.cfg successfully.\r\n",
+        "stdout": "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"\r\n%% Invalid input detected.\r\r\nThe configuration file primary.cfg already exists.\r\nSaving configuration primary.cfg  on master .... done!\r\nConfiguration saved to primary.cfg successfully.\r\n",
         "stdout_lines": [
             "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"",
             "%% Invalid input detected.",
             "",
             "The configuration file primary.cfg already exists.",
-            "Saving configuration primary.cfg  on master .. done!",
+            "Saving configuration primary.cfg  on master .... done!",
+            "Configuration saved to primary.cfg successfully."
+        ]
+    }
+}
+ok: [switch3] => {
+    "switch_user_creation": {
+        "changed": true,
+        "failed": false,
+        "rc": 0,
+        "stderr": "Shared connection to 10.10.1.24 closed.\r\n",
+        "stderr_lines": [
+            "Shared connection to 10.10.1.24 closed."
+        ],
+        "stdout": "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"\r\n%% Invalid input detected.\r\r\nThe configuration file primary.cfg already exists.\r\nSaving configuration primary.cfg  on master .... done!\r\nConfiguration saved to primary.cfg successfully.\r\n",
+        "stdout_lines": [
+            "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"",
+            "%% Invalid input detected.",
+            "",
+            "The configuration file primary.cfg already exists.",
+            "Saving configuration primary.cfg  on master .... done!",
             "Configuration saved to primary.cfg successfully."
         ]
     }
@@ -79,13 +79,13 @@ ok: [switch4] => {
         "stderr_lines": [
             "Shared connection to 10.10.1.6 closed."
         ],
-        "stdout": "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"\r\n%% Invalid input detected.\r\r\nThe configuration file primary.cfg already exists.\r\nSaving configuration primary.cfg  on master .. done!\r\nConfiguration saved to primary.cfg successfully.\r\n",
+        "stdout": "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"\r\n%% Invalid input detected.\r\r\nThe configuration file primary.cfg already exists.\r\nSaving configuration primary.cfg  on master .... done!\r\nConfiguration saved to primary.cfg successfully.\r\n",
         "stdout_lines": [
             "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"",
             "%% Invalid input detected.",
             "",
             "The configuration file primary.cfg already exists.",
-            "Saving configuration primary.cfg  on master .. done!",
+            "Saving configuration primary.cfg  on master .... done!",
             "Configuration saved to primary.cfg successfully."
         ]
     }
@@ -99,96 +99,76 @@ ok: [switch5] => {
         "stderr_lines": [
             "Shared connection to 10.10.1.8 closed."
         ],
-        "stdout": "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"\r\n%% Invalid input detected.\r\r\nThe configuration file primary.cfg already exists.\r\nSaving configuration primary.cfg  on master ..... done!\r\nConfiguration saved to primary.cfg successfully.\r\n",
+        "stdout": "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"\r\n%% Invalid input detected.\r\r\nThe configuration file primary.cfg already exists.\r\nSaving configuration primary.cfg  on master .... done!\r\nConfiguration saved to primary.cfg successfully.\r\n",
         "stdout_lines": [
             "\u0007%% Unrecognized command:  \"create account Local-Admin password WGU123 privilege 15\"",
             "%% Invalid input detected.",
             "",
             "The configuration file primary.cfg already exists.",
-            "Saving configuration primary.cfg  on master ..... done!",
+            "Saving configuration primary.cfg  on master .... done!",
             "Configuration saved to primary.cfg successfully."
         ]
     }
 }
 
-PLAY [Create desktop users on Windows desktops] ********************************************************
+PLAY [Create desktop users on Windows desktops] ********************************
 
-TASK [Create Desktop Users] ****************************************************************************
-failed: [workstation3] (item={'name': 'DesktopUser1'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1643910>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation4] (item={'name': 'DesktopUser1'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba16437c0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation5] (item={'name': 'DesktopUser1'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba16433d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-ok: [workstation1] => (item={'name': 'DesktopUser1'})
+TASK [Create Desktop Users] ****************************************************
 ok: [workstation2] => (item={'name': 'DesktopUser1'})
-failed: [workstation3] (item={'name': 'DesktopUser2'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac220>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation4] (item={'name': 'DesktopUser2'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac700>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation5] (item={'name': 'DesktopUser2'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1643550>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-ok: [workstation1] => (item={'name': 'DesktopUser2'})
+ok: [workstation1] => (item={'name': 'DesktopUser1'})
+ok: [workstation4] => (item={'name': 'DesktopUser1'})
 ok: [workstation2] => (item={'name': 'DesktopUser2'})
-failed: [workstation3] (item={'name': 'DesktopUser3'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac400>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation4] (item={'name': 'DesktopUser3'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba2d95280>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation5] (item={'name': 'DesktopUser3'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0def1f0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-ok: [workstation1] => (item={'name': 'DesktopUser3'})
+ok: [workstation1] => (item={'name': 'DesktopUser2'})
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: at <ScriptBlock>, <No file>: line 232
+failed: [workstation5] (item={'name': 'DesktopUser1'}) => {"ansible_loop_var": "item", "changed": false, "item": {"name": "DesktopUser1"}, "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""}
 ok: [workstation2] => (item={'name': 'DesktopUser3'})
-failed: [workstation3] (item={'name': 'DesktopUser4'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1643a30>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation4] (item={'name': 'DesktopUser4'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df90d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation5] (item={'name': 'DesktopUser4'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df72e0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
+ok: [workstation1] => (item={'name': 'DesktopUser3'})
+ok: [workstation4] => (item={'name': 'DesktopUser2'})
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: at <ScriptBlock>, <No file>: line 232
+failed: [workstation5] (item={'name': 'DesktopUser2'}) => {"ansible_loop_var": "item", "changed": false, "item": {"name": "DesktopUser2"}, "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""}
 ok: [workstation1] => (item={'name': 'DesktopUser4'})
 ok: [workstation2] => (item={'name': 'DesktopUser4'})
-failed: [workstation3] (item={'name': 'DesktopUser5'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df12b0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation4] (item={'name': 'DesktopUser5'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df90d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation5] (item={'name': 'DesktopUser5'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac190>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-changed: [workstation1] => (item={'name': 'DesktopUser5'})
-changed: [workstation2] => (item={'name': 'DesktopUser5'})
-failed: [workstation3] (item={'name': 'DesktopUser6'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba16436a0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation4] (item={'name': 'DesktopUser6'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0de8310>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation5] (item={'name': 'DesktopUser6'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df74f0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-changed: [workstation1] => (item={'name': 'DesktopUser6'})
-failed: [workstation3] (item={'name': 'DesktopUser7'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac2e0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-changed: [workstation2] => (item={'name': 'DesktopUser6'})
-failed: [workstation4] (item={'name': 'DesktopUser7'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eacaf0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation5] (item={'name': 'DesktopUser7'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1ebba30>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation3] (item={'name': 'DesktopUser8'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac820>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-fatal: [workstation3]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1643910>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac220>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac400>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1643a30>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df12b0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba16436a0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac2e0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.37', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac820>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}]}
-changed: [workstation1] => (item={'name': 'DesktopUser7'})
-failed: [workstation4] (item={'name': 'DesktopUser8'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba2d95130>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-fatal: [workstation4]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba16437c0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac700>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba2d95280>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df90d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df90d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0de8310>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eacaf0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.38', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba2d95130>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}]}
-failed: [workstation5] (item={'name': 'DesktopUser8'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0def850>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-fatal: [workstation5]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba16433d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1643550>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0def1f0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df72e0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac190>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df74f0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1ebba30>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.39', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0def850>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}]}
-changed: [workstation2] => (item={'name': 'DesktopUser7'})
-failed: [workstation6] (item={'name': 'DesktopUser1'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac910>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation8] (item={'name': 'DesktopUser1'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac220>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation7] (item={'name': 'DesktopUser1'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eacc70>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-changed: [workstation1] => (item={'name': 'DesktopUser8'})
-changed: [workstation2] => (item={'name': 'DesktopUser8'})
-failed: [workstation6] (item={'name': 'DesktopUser2'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df0c40>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation7] (item={'name': 'DesktopUser2'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df7f70>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation8] (item={'name': 'DesktopUser2'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eacfd0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation6] (item={'name': 'DesktopUser3'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df0a60>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation8] (item={'name': 'DesktopUser3'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d873d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation7] (item={'name': 'DesktopUser3'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d830d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation6] (item={'name': 'DesktopUser4'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df6be0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation7] (item={'name': 'DesktopUser4'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d88280>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation8] (item={'name': 'DesktopUser4'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d8d520>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation6] (item={'name': 'DesktopUser5'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d87bb0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation7] (item={'name': 'DesktopUser5'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d839d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation8] (item={'name': 'DesktopUser5'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d7fa90>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation6] (item={'name': 'DesktopUser6'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d870a0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation8] (item={'name': 'DesktopUser6'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d8d700>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation7] (item={'name': 'DesktopUser6'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac0a0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation6] (item={'name': 'DesktopUser7'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df68b0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation8] (item={'name': 'DesktopUser7'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac7f0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation7] (item={'name': 'DesktopUser7'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d93070>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation6] (item={'name': 'DesktopUser8'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df0ee0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-fatal: [workstation6]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac910>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df0c40>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df0a60>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df6be0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d87bb0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d870a0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df68b0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.40', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df0ee0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}]}
-failed: [workstation8] (item={'name': 'DesktopUser8'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d87190>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-failed: [workstation7] (item={'name': 'DesktopUser8'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d88b50>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}
-fatal: [workstation8]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac220>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eacfd0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d873d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d8d520>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d7fa90>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d8d700>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac7f0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.42', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d87190>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}]}
-fatal: [workstation7]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eacc70>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0df7f70>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d830d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d88280>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d839d0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba1eac0a0>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d93070>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.41', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9ba0d88b50>: Failed to establish a new connection: [Errno 113] No route to host'))", "unreachable": true}]}
+ok: [workstation1] => (item={'name': 'DesktopUser5'})
+ok: [workstation2] => (item={'name': 'DesktopUser5'})
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: at <ScriptBlock>, <No file>: line 232
+failed: [workstation5] (item={'name': 'DesktopUser3'}) => {"ansible_loop_var": "item", "changed": false, "item": {"name": "DesktopUser3"}, "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""}
+ok: [workstation4] => (item={'name': 'DesktopUser3'})
+ok: [workstation1] => (item={'name': 'DesktopUser6'})
+ok: [workstation2] => (item={'name': 'DesktopUser6'})
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: at <ScriptBlock>, <No file>: line 232
+failed: [workstation5] (item={'name': 'DesktopUser4'}) => {"ansible_loop_var": "item", "changed": false, "item": {"name": "DesktopUser4"}, "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""}
+ok: [workstation1] => (item={'name': 'DesktopUser7'})
+ok: [workstation2] => (item={'name': 'DesktopUser7'})
+ok: [workstation4] => (item={'name': 'DesktopUser4'})
+ok: [workstation1] => (item={'name': 'DesktopUser8'})
+ok: [workstation2] => (item={'name': 'DesktopUser8'})
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: at <ScriptBlock>, <No file>: line 232
+failed: [workstation5] (item={'name': 'DesktopUser5'}) => {"ansible_loop_var": "item", "changed": false, "item": {"name": "DesktopUser5"}, "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""}
+failed: [workstation3] (item={'name': 'DesktopUser1'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb8a9d00>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+ok: [workstation4] => (item={'name': 'DesktopUser5'})
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: at <ScriptBlock>, <No file>: line 232
+failed: [workstation5] (item={'name': 'DesktopUser6'}) => {"ansible_loop_var": "item", "changed": false, "item": {"name": "DesktopUser6"}, "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""}
+ok: [workstation4] => (item={'name': 'DesktopUser6'})
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: at <ScriptBlock>, <No file>: line 232
+failed: [workstation5] (item={'name': 'DesktopUser7'}) => {"ansible_loop_var": "item", "changed": false, "item": {"name": "DesktopUser7"}, "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""}
+ok: [workstation4] => (item={'name': 'DesktopUser7'})
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: at <ScriptBlock>, <No file>: line 232
+failed: [workstation5] (item={'name': 'DesktopUser8'}) => {"ansible_loop_var": "item", "changed": false, "item": {"name": "DesktopUser8"}, "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""}
+...ignoring
+ok: [workstation4] => (item={'name': 'DesktopUser8'})
+failed: [workstation3] (item={'name': 'DesktopUser2'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb8a0520>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation3] (item={'name': 'DesktopUser3'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb891d00>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation3] (item={'name': 'DesktopUser4'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb8a9250>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation3] (item={'name': 'DesktopUser5'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7bea1e6c10>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation3] (item={'name': 'DesktopUser6'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7bea1e6220>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation3] (item={'name': 'DesktopUser7'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb8a0d90>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+failed: [workstation3] (item={'name': 'DesktopUser8'}) => {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb88cee0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}
+fatal: [workstation3]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"ansible_loop_var": "item", "item": {"name": "DesktopUser1"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb8a9d00>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser2"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb8a0520>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser3"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb891d00>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser4"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb8a9250>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser5"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7bea1e6c10>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser6"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7bea1e6220>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser7"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb8a0d90>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}, {"ansible_loop_var": "item", "item": {"name": "DesktopUser8"}, "msg": "ntlm: HTTPConnectionPool(host='10.10.1.43', port=5985): Max retries exceeded with url: /wsman (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f7beb88cee0>, 'Connection to 10.10.1.43 timed out. (connect timeout=30)'))", "unreachable": true}]}
 
-TASK [Display desktop user creation results] ***********************************************************
+TASK [Display desktop user creation results] ***********************************
 ok: [workstation1] => {
     "desktop_user_creation": {
-        "changed": true,
+        "changed": false,
         "msg": "All items completed",
         "results": [
             {
@@ -383,7 +363,7 @@ ok: [workstation1] => {
                 "account_disabled": false,
                 "account_locked": false,
                 "ansible_loop_var": "item",
-                "changed": true,
+                "changed": false,
                 "description": "",
                 "failed": false,
                 "fullname": "DesktopUser5",
@@ -430,7 +410,7 @@ ok: [workstation1] => {
                 "account_disabled": false,
                 "account_locked": false,
                 "ansible_loop_var": "item",
-                "changed": true,
+                "changed": false,
                 "description": "",
                 "failed": false,
                 "fullname": "DesktopUser6",
@@ -477,7 +457,7 @@ ok: [workstation1] => {
                 "account_disabled": false,
                 "account_locked": false,
                 "ansible_loop_var": "item",
-                "changed": true,
+                "changed": false,
                 "description": "",
                 "failed": false,
                 "fullname": "DesktopUser7",
@@ -524,7 +504,7 @@ ok: [workstation1] => {
                 "account_disabled": false,
                 "account_locked": false,
                 "ansible_loop_var": "item",
-                "changed": true,
+                "changed": false,
                 "description": "",
                 "failed": false,
                 "fullname": "DesktopUser8",
@@ -573,7 +553,7 @@ ok: [workstation1] => {
 }
 ok: [workstation2] => {
     "desktop_user_creation": {
-        "changed": true,
+        "changed": false,
         "msg": "All items completed",
         "results": [
             {
@@ -768,7 +748,7 @@ ok: [workstation2] => {
                 "account_disabled": false,
                 "account_locked": false,
                 "ansible_loop_var": "item",
-                "changed": true,
+                "changed": false,
                 "description": "",
                 "failed": false,
                 "fullname": "DesktopUser5",
@@ -815,7 +795,7 @@ ok: [workstation2] => {
                 "account_disabled": false,
                 "account_locked": false,
                 "ansible_loop_var": "item",
-                "changed": true,
+                "changed": false,
                 "description": "",
                 "failed": false,
                 "fullname": "DesktopUser6",
@@ -862,7 +842,7 @@ ok: [workstation2] => {
                 "account_disabled": false,
                 "account_locked": false,
                 "ansible_loop_var": "item",
-                "changed": true,
+                "changed": false,
                 "description": "",
                 "failed": false,
                 "fullname": "DesktopUser7",
@@ -909,7 +889,7 @@ ok: [workstation2] => {
                 "account_disabled": false,
                 "account_locked": false,
                 "ansible_loop_var": "item",
-                "changed": true,
+                "changed": false,
                 "description": "",
                 "failed": false,
                 "fullname": "DesktopUser8",
@@ -956,16 +936,491 @@ ok: [workstation2] => {
         "skipped": false
     }
 }
+ok: [workstation4] => {
+    "desktop_user_creation": {
+        "changed": false,
+        "msg": "All items completed",
+        "results": [
+            {
+                "account_disabled": false,
+                "account_locked": false,
+                "ansible_loop_var": "item",
+                "changed": false,
+                "description": "",
+                "failed": false,
+                "fullname": "DesktopUser1",
+                "groups": [
+                    {
+                        "name": "Administrators",
+                        "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/Administrators"
+                    }
+                ],
+                "invocation": {
+                    "module_args": {
+                        "account_disabled": null,
+                        "account_locked": null,
+                        "description": null,
+                        "fullname": null,
+                        "groups": [
+                            "Administrators"
+                        ],
+                        "groups_action": "replace",
+                        "home_directory": null,
+                        "login_script": null,
+                        "name": "DesktopUser1",
+                        "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                        "password_expired": null,
+                        "password_never_expires": null,
+                        "profile": null,
+                        "state": "present",
+                        "update_password": "always",
+                        "user_cannot_change_password": null
+                    }
+                },
+                "item": {
+                    "name": "DesktopUser1"
+                },
+                "name": "DesktopUser1",
+                "password_expired": false,
+                "password_never_expires": false,
+                "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/DesktopUser1",
+                "sid": "S-1-5-21-3800345759-1693788972-1450319406-1004",
+                "state": "present",
+                "user_cannot_change_password": false
+            },
+            {
+                "account_disabled": false,
+                "account_locked": false,
+                "ansible_loop_var": "item",
+                "changed": false,
+                "description": "",
+                "failed": false,
+                "fullname": "DesktopUser2",
+                "groups": [
+                    {
+                        "name": "Administrators",
+                        "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/Administrators"
+                    }
+                ],
+                "invocation": {
+                    "module_args": {
+                        "account_disabled": null,
+                        "account_locked": null,
+                        "description": null,
+                        "fullname": null,
+                        "groups": [
+                            "Administrators"
+                        ],
+                        "groups_action": "replace",
+                        "home_directory": null,
+                        "login_script": null,
+                        "name": "DesktopUser2",
+                        "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                        "password_expired": null,
+                        "password_never_expires": null,
+                        "profile": null,
+                        "state": "present",
+                        "update_password": "always",
+                        "user_cannot_change_password": null
+                    }
+                },
+                "item": {
+                    "name": "DesktopUser2"
+                },
+                "name": "DesktopUser2",
+                "password_expired": false,
+                "password_never_expires": false,
+                "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/DesktopUser2",
+                "sid": "S-1-5-21-3800345759-1693788972-1450319406-1005",
+                "state": "present",
+                "user_cannot_change_password": false
+            },
+            {
+                "account_disabled": false,
+                "account_locked": false,
+                "ansible_loop_var": "item",
+                "changed": false,
+                "description": "",
+                "failed": false,
+                "fullname": "DesktopUser3",
+                "groups": [
+                    {
+                        "name": "Administrators",
+                        "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/Administrators"
+                    }
+                ],
+                "invocation": {
+                    "module_args": {
+                        "account_disabled": null,
+                        "account_locked": null,
+                        "description": null,
+                        "fullname": null,
+                        "groups": [
+                            "Administrators"
+                        ],
+                        "groups_action": "replace",
+                        "home_directory": null,
+                        "login_script": null,
+                        "name": "DesktopUser3",
+                        "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                        "password_expired": null,
+                        "password_never_expires": null,
+                        "profile": null,
+                        "state": "present",
+                        "update_password": "always",
+                        "user_cannot_change_password": null
+                    }
+                },
+                "item": {
+                    "name": "DesktopUser3"
+                },
+                "name": "DesktopUser3",
+                "password_expired": false,
+                "password_never_expires": false,
+                "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/DesktopUser3",
+                "sid": "S-1-5-21-3800345759-1693788972-1450319406-1006",
+                "state": "present",
+                "user_cannot_change_password": false
+            },
+            {
+                "account_disabled": false,
+                "account_locked": false,
+                "ansible_loop_var": "item",
+                "changed": false,
+                "description": "",
+                "failed": false,
+                "fullname": "DesktopUser4",
+                "groups": [
+                    {
+                        "name": "Administrators",
+                        "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/Administrators"
+                    }
+                ],
+                "invocation": {
+                    "module_args": {
+                        "account_disabled": null,
+                        "account_locked": null,
+                        "description": null,
+                        "fullname": null,
+                        "groups": [
+                            "Administrators"
+                        ],
+                        "groups_action": "replace",
+                        "home_directory": null,
+                        "login_script": null,
+                        "name": "DesktopUser4",
+                        "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                        "password_expired": null,
+                        "password_never_expires": null,
+                        "profile": null,
+                        "state": "present",
+                        "update_password": "always",
+                        "user_cannot_change_password": null
+                    }
+                },
+                "item": {
+                    "name": "DesktopUser4"
+                },
+                "name": "DesktopUser4",
+                "password_expired": false,
+                "password_never_expires": false,
+                "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/DesktopUser4",
+                "sid": "S-1-5-21-3800345759-1693788972-1450319406-1007",
+                "state": "present",
+                "user_cannot_change_password": false
+            },
+            {
+                "account_disabled": false,
+                "account_locked": false,
+                "ansible_loop_var": "item",
+                "changed": false,
+                "description": "",
+                "failed": false,
+                "fullname": "DesktopUser5",
+                "groups": [
+                    {
+                        "name": "Administrators",
+                        "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/Administrators"
+                    }
+                ],
+                "invocation": {
+                    "module_args": {
+                        "account_disabled": null,
+                        "account_locked": null,
+                        "description": null,
+                        "fullname": null,
+                        "groups": [
+                            "Administrators"
+                        ],
+                        "groups_action": "replace",
+                        "home_directory": null,
+                        "login_script": null,
+                        "name": "DesktopUser5",
+                        "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                        "password_expired": null,
+                        "password_never_expires": null,
+                        "profile": null,
+                        "state": "present",
+                        "update_password": "always",
+                        "user_cannot_change_password": null
+                    }
+                },
+                "item": {
+                    "name": "DesktopUser5"
+                },
+                "name": "DesktopUser5",
+                "password_expired": false,
+                "password_never_expires": false,
+                "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/DesktopUser5",
+                "sid": "S-1-5-21-3800345759-1693788972-1450319406-1008",
+                "state": "present",
+                "user_cannot_change_password": false
+            },
+            {
+                "account_disabled": false,
+                "account_locked": false,
+                "ansible_loop_var": "item",
+                "changed": false,
+                "description": "",
+                "failed": false,
+                "fullname": "DesktopUser6",
+                "groups": [
+                    {
+                        "name": "Administrators",
+                        "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/Administrators"
+                    }
+                ],
+                "invocation": {
+                    "module_args": {
+                        "account_disabled": null,
+                        "account_locked": null,
+                        "description": null,
+                        "fullname": null,
+                        "groups": [
+                            "Administrators"
+                        ],
+                        "groups_action": "replace",
+                        "home_directory": null,
+                        "login_script": null,
+                        "name": "DesktopUser6",
+                        "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                        "password_expired": null,
+                        "password_never_expires": null,
+                        "profile": null,
+                        "state": "present",
+                        "update_password": "always",
+                        "user_cannot_change_password": null
+                    }
+                },
+                "item": {
+                    "name": "DesktopUser6"
+                },
+                "name": "DesktopUser6",
+                "password_expired": false,
+                "password_never_expires": false,
+                "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/DesktopUser6",
+                "sid": "S-1-5-21-3800345759-1693788972-1450319406-1009",
+                "state": "present",
+                "user_cannot_change_password": false
+            },
+            {
+                "account_disabled": false,
+                "account_locked": false,
+                "ansible_loop_var": "item",
+                "changed": false,
+                "description": "",
+                "failed": false,
+                "fullname": "DesktopUser7",
+                "groups": [
+                    {
+                        "name": "Administrators",
+                        "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/Administrators"
+                    }
+                ],
+                "invocation": {
+                    "module_args": {
+                        "account_disabled": null,
+                        "account_locked": null,
+                        "description": null,
+                        "fullname": null,
+                        "groups": [
+                            "Administrators"
+                        ],
+                        "groups_action": "replace",
+                        "home_directory": null,
+                        "login_script": null,
+                        "name": "DesktopUser7",
+                        "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                        "password_expired": null,
+                        "password_never_expires": null,
+                        "profile": null,
+                        "state": "present",
+                        "update_password": "always",
+                        "user_cannot_change_password": null
+                    }
+                },
+                "item": {
+                    "name": "DesktopUser7"
+                },
+                "name": "DesktopUser7",
+                "password_expired": false,
+                "password_never_expires": false,
+                "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/DesktopUser7",
+                "sid": "S-1-5-21-3800345759-1693788972-1450319406-1010",
+                "state": "present",
+                "user_cannot_change_password": false
+            },
+            {
+                "account_disabled": false,
+                "account_locked": false,
+                "ansible_loop_var": "item",
+                "changed": false,
+                "description": "",
+                "failed": false,
+                "fullname": "DesktopUser8",
+                "groups": [
+                    {
+                        "name": "Administrators",
+                        "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/Administrators"
+                    }
+                ],
+                "invocation": {
+                    "module_args": {
+                        "account_disabled": null,
+                        "account_locked": null,
+                        "description": null,
+                        "fullname": null,
+                        "groups": [
+                            "Administrators"
+                        ],
+                        "groups_action": "replace",
+                        "home_directory": null,
+                        "login_script": null,
+                        "name": "DesktopUser8",
+                        "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                        "password_expired": null,
+                        "password_never_expires": null,
+                        "profile": null,
+                        "state": "present",
+                        "update_password": "always",
+                        "user_cannot_change_password": null
+                    }
+                },
+                "item": {
+                    "name": "DesktopUser8"
+                },
+                "name": "DesktopUser8",
+                "password_expired": false,
+                "password_never_expires": false,
+                "path": "WinNT://WORKGROUP/DESKTOP-1OLOPAS/DesktopUser8",
+                "sid": "S-1-5-21-3800345759-1693788972-1450319406-1011",
+                "state": "present",
+                "user_cannot_change_password": false
+            }
+        ],
+        "skipped": false
+    }
+}
+ok: [workstation5] => {
+    "desktop_user_creation": {
+        "changed": false,
+        "failed": true,
+        "msg": "One or more items failed",
+        "results": [
+            {
+                "ansible_loop_var": "item",
+                "changed": false,
+                "exception": "Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\"\r\nAt line:232 char:13\r\n+             $userAdsi.SetInfo()\r\n+             ~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : CatchFromBaseAdapterMethodInvokeTI\r\n\r\nScriptStackTrace:\r\nat <ScriptBlock>, <No file>: line 232\r\n",
+                "failed": true,
+                "item": {
+                    "name": "DesktopUser1"
+                },
+                "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""
+            },
+            {
+                "ansible_loop_var": "item",
+                "changed": false,
+                "exception": "Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\"\r\nAt line:232 char:13\r\n+             $userAdsi.SetInfo()\r\n+             ~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : CatchFromBaseAdapterMethodInvokeTI\r\n\r\nScriptStackTrace:\r\nat <ScriptBlock>, <No file>: line 232\r\n",
+                "failed": true,
+                "item": {
+                    "name": "DesktopUser2"
+                },
+                "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""
+            },
+            {
+                "ansible_loop_var": "item",
+                "changed": false,
+                "exception": "Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\"\r\nAt line:232 char:13\r\n+             $userAdsi.SetInfo()\r\n+             ~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : CatchFromBaseAdapterMethodInvokeTI\r\n\r\nScriptStackTrace:\r\nat <ScriptBlock>, <No file>: line 232\r\n",
+                "failed": true,
+                "item": {
+                    "name": "DesktopUser3"
+                },
+                "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""
+            },
+            {
+                "ansible_loop_var": "item",
+                "changed": false,
+                "exception": "Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\"\r\nAt line:232 char:13\r\n+             $userAdsi.SetInfo()\r\n+             ~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : CatchFromBaseAdapterMethodInvokeTI\r\n\r\nScriptStackTrace:\r\nat <ScriptBlock>, <No file>: line 232\r\n",
+                "failed": true,
+                "item": {
+                    "name": "DesktopUser4"
+                },
+                "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""
+            },
+            {
+                "ansible_loop_var": "item",
+                "changed": false,
+                "exception": "Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\"\r\nAt line:232 char:13\r\n+             $userAdsi.SetInfo()\r\n+             ~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : CatchFromBaseAdapterMethodInvokeTI\r\n\r\nScriptStackTrace:\r\nat <ScriptBlock>, <No file>: line 232\r\n",
+                "failed": true,
+                "item": {
+                    "name": "DesktopUser5"
+                },
+                "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""
+            },
+            {
+                "ansible_loop_var": "item",
+                "changed": false,
+                "exception": "Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\"\r\nAt line:232 char:13\r\n+             $userAdsi.SetInfo()\r\n+             ~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : CatchFromBaseAdapterMethodInvokeTI\r\n\r\nScriptStackTrace:\r\nat <ScriptBlock>, <No file>: line 232\r\n",
+                "failed": true,
+                "item": {
+                    "name": "DesktopUser6"
+                },
+                "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""
+            },
+            {
+                "ansible_loop_var": "item",
+                "changed": false,
+                "exception": "Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\"\r\nAt line:232 char:13\r\n+             $userAdsi.SetInfo()\r\n+             ~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : CatchFromBaseAdapterMethodInvokeTI\r\n\r\nScriptStackTrace:\r\nat <ScriptBlock>, <No file>: line 232\r\n",
+                "failed": true,
+                "item": {
+                    "name": "DesktopUser7"
+                },
+                "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""
+            },
+            {
+                "ansible_loop_var": "item",
+                "changed": false,
+                "exception": "Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\"\r\nAt line:232 char:13\r\n+             $userAdsi.SetInfo()\r\n+             ~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : CatchFromBaseAdapterMethodInvokeTI\r\n\r\nScriptStackTrace:\r\nat <ScriptBlock>, <No file>: line 232\r\n",
+                "failed": true,
+                "item": {
+                    "name": "DesktopUser8"
+                },
+                "msg": "Unhandled exception while executing module: Exception calling \"SetInfo\" with \"0\" argument(s): \"The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.\r\n\""
+            }
+        ],
+        "skipped": false
+    }
+}
 
-PLAY [Create test users on Linux test boxes] ***********************************************************
+PLAY [Create test users on Linux test boxes] ***********************************
 
-TASK [Create Test Users] *******************************************************************************
-changed: [test_box_acct] => (item={'name': 'TestUser1'})
+TASK [Create Test Users] *******************************************************
 changed: [test_box_mgmt] => (item={'name': 'TestUser1'})
-changed: [test_box_acct] => (item={'name': 'TestUser2'})
+changed: [test_box_acct] => (item={'name': 'TestUser1'})
 changed: [test_box_mgmt] => (item={'name': 'TestUser2'})
+changed: [test_box_acct] => (item={'name': 'TestUser2'})
 
-TASK [Display test user creation results] **************************************************************
+TASK [Display test user creation results] **************************************
 ok: [test_box_acct] => {
     "test_user_creation": {
         "changed": true,
@@ -1037,9 +1492,9 @@ ok: [test_box_acct] => {
             },
             {
                 "ansible_loop_var": "item",
+                "append": false,
                 "changed": true,
                 "comment": "",
-                "create_home": true,
                 "failed": false,
                 "group": 1002,
                 "groups": "sudo",
@@ -1089,11 +1544,11 @@ ok: [test_box_acct] => {
                 "item": {
                     "name": "TestUser2"
                 },
+                "move_home": false,
                 "name": "TestUser2",
                 "password": "NOT_LOGGING_PASSWORD",
                 "shell": "/bin/bash",
                 "state": "present",
-                "system": false,
                 "uid": 1002
             }
         ],
@@ -1110,9 +1565,9 @@ ok: [test_box_mgmt] => {
                     "discovered_interpreter_python": "/usr/bin/python3"
                 },
                 "ansible_loop_var": "item",
+                "append": false,
                 "changed": true,
                 "comment": "",
-                "create_home": true,
                 "failed": false,
                 "group": 1002,
                 "groups": "sudo",
@@ -1162,11 +1617,11 @@ ok: [test_box_mgmt] => {
                 "item": {
                     "name": "TestUser1"
                 },
+                "move_home": false,
                 "name": "TestUser1",
                 "password": "NOT_LOGGING_PASSWORD",
                 "shell": "/bin/bash",
                 "state": "present",
-                "system": false,
                 "uid": 1002
             },
             {
@@ -1235,7 +1690,7 @@ ok: [test_box_mgmt] => {
     }
 }
 
-PLAY RECAP *********************************************************************************************
+PLAY RECAP *********************************************************************
 switch1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 switch2                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 switch3                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
@@ -1243,13 +1698,9 @@ switch4                    : ok=2    changed=1    unreachable=0    failed=0    s
 switch5                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 test_box_acct              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 test_box_mgmt              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-workstation1               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-workstation2               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+workstation1               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+workstation2               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 workstation3               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-workstation4               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-workstation5               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-workstation6               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-workstation7               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-workstation8               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+workstation4               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+workstation5               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
 
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
