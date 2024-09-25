@@ -5,20 +5,29 @@
   vars:
     switch_username: "Local-Admin"
     switch_password: "WGU123"  
-    switch_privilege: "15"       
   tasks:
     - name: Create Local-Admin user with Read/Write access
-      vyos.vyos.vyos_config:
-        lines:
-          - set system login user {{ switch_username }} authentication plaintext-password '{{ switch_password }} '
-          - set system login user {{ switch_username }} level {{ switch_privilege }}
-        commit: true
-        save: true
+      ansible.builtin.expect:
+        command: "create account user {{ switch_username }}"
+        responses:
+          'password:': "{{ switch_password }}"
+          'confirm password:': "{{ switch_password }}"
       register: switch_user_creation
+
+    - name: Exit and confirm configuration changes
+      ansible.builtin.expect:
+        command: "exit"
+        responses:
+          'Confirm [y/n]:': 'y'
+      register: exit_confirmation
 
     - name: Display switch user creation result
       debug:
         var: switch_user_creation
+
+    - name: Display exit confirmation result
+      debug:
+        var: exit_confirmation
 
 - name: Create desktop users on Windows desktops
   hosts: workstations
