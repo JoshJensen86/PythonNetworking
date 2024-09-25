@@ -8,15 +8,28 @@
     switch_privilege: "15"       
   tasks:
     - name: Create Local-Admin user with Read/Write access
-      raw: |
-        create account {{ switch_username }} password {{ switch_password }} privilege {{ switch_privilege }}
-        save configuration
+      expect:
+        command: "create account user {{ switch_username }} " 
+        responses:
+          'password:': "{{ switch_password }}"
+          'confirm password:': "{{ switch_password }}"
+          'exit': "y"
       register: switch_user_creation
-      ignore_errors: yes
+
+    - name: Save configuration
+      expect:
+        command: "save configuration"
+        responses:
+          'Confirm saving configuration? [y/n]:': "y"
+      register: switch_save_config
 
     - name: Display switch user creation result
       debug:
         var: switch_user_creation
+        
+    - name: Display switch save configureation result
+      debug:
+        var: switch_save_config
 
 - name: Create desktop users on Windows desktops
   hosts: workstations
