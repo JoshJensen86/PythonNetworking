@@ -1,7 +1,7 @@
 import paramiko
 
 username = "admin"
-password = ""  
+password = "P@ssw0rd"  
 devices = [
     {"name": "switch1", "ip": "10.10.1.7"},
     {"name": "switch2", "ip": "10.10.1.5"},
