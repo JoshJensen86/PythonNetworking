@@ -10,7 +10,7 @@ switches = {
 }
 
 username = 'admin'
-password = ''
+password = 'P@ssw0rd'
 
 
 vlan_config = {
