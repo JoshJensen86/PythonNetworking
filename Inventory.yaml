@@ -5,9 +5,9 @@ all:
       hosts:
         switch1:
           ansible_host: 10.10.1.7
-          ansible_user: "admin"
-          ansible_password: "password"  
-          ansible_connection: network_cli
+          ansible_user: admin
+          ansible_password: password  
+          ansible_connection: ansible.netcommon.network_cli
           ansible_network_os: vyos.vyos.vyos
           general_settings:
             name: "ACCT_Network"
@@ -28,9 +28,9 @@ all:
         
         switch2:
           ansible_host: 10.10.1.5
-          ansible_user: "admin"
-          ansible_password: "password" 
-          ansible_connection: network_cli
+          ansible_user: admin
+          ansible_password: password  
+          ansible_connection: ansible.netcommon.network_cli
           ansible_network_os: vyos.vyos.vyos
           general_settings:
             name: "IT_Network"
@@ -51,9 +51,9 @@ all:
         
         switch3:
           ansible_host: 10.10.1.24
-          ansible_user: "admin"
-          ansible_password: "password"  
-          ansible_connection: network_cli
+          ansible_user: admin
+          ansible_password: password  
+          ansible_connection: ansible.netcommon.network_cli
           ansible_network_os: vyos.vyos.vyos
           general_settings:
             name: "Local_Switch"
@@ -74,9 +74,9 @@ all:
         
         switch4:
           ansible_host: 10.10.1.6
-          ansible_user: "admin"
-          ansible_password: "password"  
-          ansible_connection: network_cli
+          ansible_user: admin
+          ansible_password: password  
+          ansible_connection: ansible.netcommon.network_cli
           ansible_network_os: vyos.vyos.vyos
           general_settings:
             name: "MGMT_Network"
@@ -97,9 +97,9 @@ all:
         
         switch5:
           ansible_host: 10.10.1.8
-          ansible_user: "admin"
-          ansible_password: "password"  
-          ansible_connection: network_cli
+          ansible_user: admin
+          ansible_password: password  
+          ansible_connection: ansible.netcommon.network_cli
           ansible_network_os: vyos.vyos.vyos
           general_settings:
             name: "User_Network"
