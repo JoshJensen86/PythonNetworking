@@ -1,14 +1,215 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i Inventory.yaml AddUserAccounts.yaml 
-[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i Inventory.yaml AddUserAccounts.yaml -vvv
+^[[Dansible-playbook [core 2.13.13]
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.8/dist-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.8.10 (default, Sep 11 2024, 16:02:53) [GCC 9.4.0]
+  jinja version = 3.0.3
+  libyaml = True
+Using /etc/ansible/ansible.cfg as config file
+host_list declined parsing /home/student/Desktop/Project/Inventory.yaml as it did not pass its verify_file() method
+script declined parsing /home/student/Desktop/Project/Inventory.yaml as it did not pass its verify_file() method
+Parsed /home/student/Desktop/Project/Inventory.yaml inventory source with yaml plugin
+redirecting (type: modules) ansible.builtin.win_user to ansible.windows.win_user
+Skipping callback 'default', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+
+PLAYBOOK: AddUserAccounts.yaml *************************************************
+3 plays in AddUserAccounts.yaml
 
 PLAY [Create local user accounts on VyOS switches] *****************************
+META: ran handlers
 
 TASK [Create Local-Admin user with Read/Write access] **************************
-fatal: [switch3]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_config) module: commit. Supported parameters include: backup, comment, src, lines, save, match, config, backup_options."}
-fatal: [switch2]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_config) module: commit. Supported parameters include: backup, comment, src, lines, save, match, config, backup_options."}
-fatal: [switch5]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_config) module: commit. Supported parameters include: backup, comment, src, lines, save, match, config, backup_options."}
-fatal: [switch1]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_config) module: commit. Supported parameters include: backup, comment, src, lines, save, match, config, backup_options."}
-fatal: [switch4]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (vyos.vyos.vyos_config) module: commit. Supported parameters include: backup, comment, src, lines, save, match, config, backup_options."}
+task path: /home/student/Desktop/Project/AddUserAccounts.yaml:9
+redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
+redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
+redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
+redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+redirecting (type: connection) ansible.builtin.network_cli to ansible.netcommon.network_cli
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+[WARNING]: Collection vyos.vyos does not support Ansible version 2.13.13
+<10.10.1.7> ESTABLISH LOCAL CONNECTION FOR USER: student
+<10.10.1.7> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq `"&& mkdir "` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.0779681-6414-276888164339396 `" && echo ansible-tmp-1727273087.0779681-6414-276888164339396="` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.0779681-6414-276888164339396 `" ) && sleep 0'
+<10.10.1.24> ESTABLISH LOCAL CONNECTION FOR USER: student
+<10.10.1.24> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq `"&& mkdir "` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.2823672-6416-97757070208221 `" && echo ansible-tmp-1727273087.2823672-6416-97757070208221="` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.2823672-6416-97757070208221 `" ) && sleep 0'
+<10.10.1.8> ESTABLISH LOCAL CONNECTION FOR USER: student
+<10.10.1.8> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq `"&& mkdir "` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.501821-6418-101276918725984 `" && echo ansible-tmp-1727273087.501821-6418-101276918725984="` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.501821-6418-101276918725984 `" ) && sleep 0'
+<10.10.1.5> ESTABLISH LOCAL CONNECTION FOR USER: student
+<10.10.1.5> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq `"&& mkdir "` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5293462-6415-39063883730262 `" && echo ansible-tmp-1727273087.5293462-6415-39063883730262="` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5293462-6415-39063883730262 `" ) && sleep 0'
+<10.10.1.6> ESTABLISH LOCAL CONNECTION FOR USER: student
+<10.10.1.6> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq `"&& mkdir "` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5663245-6417-198891134003080 `" && echo ansible-tmp-1727273087.5663245-6417-198891134003080="` echo /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5663245-6417-198891134003080 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.8/dist-packages/ansible/modules/expect.py
+Using module file /usr/local/lib/python3.8/dist-packages/ansible/modules/expect.py
+Using module file /usr/local/lib/python3.8/dist-packages/ansible/modules/expect.py
+<10.10.1.6> PUT /home/student/.ansible/tmp/ansible-local-6409jam3vguq/tmpoahdvdqr TO /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5663245-6417-198891134003080/AnsiballZ_expect.py
+<10.10.1.24> PUT /home/student/.ansible/tmp/ansible-local-6409jam3vguq/tmp2kgixa1m TO /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.2823672-6416-97757070208221/AnsiballZ_expect.py
+Using module file /usr/local/lib/python3.8/dist-packages/ansible/modules/expect.py
+<10.10.1.24> EXEC /bin/sh -c 'chmod u+x /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.2823672-6416-97757070208221/ /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.2823672-6416-97757070208221/AnsiballZ_expect.py && sleep 0'
+<10.10.1.6> EXEC /bin/sh -c 'chmod u+x /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5663245-6417-198891134003080/ /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5663245-6417-198891134003080/AnsiballZ_expect.py && sleep 0'
+<10.10.1.5> PUT /home/student/.ansible/tmp/ansible-local-6409jam3vguq/tmp71dorl3l TO /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5293462-6415-39063883730262/AnsiballZ_expect.py
+<10.10.1.8> PUT /home/student/.ansible/tmp/ansible-local-6409jam3vguq/tmpru8qdb01 TO /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.501821-6418-101276918725984/AnsiballZ_expect.py
+<10.10.1.8> EXEC /bin/sh -c 'chmod u+x /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.501821-6418-101276918725984/ /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.501821-6418-101276918725984/AnsiballZ_expect.py && sleep 0'
+Using module file /usr/local/lib/python3.8/dist-packages/ansible/modules/expect.py
+<10.10.1.5> EXEC /bin/sh -c 'chmod u+x /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5293462-6415-39063883730262/ /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5293462-6415-39063883730262/AnsiballZ_expect.py && sleep 0'
+<10.10.1.7> PUT /home/student/.ansible/tmp/ansible-local-6409jam3vguq/tmpjqhz6x_0 TO /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.0779681-6414-276888164339396/AnsiballZ_expect.py
+<10.10.1.7> EXEC /bin/sh -c 'chmod u+x /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.0779681-6414-276888164339396/ /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.0779681-6414-276888164339396/AnsiballZ_expect.py && sleep 0'
+<10.10.1.24> EXEC /bin/sh -c '/usr/bin/python3 /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.2823672-6416-97757070208221/AnsiballZ_expect.py && sleep 0'
+<10.10.1.5> EXEC /bin/sh -c '/usr/bin/python3 /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5293462-6415-39063883730262/AnsiballZ_expect.py && sleep 0'
+<10.10.1.6> EXEC /bin/sh -c '/usr/bin/python3 /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5663245-6417-198891134003080/AnsiballZ_expect.py && sleep 0'
+<10.10.1.7> EXEC /bin/sh -c '/usr/bin/python3 /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.0779681-6414-276888164339396/AnsiballZ_expect.py && sleep 0'
+<10.10.1.8> EXEC /bin/sh -c '/usr/bin/python3 /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.501821-6418-101276918725984/AnsiballZ_expect.py && sleep 0'
+<10.10.1.8> EXEC /bin/sh -c 'rm -f -r /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.501821-6418-101276918725984/ > /dev/null 2>&1 && sleep 0'
+<10.10.1.5> EXEC /bin/sh -c 'rm -f -r /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5293462-6415-39063883730262/ > /dev/null 2>&1 && sleep 0'
+<10.10.1.24> EXEC /bin/sh -c 'rm -f -r /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.2823672-6416-97757070208221/ > /dev/null 2>&1 && sleep 0'
+<10.10.1.6> EXEC /bin/sh -c 'rm -f -r /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.5663245-6417-198891134003080/ > /dev/null 2>&1 && sleep 0'
+<10.10.1.7> EXEC /bin/sh -c 'rm -f -r /home/student/.ansible/tmp/ansible-local-6409jam3vguq/ansible-tmp-1727273087.0779681-6414-276888164339396/ > /dev/null 2>&1 && sleep 0'
+The full traceback is:
+Traceback (most recent call last):
+  File "/tmp/ansible_ansible.builtin.expect_payload_ob30w8dl/ansible_ansible.builtin.expect_payload.zip/ansible/modules/expect.py", line 210, in main
+  File "/usr/lib/python3/dist-packages/pexpect/run.py", line 99, in run
+    child = spawn(command, timeout=timeout, maxread=2000, logfile=logfile,
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 204, in __init__
+    self._spawn(command, args, preexec_fn, dimensions)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 275, in _spawn
+    raise ExceptionPexpect('The command was not found or was not ' +
+pexpect.exceptions.ExceptionPexpect: The command was not found or was not executable: create.
+fatal: [switch2]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "chdir": null,
+            "command": "create account user Local-Admin",
+            "creates": null,
+            "echo": false,
+            "removes": null,
+            "responses": {
+                "confirm password:": "WGU123",
+                "password:": "WGU123"
+            },
+            "timeout": 30
+        }
+    },
+    "msg": "The command was not found or was not executable: create."
+}
+The full traceback is:
+Traceback (most recent call last):
+  File "/tmp/ansible_ansible.builtin.expect_payload_gj0w4_6k/ansible_ansible.builtin.expect_payload.zip/ansible/modules/expect.py", line 210, in main
+  File "/usr/lib/python3/dist-packages/pexpect/run.py", line 99, in run
+    child = spawn(command, timeout=timeout, maxread=2000, logfile=logfile,
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 204, in __init__
+    self._spawn(command, args, preexec_fn, dimensions)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 275, in _spawn
+    raise ExceptionPexpect('The command was not found or was not ' +
+pexpect.exceptions.ExceptionPexpect: The command was not found or was not executable: create.
+fatal: [switch5]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "chdir": null,
+            "command": "create account user Local-Admin",
+            "creates": null,
+            "echo": false,
+            "removes": null,
+            "responses": {
+                "confirm password:": "WGU123",
+                "password:": "WGU123"
+            },
+            "timeout": 30
+        }
+    },
+    "msg": "The command was not found or was not executable: create."
+}
+The full traceback is:
+Traceback (most recent call last):
+  File "/tmp/ansible_ansible.builtin.expect_payload_rf0buz28/ansible_ansible.builtin.expect_payload.zip/ansible/modules/expect.py", line 210, in main
+  File "/usr/lib/python3/dist-packages/pexpect/run.py", line 99, in run
+    child = spawn(command, timeout=timeout, maxread=2000, logfile=logfile,
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 204, in __init__
+    self._spawn(command, args, preexec_fn, dimensions)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 275, in _spawn
+    raise ExceptionPexpect('The command was not found or was not ' +
+pexpect.exceptions.ExceptionPexpect: The command was not found or was not executable: create.
+fatal: [switch4]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "chdir": null,
+            "command": "create account user Local-Admin",
+            "creates": null,
+            "echo": false,
+            "removes": null,
+            "responses": {
+                "confirm password:": "WGU123",
+                "password:": "WGU123"
+            },
+            "timeout": 30
+        }
+    },
+    "msg": "The command was not found or was not executable: create."
+}
+The full traceback is:
+Traceback (most recent call last):
+  File "/tmp/ansible_ansible.builtin.expect_payload_nyk9_xz_/ansible_ansible.builtin.expect_payload.zip/ansible/modules/expect.py", line 210, in main
+  File "/usr/lib/python3/dist-packages/pexpect/run.py", line 99, in run
+    child = spawn(command, timeout=timeout, maxread=2000, logfile=logfile,
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 204, in __init__
+    self._spawn(command, args, preexec_fn, dimensions)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 275, in _spawn
+    raise ExceptionPexpect('The command was not found or was not ' +
+pexpect.exceptions.ExceptionPexpect: The command was not found or was not executable: create.
+fatal: [switch3]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "chdir": null,
+            "command": "create account user Local-Admin",
+            "creates": null,
+            "echo": false,
+            "removes": null,
+            "responses": {
+                "confirm password:": "WGU123",
+                "password:": "WGU123"
+            },
+            "timeout": 30
+        }
+    },
+    "msg": "The command was not found or was not executable: create."
+}
+The full traceback is:
+Traceback (most recent call last):
+  File "/tmp/ansible_ansible.builtin.expect_payload_2af2s1w2/ansible_ansible.builtin.expect_payload.zip/ansible/modules/expect.py", line 210, in main
+  File "/usr/lib/python3/dist-packages/pexpect/run.py", line 99, in run
+    child = spawn(command, timeout=timeout, maxread=2000, logfile=logfile,
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 204, in __init__
+    self._spawn(command, args, preexec_fn, dimensions)
+  File "/usr/lib/python3/dist-packages/pexpect/pty_spawn.py", line 275, in _spawn
+    raise ExceptionPexpect('The command was not found or was not ' +
+pexpect.exceptions.ExceptionPexpect: The command was not found or was not executable: create.
+fatal: [switch1]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "chdir": null,
+            "command": "create account user Local-Admin",
+            "creates": null,
+            "echo": false,
+            "removes": null,
+            "responses": {
+                "confirm password:": "WGU123",
+                "password:": "WGU123"
+            },
+            "timeout": 30
+        }
+    },
+    "msg": "The command was not found or was not executable: create."
+}
 
 PLAY RECAP *********************************************************************
 switch1                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
@@ -17,14 +218,5 @@ switch3                    : ok=0    changed=0    unreachable=0    failed=1    s
 switch4                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
 switch5                    : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
 
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible --version
-ansible [core 2.13.13]
-  config file = /etc/ansible/ansible.cfg
-  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/local/lib/python3.8/dist-packages/ansible
-  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
-  executable location = /usr/local/bin/ansible
-  python version = 3.8.10 (default, Sep 11 2024, 16:02:53) [GCC 9.4.0]
-  jinja version = 3.0.3
-  libyaml = True
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ^C
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
