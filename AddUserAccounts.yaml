@@ -44,7 +44,7 @@
       - name: "DesktopUser6"
       - name: "DesktopUser7"
       - name: "DesktopUser8"
-    desktop_user_password: "WGU123"  
+    desktop_user_password: "WGU12345!"  
   tasks:
     - name: Create Desktop Users
       win_user:
