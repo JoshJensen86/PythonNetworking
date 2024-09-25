@@ -6,11 +6,7 @@ all:
         switch1:
           ansible_host: 10.10.1.7
           ansible_user: 'admin'
-          ansible_password: 'password'  
-          ansible_connection: ansible.netcommon.network_cli
-          ansible_network_os: vyos.vyos.vyos
-          ansible_collection: vyos.vyos:1.2.0
-          ansible_command_timeout: 120
+          ansible_password: ''  
           general_settings:
             name: "ACCT_Network"
             ram: "512 MB"
@@ -31,11 +27,7 @@ all:
         switch2:
           ansible_host: 10.10.1.5
           ansible_user: 'admin'
-          ansible_password: 'password'  
-          ansible_connection: ansible.netcommon.network_cli
-          ansible_network_os: vyos.vyos.vyos
-          ansible_collection: vyos.vyos:1.2.0
-          ansible_command_timeout: 120
+          ansible_password: ''  
           general_settings:
             name: "IT_Network"
             ram: "512 MB"
@@ -56,11 +48,7 @@ all:
         switch3:
           ansible_host: 10.10.1.24
           ansible_user: 'admin'
-          ansible_password: 'password' 
-          ansible_connection: ansible.netcommon.network_cli
-          ansible_network_os: vyos.vyos.vyos
-          ansible_collection: vyos.vyos:1.2.0
-          ansible_command_timeout: 120
+          ansible_password: '' 
           general_settings:
             name: "Local_Switch"
             ram: "512 MB"
@@ -81,11 +69,7 @@ all:
         switch4:
           ansible_host: 10.10.1.6
           ansible_user: 'admin'
-          ansible_password: 'password'  
-          ansible_connection: ansible.netcommon.network_cli
-          ansible_network_os: vyos.vyos.vyos
-          ansible_collection: vyos.vyos:1.2.0
-          ansible_command_timeout: 120
+          ansible_password: ''  
           general_settings:
             name: "MGMT_Network"
             ram: "512 MB"
@@ -106,11 +90,7 @@ all:
         switch5:
           ansible_host: 10.10.1.8
           ansible_user: 'admin'
-          ansible_password: 'password'  
-          ansible_connection: ansible.netcommon.network_cli
-          ansible_network_os: vyos.vyos.vyos
-          ansible_collection: vyos.vyos:1.2.0
-          ansible_command_timeout: 120
+          ansible_password: ''  
           general_settings:
             name: "User_Network"
             ram: "512 MB"
