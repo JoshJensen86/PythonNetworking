@@ -1,0 +1,12 @@
+---
+- name: Configure users on VyOS switches
+  hosts: switches
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Create Local-Admin user with Read/Write access on switches
+      vyos.vyos.vyos_user:
+        name: Local-Admin
+        configured_password: WGU123  
+        privilege: admin  
+        state: present
