@@ -1,0 +1,51 @@
+all:
+  children:
+    workstations:
+      hosts:
+        workstation1:
+          ansible_host: 10.10.1.35
+        workstation2:
+          ansible_host: 10.10.1.36
+        workstation3:
+          ansible_host: 10.10.1.43
+        workstation4:
+          ansible_host: 10.10.1.29
+      vars:
+        ansible_user: "admin"
+        ansible_password: "P@ssw0rd"
+        ansible_connection: winrm
+        ansible_winrm_transport: ntlm
+        ansible_winrm_server_cert_validation: ignore
+        ansible_winrm_scheme: http
+        ansible_port: 5985
+
+    linux_machines:
+      hosts:
+        test_box_acct:
+          ansible_host: 10.10.1.56
+        test_box_mgmt:
+          ansible_host: 10.10.1.57
+      vars:
+        ansible_user: "admin"
+        ansible_password: "P@ssw0rd"
+        ansible_connection: ssh
+        ansible_become: yes
+        ansible_become_method: sudo
+        ansible_become_pass: "P@ssw0rd"
+    
+    special_workstation:
+      hosts:
+        workstation5:
+          ansible_host: 10.10.1.28
+      vars:
+        ansible_user: "Administrator"
+        ansible_password: "P@ssw0rd"
+        ansible_connection: winrm
+        ansible_winrm_transport: ntlm
+        ansible_winrm_server_cert_validation: ignore
+        ansible_winrm_scheme: http
+        ansible_port: 5985
+
+  vars:
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o ServerAliveInterval=30'
+    ansible_command_timeout: 120  # Global timeout setting
