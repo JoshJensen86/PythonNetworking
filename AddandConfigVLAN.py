@@ -34,7 +34,7 @@ def configure_vlan(switch_ip, vlan_id, vlan_name):
 
         
         time.sleep(1)
-        shell.recv(1000) 
+        shell.recv(250) 
 
     
         shell.send(f'create vlan {vlan_name} tag {vlan_id}\n')
