@@ -1,6 +1,6 @@
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ python3 AddandConfigVLAN.py 
-Configuring VLANs on Switch_1 (10.10.1.5)
-Configuration Output for 10.10.1.5:
+Configuring VLANs on Switch_1 (10.10.1.7)
+Configuration Output for 10.10.1.7:
 enable
 ExtremeXOS
 Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
@@ -11,9 +11,8 @@ This product is protected by one or more US patents listed at https://www.extrem
 Press the <tab> or '?' key at any time for completions.
 Remember to save your configuration changes.
 
-There have been 6 successful logins since last reboot and 0 failed logins since last successful login
-Last successful login was on: Thu Sep 26 00:07:08 2024
-
+There has been 1 successful login since last reboot and 0 failed logins since last successful login
+No prior logins by this user since last reboot
 
 
 * EXOS-VM.1 # enable
@@ -29,7 +28,7 @@ Last successful login was on: Thu Sep 26 00:07:08 2024
 %% Invalid input detected at '^' marker.
 * EXOS-VM.5 # exit
 Do you wish to save your configuration changes to primary.cfg? (y/N) Yes
-Saving configuration primary.cfg  on master .. done!
+Saving configuration primary.cfg  on master .... done!
 
 Traceback (most recent call last):
   File "AddandConfigVLAN.py", line 64, in <module>
