@@ -1,11 +1,189 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ python3 AddandConfigVLAN.py 
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ python3 AddandConfigVLANs.py 
 Configuring VLANs on Switch_1 (10.10.1.7)
 Configuration Output for 10.10.1.7:
-enable
-ExtremeXOS
-Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
-This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
-==============================================================================
+=============================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There have been 21 successful logins since last reboot and 0 failed logins since last successful login
+Last successful login was on: Thu Sep 26 01:57:38 2024
+
+
+
+* EXOS-VM.1 # create vlan User_Network tag 10
+                                     ^
+%% Invalid name detected at '^' marker.
+%% Name User_Network is already in use.
+* EXOS-VM.2 # configure vlan User_Network add ports all
+ Port 1 2 3 4 5 6 7 8 9 10 11 12 untagged has been auto-moved from VLAN "IT_Network" to "User_Network".
+
+* EXOS-VM.3 # save configuration
+The configuration file primary.cfg already exists.
+Do you want to save configuration to primary.cfg and overwrite it? (y/N) 
+Configuration Output for 10.10.1.7:
+=============================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There have been 22 successful logins since last reboot and 0 failed logins since last successful login
+Last successful login was on: Thu Sep 26 02:05:36 2024
+
+
+
+* EXOS-VM.1 # create vlan ACCT_Network tag 20
+                                     ^
+%% Invalid name detected at '^' marker.
+%% Name ACCT_Network is already in use.
+* EXOS-VM.2 # configure vlan ACCT_Network add ports all
+ Port 1 2 3 4 5 6 7 8 9 10 11 12 untagged has been auto-moved from VLAN "User_Network" to "ACCT_Network".
+
+* EXOS-VM.3 # save configuration
+The configuration file primary.cfg already exists.
+Do you want to save configuration to primary.cfg and overwrite it? (y/N) 
+Configuration Output for 10.10.1.7:
+=============================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There have been 23 successful logins since last reboot and 0 failed logins since last successful login
+Last successful login was on: Thu Sep 26 02:06:47 2024
+
+
+
+* EXOS-VM.1 # create vlan MGMT_Network tag 30
+                                     ^
+%% Invalid name detected at '^' marker.
+%% Name MGMT_Network is already in use.
+* EXOS-VM.2 # configure vlan MGMT_Network add ports all
+ Port 1 2 3 4 5 6 7 8 9 10 11 12 untagged has been auto-moved from VLAN "ACCT_Network" to "MGMT_Network".
+
+* EXOS-VM.3 # save configuration
+The configuration file primary.cfg already exists.
+Do you want to save configuration to primary.cfg and overwrite it? (y/N) 
+Configuration Output for 10.10.1.7:
+=============================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There have been 24 successful logins since last reboot and 0 failed logins since last successful login
+Last successful login was on: Thu Sep 26 02:07:56 2024
+
+
+
+* EXOS-VM.1 # create vlan IT_Network tag 40
+                                   ^
+%% Invalid name detected at '^' marker.
+%% Name IT_Network is already in use.
+* EXOS-VM.2 # configure vlan IT_Network add ports all
+ Port 1 2 3 4 5 6 7 8 9 10 11 12 untagged has been auto-moved from VLAN "MGMT_Network" to "IT_Network".
+
+* EXOS-VM.3 # save configuration
+The configuration file primary.cfg already exists.
+Do you want to save configuration to primary.cfg and overwrite it? (y/N) 
+Finished configuration on Switch_1.
+
+Configuring VLANs on Switch_2 (10.10.1.5)
+Configuration Output for 10.10.1.5:
+=============================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There have been 22 successful logins since last reboot and 0 failed logins since last successful login
+Last successful login was on: Thu Sep 26 02:01:13 2024
+
+
+
+* EXOS-VM.1 # create vlan User_Network tag 10
+                                     ^
+%% Invalid name detected at '^' marker.
+%% Name User_Network is already in use.
+* EXOS-VM.2 # configure vlan User_Network add ports all
+ Port 1 2 3 4 5 6 7 8 9 10 11 12 untagged has been auto-moved from VLAN "IT_Network" to "User_Network".
+
+* EXOS-VM.3 # save configuration
+The configuration file primary.cfg already exists.
+Do you want to save configuration to primary.cfg and overwrite it? (y/N) 
+Configuration Output for 10.10.1.5:
+=============================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There have been 23 successful logins since last reboot and 0 failed logins since last successful login
+Last successful login was on: Thu Sep 26 02:09:12 2024
+
+
+
+* EXOS-VM.1 # create vlan ACCT_Network tag 20
+                                     ^
+%% Invalid name detected at '^' marker.
+%% Name ACCT_Network is already in use.
+* EXOS-VM.2 # configure vlan ACCT_Network add ports all
+ Port 1 2 3 4 5 6 7 8 9 10 11 12 untagged has been auto-moved from VLAN "User_Network" to "ACCT_Network".
+
+* EXOS-VM.3 # save configuration
+The configuration file primary.cfg already exists.
+Do you want to save configuration to primary.cfg and overwrite it? (y/N) 
+Configuration Output for 10.10.1.5:
+=============================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There have been 24 successful logins since last reboot and 0 failed logins since last successful login
+Last successful login was on: Thu Sep 26 02:10:22 2024
+
+
+
+* EXOS-VM.1 # create vlan MGMT_Network tag 30
+                                     ^
+%% Invalid name detected at '^' marker.
+%% Name MGMT_Network is already in use.
+* EXOS-VM.2 # configure vlan MGMT_Network add ports all
+ Port 1 2 3 4 5 6 7 8 9 10 11 12 untagged has been auto-moved from VLAN "ACCT_Network" to "MGMT_Network".
+
+* EXOS-VM.3 # save configuration
+The configuration file primary.cfg already exists.
+Do you want to save configuration to primary.cfg and overwrite it? (y/N) 
+Configuration Output for 10.10.1.5:
+=============================================================
+
+
+Press the <tab> or '?' key at any time for completions.
+Remember to save your configuration changes.
+
+There have been 25 successful logins since last reboot and 0 failed logins since last successful login
+Last successful login was on: Thu Sep 26 02:11:32 2024
+
+
+
+* EXOS-VM.1 # create vlan IT_Network tag 40
+                                   ^
+%% Invalid name detected at '^' marker.
+%% Name IT_Network is already in use.
+* EXOS-VM.2 # configure vlan IT_Network add ports all
+ Port 1 2 3 4 5 6 7 8 9 10 11 12 untagged has been auto-moved from VLAN "MGMT_Network" to "IT_Network".
+
+* EXOS-VM.3 # save configuration
+The configuration file primary.cfg already exists.
+Do you want to save configuration to primary.cfg and overwrite it? (y/N) 
+Finished configuration on Switch_2.
+
+Configuring VLANs on Switch_4 (10.10.1.6)
+Configuration Output for 10.10.1.6:
+=============================================================
 
 
 Press the <tab> or '?' key at any time for completions.
@@ -15,29 +193,13 @@ There has been 1 successful login since last reboot and 0 failed logins since la
 No prior logins by this user since last reboot
 
 
-* EXOS-VM.1 # enable
-%% Incomplete command
-* EXOS-VM.2 # configure terminal
-                          ^
-%% Invalid input detected at '^' marker.
-* EXOS-VM.3 # vlan 10
-               ^
-%% Invalid input detected at '^' marker.
-* EXOS-VM.4 # name User_Network
-               ^
-%% Invalid input detected at '^' marker.
-* EXOS-VM.5 # exit
-Do you wish to save your configuration changes to primary.cfg? (y/N) Yes
-Saving configuration primary.cfg  on master .... done!
-
+* EXOS-VM.1 # 
 Traceback (most recent call last):
-  File "AddandConfigVLAN.py", line 64, in <module>
+  File "AddandConfigVLANs.py", line 63, in <module>
     configure_vlan(switch_ip, vlan['vlan_id'], vlan['name'])
-  File "AddandConfigVLAN.py", line 49, in configure_vlan
-    shell.send('write memory\n')
-  File "/usr/local/lib/python3.8/dist-packages/paramiko/channel.py", line 799, in send
-    return self._send(s, m)
-  File "/usr/local/lib/python3.8/dist-packages/paramiko/channel.py", line 1196, in _send
-    raise socket.error("Socket is closed")
-OSError: Socket is closed
+  File "AddandConfigVLANs.py", line 30, in configure_vlan
+    client.connect(switch_ip, username=username, password=password, look_for_keys=False, allow_agent=False)
+  File "/usr/local/lib/python3.8/dist-packages/paramiko/client.py", line 365, in connect
+    sock.connect(addr)
+TimeoutError: [Errno 110] Connection timed out
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
