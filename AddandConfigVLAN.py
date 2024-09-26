@@ -34,22 +34,22 @@ def configure_vlan(switch_ip, vlan_id, vlan_name):
         shell = client.invoke_shell()
 
         
-        shell.send('enable\n')
         time.sleep(1)
-        shell.send(f'configure terminal\n')
+        shell.recv(1000) 
+
+    
+        shell.send(f'create vlan {vlan_name} tag {vlan_id}\n')
         time.sleep(1)
-        shell.send(f'vlan {vlan_id}\n')
-        time.sleep(1)
-        shell.send(f'name {vlan_name}\n')
-        time.sleep(1)
-        shell.send(f'exit\n')
+        
+        
+        shell.send(f'configure vlan {vlan_name} add ports all\n')
         time.sleep(1)
 
-        
-        shell.send('write memory\n')
+    
+        shell.send('save configuration\n')
         time.sleep(2)
 
-        
+    
         output = shell.recv(65535).decode('utf-8')
         print(f"Configuration Output for {switch_ip}:\n{output}")
         
