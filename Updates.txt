@@ -1,17 +1,7 @@
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ python3 AddandConfigVLAN.py 
 Configuring VLANs on Switch_1 (10.10.1.5)
-Traceback (most recent call last):
-  File "AddandConfigVLAN.py", line 63, in <module>
-    configure_vlan(switch_ip, vlan['vlan_id'], vlan['name'])
-  File "AddandConfigVLAN.py", line 48, in configure_vlan
-    shell.send('write memory\n')
-  File "/usr/local/lib/python3.8/dist-packages/paramiko/channel.py", line 799, in send
-    return self._send(s, m)
-  File "/usr/local/lib/python3.8/dist-packages/paramiko/channel.py", line 1196, in _send
-    raise socket.error("Socket is closed")
-OSError: Socket is closed
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ssh admin@10.10.1.5
-admin@10.10.1.5's password: 
+Configuration Output for 10.10.1.5:
+enable
 ExtremeXOS
 Copyright (C) 1996-2020 Extreme Networks. All rights reserved.
 This product is protected by one or more US patents listed at https://www.extremenetworks.com/company/legal/patents/ along with their foreign counterparts.
@@ -21,27 +11,34 @@ This product is protected by one or more US patents listed at https://www.extrem
 Press the <tab> or '?' key at any time for completions.
 Remember to save your configuration changes.
 
-There have been 2 successful logins since last reboot and 0 failed logins since last successful login
-Last successful login was on: Thu Sep 26 00:02:19 2024
+There have been 6 successful logins since last reboot and 0 failed logins since last successful login
+Last successful login was on: Thu Sep 26 00:07:08 2024
 
 
 
-EXOS-VM.1 # configure v
-  virtual-network  Virtual Overlay Network
-  vlan             VLAN list (1-4094)
-  vm-tracking      Virtual Machine mac tracking
-  vman             VMAN configuration
-  vpls             Virtual Private LAN Service over MPLS
-  vr               Virtual router
-  vrrp             Virtual Router Redundancy Protocol
-  <vr-name>        Virtual router name
-    "VR-Default"  "VR-Mgmt"
-EXOS-VM.1 # configure vlan 
-  dynamic-vlan    Configuration options for dynamically created VLANs
-  untagged-ports  Untagged ports
-  <vlan_name>     VLAN Name
-    "Default"  "Mgmt"
-  <vlan_id>       VLAN ID tag between 1 and 4094
-  <vlan_list>     VLAN list (1-4094)
-EXOS-VM.1 # configure vlan
+* EXOS-VM.1 # enable
+%% Incomplete command
+* EXOS-VM.2 # configure terminal
+                          ^
+%% Invalid input detected at '^' marker.
+* EXOS-VM.3 # vlan 10
+               ^
+%% Invalid input detected at '^' marker.
+* EXOS-VM.4 # name User_Network
+               ^
+%% Invalid input detected at '^' marker.
+* EXOS-VM.5 # exit
+Do you wish to save your configuration changes to primary.cfg? (y/N) Yes
+Saving configuration primary.cfg  on master .. done!
 
+Traceback (most recent call last):
+  File "AddandConfigVLAN.py", line 64, in <module>
+    configure_vlan(switch_ip, vlan['vlan_id'], vlan['name'])
+  File "AddandConfigVLAN.py", line 49, in configure_vlan
+    shell.send('write memory\n')
+  File "/usr/local/lib/python3.8/dist-packages/paramiko/channel.py", line 799, in send
+    return self._send(s, m)
+  File "/usr/local/lib/python3.8/dist-packages/paramiko/channel.py", line 1196, in _send
+    raise socket.error("Socket is closed")
+OSError: Socket is closed
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
