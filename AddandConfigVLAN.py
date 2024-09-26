@@ -4,9 +4,10 @@ import time
 
 switches = {
     '10.10.1.5': 'Switch_1',
-    '10.10.1.6': 'Switch_2',
+    '10.10.1.24': 'Switch_2',
     '10.10.1.7': 'Switch_3',
-    '10.10.1.8': 'Switch_4',
+    '10.10.1.6': 'Switch_4',
+    '10.10.1.8': 'Switch_5',
 }
 
 username = 'admin'
