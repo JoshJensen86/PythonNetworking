@@ -12,7 +12,6 @@ switches = {
 username = 'admin'
 password = 'P@ssw0rd'
 
-
 vlan_config = {
     'User_Network': {'vlan_id': 10, 'name': 'User_Network'},
     'ACCT_Network': {'vlan_id': 20, 'name': 'ACCT_Network'},
@@ -20,8 +19,8 @@ vlan_config = {
     'IT_Network': {'vlan_id': 40, 'name': 'IT_Network'},
 }
 
+
 def configure_vlan(switch_ip, vlan_id, vlan_name):
-    
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
@@ -32,28 +31,39 @@ def configure_vlan(switch_ip, vlan_id, vlan_name):
         
         shell = client.invoke_shell()
 
-        
         time.sleep(1)
-        shell.recv(250) 
+        shell.recv(250)  
 
-    
-        shell.send(f'create vlan {vlan_name} tag {vlan_id}\n')
-        time.sleep(1)
         
+        shell.send(f'show vlan {vlan_name}\n')
+        time.sleep(1)
+        output = shell.recv(1000).decode('utf-8')
+
+        if f'VLAN {vlan_name}' in output:
+            print(f"VLAN {vlan_name} already exists on {switch_ip}. Skipping VLAN creation.")
+        else:
+            
+            shell.send(f'create vlan {vlan_name} tag {vlan_id}\n')
+            time.sleep(1)
+
         
         shell.send(f'configure vlan {vlan_name} add ports all\n')
         time.sleep(1)
 
-    
+        
         shell.send('save configuration\n')
+        time.sleep(1)
+        shell.send('y\n')  
         time.sleep(2)
 
-    
+        
         output = shell.recv(65535).decode('utf-8')
         print(f"Configuration Output for {switch_ip}:\n{output}")
+
+    except Exception as e:
+        print(f"Error configuring VLAN on {switch_ip}: {e}")
         
     finally:
-        
         client.close()
 
 
