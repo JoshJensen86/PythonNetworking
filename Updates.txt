@@ -1,33 +1,31 @@
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook CreateUsersPlaybook.yaml 
-ERROR! this task 'ansible.builtin.script' has extra params, which is only allowed in the following modules: import_role, include_tasks, set_fact, shell, raw, include_vars, command, include_role, import_tasks, meta, include, group_by, win_shell, add_host, script, win_command
 
-The error appears to be in '/home/student/Desktop/Project/CreateUsersPlaybook.yaml': line 6, column 7, but may
-be elsewhere in the file depending on the exact syntax problem.
+PLAY [Run scripts based on host group] *****************************************************************
 
-The offending line appears to be:
+TASK [Gathering Facts] *********************************************************************************
+fatal: [switch1]: UNREACHABLE! => {"changed": false, "msg": "Authentication or permission failure. In some cases, you may have been able to authenticate and did not have permissions on the target directory. Consider changing the remote tmp path in ansible.cfg to a path rooted in \"/tmp\". Failed command was: ( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.503737-135027168853309 `\" && echo ansible-tmp-1727401259.503737-135027168853309=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.503737-135027168853309 `\" ), exited with result 254, stdout output: %% Unrecognized command:  \"/bin/sh -c '( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.503737-135027168853309 `\" && echo ansible-tmp-1727401259.503737-135027168853309=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.503737-135027168853309 `\" ) && sleep 0'\"\n%% Invalid input detected.\r\n", "unreachable": true}
+fatal: [switch4]: UNREACHABLE! => {"changed": false, "msg": "Authentication or permission failure. In some cases, you may have been able to authenticate and did not have permissions on the target directory. Consider changing the remote tmp path in ansible.cfg to a path rooted in \"/tmp\". Failed command was: ( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.551515-180317732681109 `\" && echo ansible-tmp-1727401259.551515-180317732681109=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.551515-180317732681109 `\" ), exited with result 254, stdout output: %% Unrecognized command:  \"/bin/sh -c '( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.551515-180317732681109 `\" && echo ansible-tmp-1727401259.551515-180317732681109=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.551515-180317732681109 `\" ) && sleep 0'\"\n%% Invalid input detected.\r\n", "unreachable": true}
+fatal: [switch2]: UNREACHABLE! => {"changed": false, "msg": "Authentication or permission failure. In some cases, you may have been able to authenticate and did not have permissions on the target directory. Consider changing the remote tmp path in ansible.cfg to a path rooted in \"/tmp\". Failed command was: ( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.538048-263393896082009 `\" && echo ansible-tmp-1727401259.538048-263393896082009=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.538048-263393896082009 `\" ), exited with result 254, stdout output: %% Unrecognized command:  \"/bin/sh -c '( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.538048-263393896082009 `\" && echo ansible-tmp-1727401259.538048-263393896082009=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.538048-263393896082009 `\" ) && sleep 0'\"\n%% Invalid input detected.\r\n", "unreachable": true}
+fatal: [switch5]: UNREACHABLE! => {"changed": false, "msg": "Authentication or permission failure. In some cases, you may have been able to authenticate and did not have permissions on the target directory. Consider changing the remote tmp path in ansible.cfg to a path rooted in \"/tmp\". Failed command was: ( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.5875428-248655108225065 `\" && echo ansible-tmp-1727401259.5875428-248655108225065=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.5875428-248655108225065 `\" ), exited with result 254, stdout output: %% Unrecognized command:  \"/bin/sh -c '( umask 77 && mkdir -p \"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.5875428-248655108225065 `\" && echo ansible-tmp-1727401259.5875428-248655108225065=\"` echo %% Invalid input detected./.ansible/tmp/ansible-tmp-1727401259.5875428-248655108225065 `\" ) && sleep 0'\"\n%% Invalid input detected.\r\n", "unreachable": true}
+fatal: [workstation4]: FAILED! => {"msg": "The powershell shell family is incompatible with the sudo become plugin"}
+fatal: [workstation1]: FAILED! => {"msg": "The powershell shell family is incompatible with the sudo become plugin"}
+fatal: [workstation3]: FAILED! => {"msg": "The powershell shell family is incompatible with the sudo become plugin"}
+fatal: [workstation2]: FAILED! => {"msg": "The powershell shell family is incompatible with the sudo become plugin"}
+fatal: [linux_machines]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname linux_machines: Temporary failure in name resolution", "unreachable": true}
+fatal: [workstation5]: FAILED! => {"msg": "The powershell shell family is incompatible with the sudo become plugin"}
+fatal: [switch3]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.1.2 port 22: No route to host", "unreachable": true}
 
-  tasks:
-    - name: Run createswitchusers.py on switches
-      ^ here
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ cat CreateUsersPlaybook.yaml 
----
-- name: Run scripts based on host group
-  hosts: all
-  become: yes  
-  tasks:
-    - name: Run createswitchusers.py on switches
-      ansible.builtin.script: /path/to/createswitchusers.py
-      when: "'switches' in group_names"
+PLAY RECAP *********************************************************************************************
+linux_machines             : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch1                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch2                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch3                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch4                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+switch5                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+workstation1               : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+workstation2               : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+workstation3               : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+workstation4               : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+workstation5               : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
 
-    - name: Run createhostusers.py on hosts
-      ansible.builtin.script: /path/to/createhostusers.py
-      when: "'hosts' in group_names"
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible --version
-ansible 2.9.6
-  config file = /etc/ansible/ansible.cfg
-  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/lib/python3/dist-packages/ansible
-  executable location = /usr/bin/ansible
-  python version = 3.8.10 (default, Mar 13 2023, 10:26:41) [GCC 9.4.0]
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ^C
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
