@@ -1,15 +1,33 @@
-student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook -i switch_inventory.yml CreateUsersPlaybook.yaml 
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible-playbook CreateUsersPlaybook.yaml 
+ERROR! this task 'ansible.builtin.script' has extra params, which is only allowed in the following modules: import_role, include_tasks, set_fact, shell, raw, include_vars, command, include_role, import_tasks, meta, include, group_by, win_shell, add_host, script, win_command
 
-PLAY [Run createswitchusers.py script] *****************************************
+The error appears to be in '/home/student/Desktop/Project/CreateUsersPlaybook.yaml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
 
-TASK [Gathering Facts] *********************************************************
-ok: [localhost]
+The offending line appears to be:
 
-TASK [execute the script] ******************************************************
-fatal: [localhost -> localhost]: FAILED! => {"changed": true, "cmd": ["python3", "createswitchusers.py"], "delta": "0:00:03.342016", "end": "2024-09-26 19:50:13.609241", "msg": "non-zero return code", "rc": 1, "start": "2024-09-26 19:50:10.267225", "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.8/dist-packages/netmiko/base_connection.py\", line 1046, in establish_connection\n    self.remote_conn_pre.connect(**ssh_connect_params)\n  File \"/usr/local/lib/python3.8/dist-packages/paramiko/client.py\", line 388, in connect\n    raise NoValidConnectionsError(errors)\nparamiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.10.1.22\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"createswitchusers.py\", line 48, in <module>\n    print(create_and_show_user(userswitch))\n  File \"createswitchusers.py\", line 40, in create_and_show_user\n    with ConnectHandler(**switch) as net_connect:\n  File \"/usr/local/lib/python3.8/dist-packages/netmiko/ssh_dispatcher.py\", line 365, in ConnectHandler\n    return ConnectionClass(*args, **kwargs)\n  File \"/usr/local/lib/python3.8/dist-packages/netmiko/base_connection.py\", line 439, in __init__\n    self._open()\n  File \"/usr/local/lib/python3.8/dist-packages/netmiko/base_connection.py\", line 444, in _open\n    self.establish_connection()\n  File \"/usr/local/lib/python3.8/dist-packages/netmiko/base_connection.py\", line 1068, in establish_connection\n    raise NetmikoTimeoutException(msg)\nnetmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.\n\nCommon causes of this problem are:\n1. Incorrect hostname or IP address.\n2. Wrong TCP port.\n3. Intermediate firewall blocking access.\n\nDevice settings: extreme_exos 10.10.1.22:22", "stderr_lines": ["Traceback (most recent call last):", "  File \"/usr/local/lib/python3.8/dist-packages/netmiko/base_connection.py\", line 1046, in establish_connection", "    self.remote_conn_pre.connect(**ssh_connect_params)", "  File \"/usr/local/lib/python3.8/dist-packages/paramiko/client.py\", line 388, in connect", "    raise NoValidConnectionsError(errors)", "paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 10.10.1.22", "", "During handling of the above exception, another exception occurred:", "", "Traceback (most recent call last):", "  File \"createswitchusers.py\", line 48, in <module>", "    print(create_and_show_user(userswitch))", "  File \"createswitchusers.py\", line 40, in create_and_show_user", "    with ConnectHandler(**switch) as net_connect:", "  File \"/usr/local/lib/python3.8/dist-packages/netmiko/ssh_dispatcher.py\", line 365, in ConnectHandler", "    return ConnectionClass(*args, **kwargs)", "  File \"/usr/local/lib/python3.8/dist-packages/netmiko/base_connection.py\", line 439, in __init__", "    self._open()", "  File \"/usr/local/lib/python3.8/dist-packages/netmiko/base_connection.py\", line 444, in _open", "    self.establish_connection()", "  File \"/usr/local/lib/python3.8/dist-packages/netmiko/base_connection.py\", line 1068, in establish_connection", "    raise NetmikoTimeoutException(msg)", "netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.", "", "Common causes of this problem are:", "1. Incorrect hostname or IP address.", "2. Wrong TCP port.", "3. Intermediate firewall blocking access.", "", "Device settings: extreme_exos 10.10.1.22:22"], "stdout": "Creating user on DMZ switch and showing accounts...", "stdout_lines": ["Creating user on DMZ switch and showing accounts..."]}
+  tasks:
+    - name: Run createswitchusers.py on switches
+      ^ here
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ cat CreateUsersPlaybook.yaml 
+---
+- name: Run scripts based on host group
+  hosts: all
+  become: yes  
+  tasks:
+    - name: Run createswitchusers.py on switches
+      ansible.builtin.script: /path/to/createswitchusers.py
+      when: "'switches' in group_names"
 
-PLAY RECAP *********************************************************************
-localhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-
+    - name: Run createhostusers.py on hosts
+      ansible.builtin.script: /path/to/createhostusers.py
+      when: "'hosts' in group_names"
+student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ansible --version
+ansible 2.9.6
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.8.10 (default, Mar 13 2023, 10:26:41) [GCC 9.4.0]
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ ^C
 student@student-Standard-PC-i440FX-PIIX-1996:~/Desktop/Project$ 
